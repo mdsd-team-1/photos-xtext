@@ -1,0 +1,18 @@
+Domain: SoftGallery { 
+	Entities
+		Photo Ferrari
+		Album Cars
+		User_d Pedro
+	Functionalities
+		ProfileManagement
+		AppAccess
+		AlbumManagement
+		PhotoActions
+}
+
+Architecture: {
+	Layered
+}
+Technology: {
+	Web
+}

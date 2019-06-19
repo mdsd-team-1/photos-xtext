@@ -1,0 +1,64 @@
+grammar org.xtext.photos.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/photos/mydsl/MyDsl"
+
+// (elements+=Domain)* = 0 o muchos
+// (elements+=Domain)+ = 1 o muchos
+// elements+=Domain    = obligatorio
+
+	
+Model:
+	elements+=Domain elements+=Architecture elements+=Technology;
+
+
+// Main
+Domain:
+	'Domain:' name=ID '{' elements+=Entity elements+=Functionality '}';
+	
+Architecture:
+	'Architecture:' '{' name=ID '}';
+
+Technology:
+	'Technology:' '{' name=ID '}';
+
+	
+
+// Domain
+Entity:
+	'Entities' (elements+=Entities);
+	
+Functionality:
+	'Functionalities' (elements+=Functionalities);
+	
+Entities:
+	elements+=Photo elements+=Album elements+=User_d;
+
+Photo:
+	'Photo' name=ID;
+	
+Album:
+	'Album' name=ID;
+	
+User_d:
+	'User_d' name=ID;
+
+
+Functionalities:
+	elements+=ProfileManagement elements+=AppAccess elements+=AlbumManagement elements+=PhotoActions;
+	
+ProfileManagement:
+	'ProfileManagement';
+	
+AppAccess:
+	'AppAccess';
+	
+AlbumManagement:
+	'AlbumManagement';
+	
+PhotoActions:
+	'PhotoActions';
+	
+	
+	
+	
+	
