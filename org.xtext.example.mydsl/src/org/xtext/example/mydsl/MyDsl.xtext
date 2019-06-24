@@ -91,13 +91,13 @@ factors+=Spring factors+=React factors+=PostgreSQL factors+=AmazonWebServices;
 
 
 Spring:
-'Spring' elements+=SpringBootApplication;
+'Spring' name=ID ':' '{' elements+=SpringBootApplication '}';
 
 SpringBootApplication:
-'SpringBootApplication' (elements+=Configuration) (elements+=SpringComponent) (elements+=SpringRepository)  (elements+=RestController) (elements+=SpringEntity);
+'SpringBootApplication'  (elements+=Configuration) (elements+=SpringComponent) (elements+=SpringRepository)  (elements+=RestController) (elements+=SpringEntity)  ;
 
 Configuration:
-'Configuration' elements+=EnableGlobalMethodSecurity  elements+=EnableAuthorizationServer   elements+=EnableResourceServer  elements+=EnableWebSecurity;
+'Configuration' ':' '{' elements+=EnableGlobalMethodSecurity  elements+=EnableAuthorizationServer   elements+=EnableResourceServer  elements+=EnableWebSecurity '}';
 
 EnableGlobalMethodSecurity:
 'EnableGlobalMethodSecurity' name=ID;
@@ -112,19 +112,19 @@ EnableWebSecurity:
 'EnableWebSecurity' name=ID;
 
 SpringComponent:
-'SpringComponent' elements+=OrderSpring;
+'SpringComponent' ':' '{' elements+=OrderSpring '}';
 
 OrderSpring:
 'OrderSpring' name=ID;
 
 SpringRepository:
-'SpringRepositories' (elements+=SpringRepositories);
+'SpringRepositories' ':' '{' (elements+=SpringRepositories) '}';
 
 SpringRepositories:
 'SpringRepository' name=ID;
 
 RestController:
-'RestController' elements+=Specification  elements+=Autowired  elements+=RequestMapping elements+=ExceptionHandler;
+'RestController' name=ID ':' '{' elements+=Specification  elements+=Autowired  elements+=RequestMapping elements+=ExceptionHandler '}';
 
 Specification:
 'Specification' (elements+=Predicate) elements+=SearchCriteria;
@@ -163,13 +163,13 @@ DeleteMapping:
 'DeleteMapping' name=ID;
 
 ExceptionHandler:
-(elements+=ExceptionProcess);
+'ExceptionHandler' name=ID (elements+=ExceptionProcess);
 
 ExceptionProcess:
 'ExceptionProcess' name=ID;
 
 SpringEntity:
-'SpringEntity' (elements+=SpringTable) (elements+=NameNativeQuery);
+'SpringEntity' name=ID ':' '{' (elements+=SpringTable) (elements+=NameNativeQuery) '}';
 
 SpringTable:
 'SpringTable' elements+=SpringTableId (elements+=Columns);
@@ -319,7 +319,7 @@ ReactInformationType:
 
 
 PostgreSQL:
-'Cluster' elements+=Cluster;
+'Cluster' ':' '{' elements+=Cluster '}';
 
 Cluster:
 'Database' elements+=Database (elements+=PostgresUser);
@@ -337,7 +337,7 @@ ViewSchema:
 	'ViewSchema' name=ID;
 	
 Table_p:
-	(elements+=ForeignKey) (elements+=Column) (elements+=Row);
+	'Table_p' name=ID ':' '{' (elements+=ForeignKey) (elements+=Column) (elements+=Row) '}';
 		
 ForeignKey: 
 	elements+=ForeignKey_n elements+=ForeignKeyRef;
@@ -361,7 +361,7 @@ Constraint:
 	'Constraint' name=ID;
 	
 Row :
-	elements+=Policy;
+	'Row' elements+=Policy;
 
 Policy:
 	'Policy' name=ID;
@@ -374,13 +374,13 @@ Function:
 	
 
 PostgresUser:
-	elements+=Privilege elements+=Query;
+	'PostgresUser' name=ID ':' '{' elements+=Privilege elements+=Query '}';
 	
 Privilege:
 	'Privilege' name=ID;
 	
 Query: 
-	elements+=Clause;
+	'Query' elements+=Clause;
 	
 Clause: 
 	'Clause' name=ID;
@@ -389,19 +389,19 @@ Clause:
 
 
 AmazonWebServices: 
-	elements+=AmazonSimpleStorageService elements+=AmazonElasticComputeCloud;
+'AmazonWebServices'	':' '{' elements+=AmazonSimpleStorageService elements+=AmazonElasticComputeCloud '}';
 	
 AmazonSimpleStorageService:
-	elements+=BatchOperation elements+=Bucket;
+'AmazonSimpleStorageService' ':' '{' elements+=BatchOperation elements+=Bucket '}';
 	
 BatchOperation:
 	'BatchOperation' name=ID;
 	
 Bucket:
-	elements+=BucketAccess  elements+=AmazonFolder  (elements+=AmazonFile);
+'Bucket'	elements+=BucketAccess  elements+=AmazonFolder  (elements+=AmazonFile);
 
 BucketAccess:
-	elements+=PublicAccess | elements+=ObjectsPublic | elements+=BucketObjectsNotPublic | elements+=OnlyAuthorized;
+ 'BucketAccess'	elements+=PublicAccess | elements+=ObjectsPublic | elements+=BucketObjectsNotPublic | elements+=OnlyAuthorized;
 
 PublicAccess:
 	'PublicAccess' name=ID;
@@ -419,7 +419,7 @@ AmazonFolder:
 	'AmazonFolder' name=ID;
 	
 AmazonFile:
-	elements+=Metadata;
+ 'AmazonFile' elements+=Metadata;
 	
 Metadata:
 	'Metadata' name=ID;
