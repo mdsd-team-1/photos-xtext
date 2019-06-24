@@ -26,9 +26,45 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getReactInformationTypeRule())
+			return getReactInformationTypeToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getReactLibraryTypeRule())
+			return getReactLibraryTypeToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getReactRequestRule())
+			return getReactRequestToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * ReactInformationType:
+	 * 'ReactReadme' | 'ReactAditionalInfo';
+	 */
+	protected String getReactInformationTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "ReactReadme";
+	}
+	
+	/**
+	 * ReactLibraryType:
+	 * 'ReactDesign' | 'ReactRouting' | 'ComponentManagement' |
+	 * 'StoreManagement' | 'ReactDeployment' | 'ConfigurationLibrary';
+	 */
+	protected String getReactLibraryTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "ReactDesign";
+	}
+	
+	/**
+	 * ReactRequest: 
+	 * 'Wrapper' | 'AuxWrapper';
+	 */
+	protected String getReactRequestToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "Wrapper";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

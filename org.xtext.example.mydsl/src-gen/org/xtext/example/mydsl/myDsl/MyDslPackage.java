@@ -1119,13 +1119,59 @@ public interface MyDslPackage extends EPackage
   int REACT_CONFIGURATIONS__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_CONFIGURATIONS__CONFIGURATIONS = 1;
+
+  /**
    * The number of structural features of the '<em>React Configurations</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REACT_CONFIGURATIONS_FEATURE_COUNT = 1;
+  int REACT_CONFIGURATIONS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DOMConfigurationsImpl <em>DOM Configurations</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.DOMConfigurationsImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDOMConfigurations()
+   * @generated
+   */
+  int DOM_CONFIGURATIONS = 35;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOM_CONFIGURATIONS__ELEMENTS = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOM_CONFIGURATIONS__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>DOM Configurations</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOM_CONFIGURATIONS_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactComponentsImpl <em>React Components</em>}' class.
@@ -1135,7 +1181,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactComponents()
    * @generated
    */
-  int REACT_COMPONENTS = 35;
+  int REACT_COMPONENTS = 36;
 
   /**
    * The feature id for the '<em><b>Componentslogic</b></em>' containment reference list.
@@ -1172,7 +1218,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getComponentsLogic()
    * @generated
    */
-  int COMPONENTS_LOGIC = 36;
+  int COMPONENTS_LOGIC = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1184,13 +1230,96 @@ public interface MyDslPackage extends EPackage
   int COMPONENTS_LOGIC__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Logiccomponents</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENTS_LOGIC__LOGICCOMPONENTS = 1;
+
+  /**
    * The number of structural features of the '<em>Components Logic</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENTS_LOGIC_FEATURE_COUNT = 1;
+  int COMPONENTS_LOGIC_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LogicContentImpl <em>Logic Content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LogicContentImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogicContent()
+   * @generated
+   */
+  int LOGIC_CONTENT = 38;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_CONTENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Logiccomponents</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_CONTENT__LOGICCOMPONENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Logic Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_CONTENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LogicStructureImpl <em>Logic Structure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LogicStructureImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogicStructure()
+   * @generated
+   */
+  int LOGIC_STRUCTURE = 39;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_STRUCTURE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Logiccomponents</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_STRUCTURE__LOGICCOMPONENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Logic Structure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_STRUCTURE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ComponentsUIImpl <em>Components UI</em>}' class.
@@ -1200,7 +1329,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getComponentsUI()
    * @generated
    */
-  int COMPONENTS_UI = 37;
+  int COMPONENTS_UI = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1212,13 +1341,291 @@ public interface MyDslPackage extends EPackage
   int COMPONENTS_UI__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Uicomponents</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENTS_UI__UICOMPONENTS = 1;
+
+  /**
    * The number of structural features of the '<em>Components UI</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENTS_UI_FEATURE_COUNT = 1;
+  int COMPONENTS_UI_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.UIContentImpl <em>UI Content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.UIContentImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getUIContent()
+   * @generated
+   */
+  int UI_CONTENT = 41;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_CONTENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Uicontent</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_CONTENT__UICONTENT = 1;
+
+  /**
+   * The number of structural features of the '<em>UI Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_CONTENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ComponentClassImpl <em>Component Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ComponentClassImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getComponentClass()
+   * @generated
+   */
+  int COMPONENT_CLASS = 42;
+
+  /**
+   * The feature id for the '<em><b>Componentclass</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_CLASS__COMPONENTCLASS = 0;
+
+  /**
+   * The number of structural features of the '<em>Component Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_CLASS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactFunctionsImpl <em>React Functions</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactFunctionsImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactFunctions()
+   * @generated
+   */
+  int REACT_FUNCTIONS = 43;
+
+  /**
+   * The feature id for the '<em><b>Componentclass</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_FUNCTIONS__COMPONENTCLASS = 0;
+
+  /**
+   * The feature id for the '<em><b>Lifecycleclass</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_FUNCTIONS__LIFECYCLECLASS = 1;
+
+  /**
+   * The feature id for the '<em><b>Renderclass</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_FUNCTIONS__RENDERCLASS = 2;
+
+  /**
+   * The number of structural features of the '<em>React Functions</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_FUNCTIONS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactConstructorImpl <em>React Constructor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactConstructorImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactConstructor()
+   * @generated
+   */
+  int REACT_CONSTRUCTOR = 44;
+
+  /**
+   * The feature id for the '<em><b>Componentclass</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_CONSTRUCTOR__COMPONENTCLASS = 0;
+
+  /**
+   * The number of structural features of the '<em>React Constructor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_CONSTRUCTOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StateImpl <em>State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.StateImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getState()
+   * @generated
+   */
+  int STATE = 45;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Componentclass</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__COMPONENTCLASS = 1;
+
+  /**
+   * The number of structural features of the '<em>State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CoreFunctionsDeclarationImpl <em>Core Functions Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.CoreFunctionsDeclarationImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCoreFunctionsDeclaration()
+   * @generated
+   */
+  int CORE_FUNCTIONS_DECLARATION = 46;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CORE_FUNCTIONS_DECLARATION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Core Functions Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CORE_FUNCTIONS_DECLARATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.PropsImpl <em>Props</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.PropsImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getProps()
+   * @generated
+   */
+  int PROPS = 47;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Componentclass</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPS__COMPONENTCLASS = 1;
+
+  /**
+   * The number of structural features of the '<em>Props</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactCoreFunctionsImpl <em>React Core Functions</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactCoreFunctionsImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactCoreFunctions()
+   * @generated
+   */
+  int REACT_CORE_FUNCTIONS = 48;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_CORE_FUNCTIONS__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>React Core Functions</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_CORE_FUNCTIONS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactActionsImpl <em>React Actions</em>}' class.
@@ -1228,16 +1635,16 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactActions()
    * @generated
    */
-  int REACT_ACTIONS = 38;
+  int REACT_ACTIONS = 49;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Reactactcontent</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REACT_ACTIONS__NAME = 0;
+  int REACT_ACTIONS__REACTACTCONTENT = 0;
 
   /**
    * The number of structural features of the '<em>React Actions</em>' class.
@@ -1249,14 +1656,42 @@ public interface MyDslPackage extends EPackage
   int REACT_ACTIONS_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl <em>React Libraries</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactActionsContentImpl <em>React Actions Content</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactLibraries()
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactActionsContentImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactActionsContent()
    * @generated
    */
-  int REACT_LIBRARIES = 39;
+  int REACT_ACTIONS_CONTENT = 50;
+
+  /**
+   * The feature id for the '<em><b>Reactrelcontent</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_ACTIONS_CONTENT__REACTRELCONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>React Actions Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_ACTIONS_CONTENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactServicesTypeImpl <em>React Services Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactServicesTypeImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactServicesType()
+   * @generated
+   */
+  int REACT_SERVICES_TYPE = 51;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1265,7 +1700,72 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REACT_LIBRARIES__NAME = 0;
+  int REACT_SERVICES_TYPE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>React Services Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_SERVICES_TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactServicesRelationImpl <em>React Services Relation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactServicesRelationImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactServicesRelation()
+   * @generated
+   */
+  int REACT_SERVICES_RELATION = 52;
+
+  /**
+   * The feature id for the '<em><b>Reactrelationcontent</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_SERVICES_RELATION__REACTRELATIONCONTENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_SERVICES_RELATION__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>React Services Relation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_SERVICES_RELATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl <em>React Libraries</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactLibraries()
+   * @generated
+   */
+  int REACT_LIBRARIES = 53;
+
+  /**
+   * The feature id for the '<em><b>Reactlibraries</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_LIBRARIES__REACTLIBRARIES = 0;
 
   /**
    * The number of structural features of the '<em>React Libraries</em>' class.
@@ -1277,14 +1777,14 @@ public interface MyDslPackage extends EPackage
   int REACT_LIBRARIES_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactInfoImpl <em>React Info</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactLibraryImpl <em>React Library</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ReactInfoImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactInfo()
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactLibraryImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactLibrary()
    * @generated
    */
-  int REACT_INFO = 40;
+  int REACT_LIBRARY = 54;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1293,7 +1793,35 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REACT_INFO__NAME = 0;
+  int REACT_LIBRARY__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>React Library</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_LIBRARY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactInfoImpl <em>React Info</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactInfoImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactInfo()
+   * @generated
+   */
+  int REACT_INFO = 55;
+
+  /**
+   * The feature id for the '<em><b>Reactinformation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_INFO__REACTINFORMATION = 0;
 
   /**
    * The number of structural features of the '<em>React Info</em>' class.
@@ -1305,6 +1833,34 @@ public interface MyDslPackage extends EPackage
   int REACT_INFO_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactInformationImpl <em>React Information</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReactInformationImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactInformation()
+   * @generated
+   */
+  int REACT_INFORMATION = 56;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_INFORMATION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>React Information</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_INFORMATION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SpringImpl <em>Spring</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1312,7 +1868,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSpring()
    * @generated
    */
-  int SPRING = 41;
+  int SPRING = 57;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1340,7 +1896,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPostgreSQL()
    * @generated
    */
-  int POSTGRE_SQL = 42;
+  int POSTGRE_SQL = 58;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1368,7 +1924,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAmazonWebServices()
    * @generated
    */
-  int AMAZON_WEB_SERVICES = 43;
+  int AMAZON_WEB_SERVICES = 59;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2235,6 +2791,49 @@ public interface MyDslPackage extends EPackage
   EAttribute getReactConfigurations_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactConfigurations#getConfigurations <em>Configurations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Configurations</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactConfigurations#getConfigurations()
+   * @see #getReactConfigurations()
+   * @generated
+   */
+  EReference getReactConfigurations_Configurations();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.DOMConfigurations <em>DOM Configurations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>DOM Configurations</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DOMConfigurations
+   * @generated
+   */
+  EClass getDOMConfigurations();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.DOMConfigurations#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Elements</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DOMConfigurations#getElements()
+   * @see #getDOMConfigurations()
+   * @generated
+   */
+  EAttribute getDOMConfigurations_Elements();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.DOMConfigurations#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DOMConfigurations#getName()
+   * @see #getDOMConfigurations()
+   * @generated
+   */
+  EAttribute getDOMConfigurations_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactComponents <em>React Components</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2288,6 +2887,81 @@ public interface MyDslPackage extends EPackage
   EAttribute getComponentsLogic_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ComponentsLogic#getLogiccomponents <em>Logiccomponents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Logiccomponents</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ComponentsLogic#getLogiccomponents()
+   * @see #getComponentsLogic()
+   * @generated
+   */
+  EReference getComponentsLogic_Logiccomponents();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LogicContent <em>Logic Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logic Content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LogicContent
+   * @generated
+   */
+  EClass getLogicContent();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.LogicContent#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LogicContent#getName()
+   * @see #getLogicContent()
+   * @generated
+   */
+  EAttribute getLogicContent_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LogicContent#getLogiccomponents <em>Logiccomponents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Logiccomponents</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LogicContent#getLogiccomponents()
+   * @see #getLogicContent()
+   * @generated
+   */
+  EReference getLogicContent_Logiccomponents();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LogicStructure <em>Logic Structure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logic Structure</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LogicStructure
+   * @generated
+   */
+  EClass getLogicStructure();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.LogicStructure#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LogicStructure#getName()
+   * @see #getLogicStructure()
+   * @generated
+   */
+  EAttribute getLogicStructure_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LogicStructure#getLogiccomponents <em>Logiccomponents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Logiccomponents</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LogicStructure#getLogiccomponents()
+   * @see #getLogicStructure()
+   * @generated
+   */
+  EReference getLogicStructure_Logiccomponents();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ComponentsUI <em>Components UI</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2309,6 +2983,240 @@ public interface MyDslPackage extends EPackage
   EAttribute getComponentsUI_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ComponentsUI#getUicomponents <em>Uicomponents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Uicomponents</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ComponentsUI#getUicomponents()
+   * @see #getComponentsUI()
+   * @generated
+   */
+  EReference getComponentsUI_Uicomponents();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.UIContent <em>UI Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.UIContent
+   * @generated
+   */
+  EClass getUIContent();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.UIContent#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.UIContent#getName()
+   * @see #getUIContent()
+   * @generated
+   */
+  EAttribute getUIContent_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.UIContent#getUicontent <em>Uicontent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Uicontent</em>'.
+   * @see org.xtext.example.mydsl.myDsl.UIContent#getUicontent()
+   * @see #getUIContent()
+   * @generated
+   */
+  EReference getUIContent_Uicontent();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ComponentClass <em>Component Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Component Class</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ComponentClass
+   * @generated
+   */
+  EClass getComponentClass();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ComponentClass#getComponentclass <em>Componentclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Componentclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ComponentClass#getComponentclass()
+   * @see #getComponentClass()
+   * @generated
+   */
+  EReference getComponentClass_Componentclass();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactFunctions <em>React Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Functions</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactFunctions
+   * @generated
+   */
+  EClass getReactFunctions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactFunctions#getComponentclass <em>Componentclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Componentclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactFunctions#getComponentclass()
+   * @see #getReactFunctions()
+   * @generated
+   */
+  EReference getReactFunctions_Componentclass();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.ReactFunctions#getLifecycleclass <em>Lifecycleclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Lifecycleclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactFunctions#getLifecycleclass()
+   * @see #getReactFunctions()
+   * @generated
+   */
+  EAttribute getReactFunctions_Lifecycleclass();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.ReactFunctions#getRenderclass <em>Renderclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Renderclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactFunctions#getRenderclass()
+   * @see #getReactFunctions()
+   * @generated
+   */
+  EAttribute getReactFunctions_Renderclass();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactConstructor <em>React Constructor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Constructor</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactConstructor
+   * @generated
+   */
+  EClass getReactConstructor();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactConstructor#getComponentclass <em>Componentclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Componentclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactConstructor#getComponentclass()
+   * @see #getReactConstructor()
+   * @generated
+   */
+  EReference getReactConstructor_Componentclass();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State</em>'.
+   * @see org.xtext.example.mydsl.myDsl.State
+   * @generated
+   */
+  EClass getState();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.State#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.State#getName()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_Name();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.State#getComponentclass <em>Componentclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Componentclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.State#getComponentclass()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_Componentclass();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration <em>Core Functions Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Core Functions Declaration</em>'.
+   * @see org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration
+   * @generated
+   */
+  EClass getCoreFunctionsDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration#getName()
+   * @see #getCoreFunctionsDeclaration()
+   * @generated
+   */
+  EAttribute getCoreFunctionsDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Props <em>Props</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Props</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Props
+   * @generated
+   */
+  EClass getProps();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Props#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Props#getName()
+   * @see #getProps()
+   * @generated
+   */
+  EAttribute getProps_Name();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Props#getComponentclass <em>Componentclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Componentclass</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Props#getComponentclass()
+   * @see #getProps()
+   * @generated
+   */
+  EAttribute getProps_Componentclass();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactCoreFunctions <em>React Core Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Core Functions</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactCoreFunctions
+   * @generated
+   */
+  EClass getReactCoreFunctions();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactCoreFunctions#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactCoreFunctions#getName()
+   * @see #getReactCoreFunctions()
+   * @generated
+   */
+  EAttribute getReactCoreFunctions_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactActions <em>React Actions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2319,15 +3227,89 @@ public interface MyDslPackage extends EPackage
   EClass getReactActions();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactActions#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactActions#getReactactcontent <em>Reactactcontent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ReactActions#getName()
+   * @return the meta object for the containment reference list '<em>Reactactcontent</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactActions#getReactactcontent()
    * @see #getReactActions()
    * @generated
    */
-  EAttribute getReactActions_Name();
+  EReference getReactActions_Reactactcontent();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactActionsContent <em>React Actions Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Actions Content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactActionsContent
+   * @generated
+   */
+  EClass getReactActionsContent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactActionsContent#getReactrelcontent <em>Reactrelcontent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Reactrelcontent</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactActionsContent#getReactrelcontent()
+   * @see #getReactActionsContent()
+   * @generated
+   */
+  EReference getReactActionsContent_Reactrelcontent();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactServicesType <em>React Services Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Services Type</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesType
+   * @generated
+   */
+  EClass getReactServicesType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactServicesType#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesType#getName()
+   * @see #getReactServicesType()
+   * @generated
+   */
+  EAttribute getReactServicesType_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactServicesRelation <em>React Services Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Services Relation</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesRelation
+   * @generated
+   */
+  EClass getReactServicesRelation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactServicesRelation#getReactrelationcontent <em>Reactrelationcontent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Reactrelationcontent</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesRelation#getReactrelationcontent()
+   * @see #getReactServicesRelation()
+   * @generated
+   */
+  EReference getReactServicesRelation_Reactrelationcontent();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactServicesRelation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesRelation#getName()
+   * @see #getReactServicesRelation()
+   * @generated
+   */
+  EAttribute getReactServicesRelation_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactLibraries <em>React Libraries</em>}'.
@@ -2340,15 +3322,36 @@ public interface MyDslPackage extends EPackage
   EClass getReactLibraries();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactLibraries#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactLibraries#getReactlibraries <em>Reactlibraries</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ReactLibraries#getName()
+   * @return the meta object for the containment reference list '<em>Reactlibraries</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactLibraries#getReactlibraries()
    * @see #getReactLibraries()
    * @generated
    */
-  EAttribute getReactLibraries_Name();
+  EReference getReactLibraries_Reactlibraries();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactLibrary <em>React Library</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Library</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactLibrary
+   * @generated
+   */
+  EClass getReactLibrary();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactLibrary#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactLibrary#getName()
+   * @see #getReactLibrary()
+   * @generated
+   */
+  EAttribute getReactLibrary_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactInfo <em>React Info</em>}'.
@@ -2361,15 +3364,36 @@ public interface MyDslPackage extends EPackage
   EClass getReactInfo();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactInfo#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.ReactInfo#getReactinformation <em>Reactinformation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ReactInfo#getName()
+   * @return the meta object for the containment reference list '<em>Reactinformation</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactInfo#getReactinformation()
    * @see #getReactInfo()
    * @generated
    */
-  EAttribute getReactInfo_Name();
+  EReference getReactInfo_Reactinformation();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReactInformation <em>React Information</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React Information</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactInformation
+   * @generated
+   */
+  EClass getReactInformation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReactInformation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReactInformation#getName()
+   * @see #getReactInformation()
+   * @generated
+   */
+  EAttribute getReactInformation_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Spring <em>Spring</em>}'.
@@ -3168,6 +4192,40 @@ public interface MyDslPackage extends EPackage
     EAttribute REACT_CONFIGURATIONS__NAME = eINSTANCE.getReactConfigurations_Name();
 
     /**
+     * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_CONFIGURATIONS__CONFIGURATIONS = eINSTANCE.getReactConfigurations_Configurations();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.DOMConfigurationsImpl <em>DOM Configurations</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.DOMConfigurationsImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDOMConfigurations()
+     * @generated
+     */
+    EClass DOM_CONFIGURATIONS = eINSTANCE.getDOMConfigurations();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOM_CONFIGURATIONS__ELEMENTS = eINSTANCE.getDOMConfigurations_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOM_CONFIGURATIONS__NAME = eINSTANCE.getDOMConfigurations_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactComponentsImpl <em>React Components</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3212,6 +4270,66 @@ public interface MyDslPackage extends EPackage
     EAttribute COMPONENTS_LOGIC__NAME = eINSTANCE.getComponentsLogic_Name();
 
     /**
+     * The meta object literal for the '<em><b>Logiccomponents</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENTS_LOGIC__LOGICCOMPONENTS = eINSTANCE.getComponentsLogic_Logiccomponents();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LogicContentImpl <em>Logic Content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LogicContentImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogicContent()
+     * @generated
+     */
+    EClass LOGIC_CONTENT = eINSTANCE.getLogicContent();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIC_CONTENT__NAME = eINSTANCE.getLogicContent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Logiccomponents</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_CONTENT__LOGICCOMPONENTS = eINSTANCE.getLogicContent_Logiccomponents();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LogicStructureImpl <em>Logic Structure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LogicStructureImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogicStructure()
+     * @generated
+     */
+    EClass LOGIC_STRUCTURE = eINSTANCE.getLogicStructure();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIC_STRUCTURE__NAME = eINSTANCE.getLogicStructure_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Logiccomponents</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_STRUCTURE__LOGICCOMPONENTS = eINSTANCE.getLogicStructure_Logiccomponents();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ComponentsUIImpl <em>Components UI</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3230,6 +4348,198 @@ public interface MyDslPackage extends EPackage
     EAttribute COMPONENTS_UI__NAME = eINSTANCE.getComponentsUI_Name();
 
     /**
+     * The meta object literal for the '<em><b>Uicomponents</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENTS_UI__UICOMPONENTS = eINSTANCE.getComponentsUI_Uicomponents();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.UIContentImpl <em>UI Content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.UIContentImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getUIContent()
+     * @generated
+     */
+    EClass UI_CONTENT = eINSTANCE.getUIContent();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_CONTENT__NAME = eINSTANCE.getUIContent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Uicontent</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_CONTENT__UICONTENT = eINSTANCE.getUIContent_Uicontent();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ComponentClassImpl <em>Component Class</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ComponentClassImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getComponentClass()
+     * @generated
+     */
+    EClass COMPONENT_CLASS = eINSTANCE.getComponentClass();
+
+    /**
+     * The meta object literal for the '<em><b>Componentclass</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT_CLASS__COMPONENTCLASS = eINSTANCE.getComponentClass_Componentclass();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactFunctionsImpl <em>React Functions</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactFunctionsImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactFunctions()
+     * @generated
+     */
+    EClass REACT_FUNCTIONS = eINSTANCE.getReactFunctions();
+
+    /**
+     * The meta object literal for the '<em><b>Componentclass</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_FUNCTIONS__COMPONENTCLASS = eINSTANCE.getReactFunctions_Componentclass();
+
+    /**
+     * The meta object literal for the '<em><b>Lifecycleclass</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REACT_FUNCTIONS__LIFECYCLECLASS = eINSTANCE.getReactFunctions_Lifecycleclass();
+
+    /**
+     * The meta object literal for the '<em><b>Renderclass</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REACT_FUNCTIONS__RENDERCLASS = eINSTANCE.getReactFunctions_Renderclass();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactConstructorImpl <em>React Constructor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactConstructorImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactConstructor()
+     * @generated
+     */
+    EClass REACT_CONSTRUCTOR = eINSTANCE.getReactConstructor();
+
+    /**
+     * The meta object literal for the '<em><b>Componentclass</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_CONSTRUCTOR__COMPONENTCLASS = eINSTANCE.getReactConstructor_Componentclass();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.StateImpl <em>State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.StateImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getState()
+     * @generated
+     */
+    EClass STATE = eINSTANCE.getState();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Componentclass</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__COMPONENTCLASS = eINSTANCE.getState_Componentclass();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CoreFunctionsDeclarationImpl <em>Core Functions Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.CoreFunctionsDeclarationImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCoreFunctionsDeclaration()
+     * @generated
+     */
+    EClass CORE_FUNCTIONS_DECLARATION = eINSTANCE.getCoreFunctionsDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CORE_FUNCTIONS_DECLARATION__NAME = eINSTANCE.getCoreFunctionsDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.PropsImpl <em>Props</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.PropsImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getProps()
+     * @generated
+     */
+    EClass PROPS = eINSTANCE.getProps();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPS__NAME = eINSTANCE.getProps_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Componentclass</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPS__COMPONENTCLASS = eINSTANCE.getProps_Componentclass();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactCoreFunctionsImpl <em>React Core Functions</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactCoreFunctionsImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactCoreFunctions()
+     * @generated
+     */
+    EClass REACT_CORE_FUNCTIONS = eINSTANCE.getReactCoreFunctions();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REACT_CORE_FUNCTIONS__NAME = eINSTANCE.getReactCoreFunctions_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactActionsImpl <em>React Actions</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3240,12 +4550,74 @@ public interface MyDslPackage extends EPackage
     EClass REACT_ACTIONS = eINSTANCE.getReactActions();
 
     /**
+     * The meta object literal for the '<em><b>Reactactcontent</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_ACTIONS__REACTACTCONTENT = eINSTANCE.getReactActions_Reactactcontent();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactActionsContentImpl <em>React Actions Content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactActionsContentImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactActionsContent()
+     * @generated
+     */
+    EClass REACT_ACTIONS_CONTENT = eINSTANCE.getReactActionsContent();
+
+    /**
+     * The meta object literal for the '<em><b>Reactrelcontent</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_ACTIONS_CONTENT__REACTRELCONTENT = eINSTANCE.getReactActionsContent_Reactrelcontent();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactServicesTypeImpl <em>React Services Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactServicesTypeImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactServicesType()
+     * @generated
+     */
+    EClass REACT_SERVICES_TYPE = eINSTANCE.getReactServicesType();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REACT_ACTIONS__NAME = eINSTANCE.getReactActions_Name();
+    EAttribute REACT_SERVICES_TYPE__NAME = eINSTANCE.getReactServicesType_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactServicesRelationImpl <em>React Services Relation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactServicesRelationImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactServicesRelation()
+     * @generated
+     */
+    EClass REACT_SERVICES_RELATION = eINSTANCE.getReactServicesRelation();
+
+    /**
+     * The meta object literal for the '<em><b>Reactrelationcontent</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_SERVICES_RELATION__REACTRELATIONCONTENT = eINSTANCE.getReactServicesRelation_Reactrelationcontent();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REACT_SERVICES_RELATION__NAME = eINSTANCE.getReactServicesRelation_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl <em>React Libraries</em>}' class.
@@ -3258,12 +4630,30 @@ public interface MyDslPackage extends EPackage
     EClass REACT_LIBRARIES = eINSTANCE.getReactLibraries();
 
     /**
+     * The meta object literal for the '<em><b>Reactlibraries</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_LIBRARIES__REACTLIBRARIES = eINSTANCE.getReactLibraries_Reactlibraries();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactLibraryImpl <em>React Library</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactLibraryImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactLibrary()
+     * @generated
+     */
+    EClass REACT_LIBRARY = eINSTANCE.getReactLibrary();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REACT_LIBRARIES__NAME = eINSTANCE.getReactLibraries_Name();
+    EAttribute REACT_LIBRARY__NAME = eINSTANCE.getReactLibrary_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactInfoImpl <em>React Info</em>}' class.
@@ -3276,12 +4666,30 @@ public interface MyDslPackage extends EPackage
     EClass REACT_INFO = eINSTANCE.getReactInfo();
 
     /**
+     * The meta object literal for the '<em><b>Reactinformation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_INFO__REACTINFORMATION = eINSTANCE.getReactInfo_Reactinformation();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReactInformationImpl <em>React Information</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReactInformationImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReactInformation()
+     * @generated
+     */
+    EClass REACT_INFORMATION = eINSTANCE.getReactInformation();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REACT_INFO__NAME = eINSTANCE.getReactInfo_Name();
+    EAttribute REACT_INFORMATION__NAME = eINSTANCE.getReactInformation_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SpringImpl <em>Spring</em>}' class.

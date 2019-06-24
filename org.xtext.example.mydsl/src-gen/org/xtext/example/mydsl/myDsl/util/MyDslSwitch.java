@@ -318,6 +318,13 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.DOM_CONFIGURATIONS:
+      {
+        DOMConfigurations domConfigurations = (DOMConfigurations)theEObject;
+        T result = caseDOMConfigurations(domConfigurations);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.REACT_COMPONENTS:
       {
         ReactComponents reactComponents = (ReactComponents)theEObject;
@@ -332,10 +339,80 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.LOGIC_CONTENT:
+      {
+        LogicContent logicContent = (LogicContent)theEObject;
+        T result = caseLogicContent(logicContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LOGIC_STRUCTURE:
+      {
+        LogicStructure logicStructure = (LogicStructure)theEObject;
+        T result = caseLogicStructure(logicStructure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.COMPONENTS_UI:
       {
         ComponentsUI componentsUI = (ComponentsUI)theEObject;
         T result = caseComponentsUI(componentsUI);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.UI_CONTENT:
+      {
+        UIContent uiContent = (UIContent)theEObject;
+        T result = caseUIContent(uiContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.COMPONENT_CLASS:
+      {
+        ComponentClass componentClass = (ComponentClass)theEObject;
+        T result = caseComponentClass(componentClass);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REACT_FUNCTIONS:
+      {
+        ReactFunctions reactFunctions = (ReactFunctions)theEObject;
+        T result = caseReactFunctions(reactFunctions);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REACT_CONSTRUCTOR:
+      {
+        ReactConstructor reactConstructor = (ReactConstructor)theEObject;
+        T result = caseReactConstructor(reactConstructor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.STATE:
+      {
+        State state = (State)theEObject;
+        T result = caseState(state);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.CORE_FUNCTIONS_DECLARATION:
+      {
+        CoreFunctionsDeclaration coreFunctionsDeclaration = (CoreFunctionsDeclaration)theEObject;
+        T result = caseCoreFunctionsDeclaration(coreFunctionsDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.PROPS:
+      {
+        Props props = (Props)theEObject;
+        T result = caseProps(props);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REACT_CORE_FUNCTIONS:
+      {
+        ReactCoreFunctions reactCoreFunctions = (ReactCoreFunctions)theEObject;
+        T result = caseReactCoreFunctions(reactCoreFunctions);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -346,6 +423,27 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.REACT_ACTIONS_CONTENT:
+      {
+        ReactActionsContent reactActionsContent = (ReactActionsContent)theEObject;
+        T result = caseReactActionsContent(reactActionsContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REACT_SERVICES_TYPE:
+      {
+        ReactServicesType reactServicesType = (ReactServicesType)theEObject;
+        T result = caseReactServicesType(reactServicesType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REACT_SERVICES_RELATION:
+      {
+        ReactServicesRelation reactServicesRelation = (ReactServicesRelation)theEObject;
+        T result = caseReactServicesRelation(reactServicesRelation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.REACT_LIBRARIES:
       {
         ReactLibraries reactLibraries = (ReactLibraries)theEObject;
@@ -353,10 +451,24 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.REACT_LIBRARY:
+      {
+        ReactLibrary reactLibrary = (ReactLibrary)theEObject;
+        T result = caseReactLibrary(reactLibrary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.REACT_INFO:
       {
         ReactInfo reactInfo = (ReactInfo)theEObject;
         T result = caseReactInfo(reactInfo);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REACT_INFORMATION:
+      {
+        ReactInformation reactInformation = (ReactInformation)theEObject;
+        T result = caseReactInformation(reactInformation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -946,6 +1058,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>DOM Configurations</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DOM Configurations</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDOMConfigurations(DOMConfigurations object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>React Components</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -978,6 +1106,38 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Logic Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logic Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicContent(LogicContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logic Structure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logic Structure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicStructure(LogicStructure object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Components UI</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -989,6 +1149,134 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseComponentsUI(ComponentsUI object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIContent(UIContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Component Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Component Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComponentClass(ComponentClass object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React Functions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Functions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactFunctions(ReactFunctions object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Constructor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactConstructor(ReactConstructor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Core Functions Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Core Functions Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCoreFunctionsDeclaration(CoreFunctionsDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Props</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Props</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProps(Props object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React Core Functions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Core Functions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactCoreFunctions(ReactCoreFunctions object)
   {
     return null;
   }
@@ -1010,6 +1298,54 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>React Actions Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Actions Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactActionsContent(ReactActionsContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React Services Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Services Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactServicesType(ReactServicesType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React Services Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Services Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactServicesRelation(ReactServicesRelation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>React Libraries</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1026,6 +1362,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>React Library</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Library</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactLibrary(ReactLibrary object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>React Info</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1037,6 +1389,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReactInfo(ReactInfo object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React Information</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React Information</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactInformation(ReactInformation object)
   {
     return null;
   }

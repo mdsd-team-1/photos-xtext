@@ -120,6 +120,11 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReactConfigurations">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactConfigurations/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactConfigurations/configurations"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DOMConfigurations">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DOMConfigurations/elements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DOMConfigurations/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReactComponents">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactComponents/componentslogic"/>
@@ -127,18 +132,73 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ComponentsLogic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ComponentsLogic/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComponentsLogic/logiccomponents"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LogicContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LogicContent/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LogicContent/logiccomponents"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LogicStructure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LogicStructure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LogicStructure/logiccomponents"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ComponentsUI">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ComponentsUI/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComponentsUI/uicomponents"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//UIContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//UIContent/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//UIContent/uicontent"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ComponentClass">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComponentClass/componentclass"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactFunctions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactFunctions/componentclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactFunctions/lifecycleclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactFunctions/renderclass"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactConstructor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactConstructor/componentclass"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//State/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//State/componentclass"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CoreFunctionsDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//CoreFunctionsDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Props">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Props/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Props/componentclass"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactCoreFunctions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactCoreFunctions/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReactActions">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactActions/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactActions/reactactcontent"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactActionsContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactActionsContent/reactrelcontent"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactServicesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactServicesType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactServicesRelation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactServicesRelation/reactrelationcontent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactServicesRelation/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReactLibraries">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactLibraries/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactLibraries/reactlibraries"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactLibrary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactLibrary/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReactInfo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactInfo/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReactInfo/reactinformation"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReactInformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReactInformation/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Spring">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Spring/name"/>

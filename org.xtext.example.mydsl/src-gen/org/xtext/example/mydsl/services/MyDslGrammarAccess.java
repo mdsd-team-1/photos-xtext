@@ -6,6 +6,7 @@ package org.xtext.example.mydsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -180,25 +181,25 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElementsUserDomainParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
 		
 		//Entities:
-		//	elements+=Photo elements+=Album elements+=UserDomain;
+		//	elements+=Photo+ elements+=Album+ elements+=UserDomain+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elements+=Photo elements+=Album elements+=UserDomain
+		//elements+=Photo+ elements+=Album+ elements+=UserDomain+
 		public Group getGroup() { return cGroup; }
 		
-		//elements+=Photo
+		//elements+=Photo+
 		public Assignment getElementsAssignment_0() { return cElementsAssignment_0; }
 		
 		//Photo
 		public RuleCall getElementsPhotoParserRuleCall_0_0() { return cElementsPhotoParserRuleCall_0_0; }
 		
-		//elements+=Album
+		//elements+=Album+
 		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
 		
 		//Album
 		public RuleCall getElementsAlbumParserRuleCall_1_0() { return cElementsAlbumParserRuleCall_1_0; }
 		
-		//elements+=UserDomain
+		//elements+=UserDomain+
 		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
 		
 		//UserDomain
@@ -1140,32 +1141,44 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactConfiguration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReactConfigurationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cDependenciesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDependenciesReactDependenciesParserRuleCall_1_0 = (RuleCall)cDependenciesAssignment_1.eContents().get(0);
-		private final Assignment cConfigurationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cConfigurationsReactConfigurationsParserRuleCall_2_0 = (RuleCall)cConfigurationsAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDependenciesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDependenciesReactDependenciesParserRuleCall_3_0 = (RuleCall)cDependenciesAssignment_3.eContents().get(0);
+		private final Assignment cConfigurationsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConfigurationsReactConfigurationsParserRuleCall_4_0 = (RuleCall)cConfigurationsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ReactConfiguration:
-		//	'ReactConfiguration' dependencies+=ReactDependencies configurations+=ReactConfigurations;
+		//	'ReactConfiguration' ':' '{' dependencies+=ReactDependencies configurations+=ReactConfigurations '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ReactConfiguration' dependencies+=ReactDependencies configurations+=ReactConfigurations
+		//'ReactConfiguration' ':' '{' dependencies+=ReactDependencies configurations+=ReactConfigurations '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'ReactConfiguration'
 		public Keyword getReactConfigurationKeyword_0() { return cReactConfigurationKeyword_0; }
 		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
 		//dependencies+=ReactDependencies
-		public Assignment getDependenciesAssignment_1() { return cDependenciesAssignment_1; }
+		public Assignment getDependenciesAssignment_3() { return cDependenciesAssignment_3; }
 		
 		//ReactDependencies
-		public RuleCall getDependenciesReactDependenciesParserRuleCall_1_0() { return cDependenciesReactDependenciesParserRuleCall_1_0; }
+		public RuleCall getDependenciesReactDependenciesParserRuleCall_3_0() { return cDependenciesReactDependenciesParserRuleCall_3_0; }
 		
 		//configurations+=ReactConfigurations
-		public Assignment getConfigurationsAssignment_2() { return cConfigurationsAssignment_2; }
+		public Assignment getConfigurationsAssignment_4() { return cConfigurationsAssignment_4; }
 		
 		//ReactConfigurations
-		public RuleCall getConfigurationsReactConfigurationsParserRuleCall_2_0() { return cConfigurationsReactConfigurationsParserRuleCall_2_0; }
+		public RuleCall getConfigurationsReactConfigurationsParserRuleCall_4_0() { return cConfigurationsReactConfigurationsParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class ReactDependenciesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactDependencies");
@@ -1315,12 +1328,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReactDOMConfigurationsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cConfigurationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConfigurationsDOMConfigurationsParserRuleCall_2_0 = (RuleCall)cConfigurationsAssignment_2.eContents().get(0);
 		
 		//ReactConfigurations:
-		//	'ReactDOMConfigurations' name=ID;
+		//	'ReactDOMConfigurations' name=ID configurations+=DOMConfigurations+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ReactDOMConfigurations' name=ID
+		//'ReactDOMConfigurations' name=ID configurations+=DOMConfigurations+
 		public Group getGroup() { return cGroup; }
 		
 		//'ReactDOMConfigurations'
@@ -1331,37 +1346,113 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//configurations+=DOMConfigurations+
+		public Assignment getConfigurationsAssignment_2() { return cConfigurationsAssignment_2; }
+		
+		//DOMConfigurations
+		public RuleCall getConfigurationsDOMConfigurationsParserRuleCall_2_0() { return cConfigurationsDOMConfigurationsParserRuleCall_2_0; }
+	}
+	public class DOMConfigurationsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DOMConfigurations");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cElementsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cElementsDOMTypeConfParserRuleCall_0_0 = (RuleCall)cElementsAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//DOMConfigurations:
+		//	elements+=DOMTypeConf name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//elements+=DOMTypeConf name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//elements+=DOMTypeConf
+		public Assignment getElementsAssignment_0() { return cElementsAssignment_0; }
+		
+		//DOMTypeConf
+		public RuleCall getElementsDOMTypeConfParserRuleCall_0_0() { return cElementsDOMTypeConfParserRuleCall_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class DOMTypeConfElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DOMTypeConf");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cRoutingConfKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cServiceWorkerKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cHTMLStructureKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cManifestKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cRepositoriesConfKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		
+		//DOMTypeConf:
+		//	'RoutingConf' | 'ServiceWorker' | 'HTMLStructure' | 'Manifest' | 'RepositoriesConf';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'RoutingConf' | 'ServiceWorker' | 'HTMLStructure' | 'Manifest' | 'RepositoriesConf'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'RoutingConf'
+		public Keyword getRoutingConfKeyword_0() { return cRoutingConfKeyword_0; }
+		
+		//'ServiceWorker'
+		public Keyword getServiceWorkerKeyword_1() { return cServiceWorkerKeyword_1; }
+		
+		//'HTMLStructure'
+		public Keyword getHTMLStructureKeyword_2() { return cHTMLStructureKeyword_2; }
+		
+		//'Manifest'
+		public Keyword getManifestKeyword_3() { return cManifestKeyword_3; }
+		
+		//'RepositoriesConf'
+		public Keyword getRepositoriesConfKeyword_4() { return cRepositoriesConfKeyword_4; }
 	}
 	public class ReactComponentsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactComponents");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReactComponentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cComponentslogicAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cComponentslogicComponentsLogicParserRuleCall_1_0 = (RuleCall)cComponentslogicAssignment_1.eContents().get(0);
-		private final Assignment cComponentsuiAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cComponentsuiComponentsUIParserRuleCall_2_0 = (RuleCall)cComponentsuiAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cComponentslogicAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cComponentslogicComponentsLogicParserRuleCall_3_0 = (RuleCall)cComponentslogicAssignment_3.eContents().get(0);
+		private final Assignment cComponentsuiAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cComponentsuiComponentsUIParserRuleCall_4_0 = (RuleCall)cComponentsuiAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ReactComponents:
-		//	'ReactComponents' componentslogic+=ComponentsLogic componentsui+=ComponentsUI;
+		//	'ReactComponents' ':' '{' componentslogic+=ComponentsLogic componentsui+=ComponentsUI '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ReactComponents' componentslogic+=ComponentsLogic componentsui+=ComponentsUI
+		//'ReactComponents' ':' '{' componentslogic+=ComponentsLogic componentsui+=ComponentsUI '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'ReactComponents'
 		public Keyword getReactComponentsKeyword_0() { return cReactComponentsKeyword_0; }
 		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
 		//componentslogic+=ComponentsLogic
-		public Assignment getComponentslogicAssignment_1() { return cComponentslogicAssignment_1; }
+		public Assignment getComponentslogicAssignment_3() { return cComponentslogicAssignment_3; }
 		
 		//ComponentsLogic
-		public RuleCall getComponentslogicComponentsLogicParserRuleCall_1_0() { return cComponentslogicComponentsLogicParserRuleCall_1_0; }
+		public RuleCall getComponentslogicComponentsLogicParserRuleCall_3_0() { return cComponentslogicComponentsLogicParserRuleCall_3_0; }
 		
 		//componentsui+=ComponentsUI
-		public Assignment getComponentsuiAssignment_2() { return cComponentsuiAssignment_2; }
+		public Assignment getComponentsuiAssignment_4() { return cComponentsuiAssignment_4; }
 		
 		//ComponentsUI
-		public RuleCall getComponentsuiComponentsUIParserRuleCall_2_0() { return cComponentsuiComponentsUIParserRuleCall_2_0; }
+		public RuleCall getComponentsuiComponentsUIParserRuleCall_4_0() { return cComponentsuiComponentsUIParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class ComponentsLogicElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ComponentsLogic");
@@ -1369,12 +1460,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLogicComponentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cLogiccomponentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLogiccomponentsLogicContentParserRuleCall_2_0 = (RuleCall)cLogiccomponentsAssignment_2.eContents().get(0);
 		
 		//ComponentsLogic:
-		//	'LogicComponents' name=ID;
+		//	'LogicComponents' name=ID logiccomponents+=LogicContent;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'LogicComponents' name=ID
+		//'LogicComponents' name=ID logiccomponents+=LogicContent
 		public Group getGroup() { return cGroup; }
 		
 		//'LogicComponents'
@@ -1385,6 +1478,86 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//logiccomponents+=LogicContent
+		public Assignment getLogiccomponentsAssignment_2() { return cLogiccomponentsAssignment_2; }
+		
+		//LogicContent
+		public RuleCall getLogiccomponentsLogicContentParserRuleCall_2_0() { return cLogiccomponentsLogicContentParserRuleCall_2_0; }
+	}
+	public class LogicContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LogicContent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRoutingComponentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cLogiccomponentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLogiccomponentsLogicStructureParserRuleCall_2_0 = (RuleCall)cLogiccomponentsAssignment_2.eContents().get(0);
+		
+		//LogicContent:
+		//	'RoutingComponents' name=ID logiccomponents+=LogicStructure;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'RoutingComponents' name=ID logiccomponents+=LogicStructure
+		public Group getGroup() { return cGroup; }
+		
+		//'RoutingComponents'
+		public Keyword getRoutingComponentsKeyword_0() { return cRoutingComponentsKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//logiccomponents+=LogicStructure
+		public Assignment getLogiccomponentsAssignment_2() { return cLogiccomponentsAssignment_2; }
+		
+		//LogicStructure
+		public RuleCall getLogiccomponentsLogicStructureParserRuleCall_2_0() { return cLogiccomponentsLogicStructureParserRuleCall_2_0; }
+	}
+	public class LogicStructureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LogicStructure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAppComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cLogiccomponentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLogiccomponentsComponentClassParserRuleCall_2_0 = (RuleCall)cLogiccomponentsAssignment_2.eContents().get(0);
+		private final Keyword cIndexComponentKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		
+		//LogicStructure:
+		//	'AppComponent' name=ID logiccomponents+=ComponentClass 'IndexComponent' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'AppComponent' name=ID logiccomponents+=ComponentClass 'IndexComponent' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'AppComponent'
+		public Keyword getAppComponentKeyword_0() { return cAppComponentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//logiccomponents+=ComponentClass
+		public Assignment getLogiccomponentsAssignment_2() { return cLogiccomponentsAssignment_2; }
+		
+		//ComponentClass
+		public RuleCall getLogiccomponentsComponentClassParserRuleCall_2_0() { return cLogiccomponentsComponentClassParserRuleCall_2_0; }
+		
+		//'IndexComponent'
+		public Keyword getIndexComponentKeyword_3() { return cIndexComponentKeyword_3; }
+		
+		//name=ID
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 	}
 	public class ComponentsUIElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ComponentsUI");
@@ -1392,12 +1565,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUIComponentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cUicomponentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cUicomponentsUIContentParserRuleCall_2_0 = (RuleCall)cUicomponentsAssignment_2.eContents().get(0);
 		
 		//ComponentsUI:
-		//	'UIComponents' name=ID;
+		//	'UIComponents' name=ID uicomponents+=UIContent;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'UIComponents' name=ID
+		//'UIComponents' name=ID uicomponents+=UIContent
 		public Group getGroup() { return cGroup; }
 		
 		//'UIComponents'
@@ -1408,75 +1583,708 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//uicomponents+=UIContent
+		public Assignment getUicomponentsAssignment_2() { return cUicomponentsAssignment_2; }
+		
+		//UIContent
+		public RuleCall getUicomponentsUIContentParserRuleCall_2_0() { return cUicomponentsUIContentParserRuleCall_2_0; }
+	}
+	public class UIContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.UIContent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cViewComponentKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Assignment cUicontentAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cUicontentComponentClassParserRuleCall_0_2_0 = (RuleCall)cUicontentAssignment_0_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cSubcomponentsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Assignment cUicontentAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cUicontentComponentClassParserRuleCall_1_2_0 = (RuleCall)cUicontentAssignment_1_2.eContents().get(0);
+		
+		//UIContent:
+		//	('ViewComponent' name=ID uicontent+=ComponentClass)+ ('Subcomponents' name=ID uicontent+=ComponentClass)+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('ViewComponent' name=ID uicontent+=ComponentClass)+ ('Subcomponents' name=ID uicontent+=ComponentClass)+
+		public Group getGroup() { return cGroup; }
+		
+		//('ViewComponent' name=ID uicontent+=ComponentClass)+
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'ViewComponent'
+		public Keyword getViewComponentKeyword_0_0() { return cViewComponentKeyword_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+		
+		//uicontent+=ComponentClass
+		public Assignment getUicontentAssignment_0_2() { return cUicontentAssignment_0_2; }
+		
+		//ComponentClass
+		public RuleCall getUicontentComponentClassParserRuleCall_0_2_0() { return cUicontentComponentClassParserRuleCall_0_2_0; }
+		
+		//('Subcomponents' name=ID uicontent+=ComponentClass)+
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'Subcomponents'
+		public Keyword getSubcomponentsKeyword_1_0() { return cSubcomponentsKeyword_1_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		
+		//uicontent+=ComponentClass
+		public Assignment getUicontentAssignment_1_2() { return cUicontentAssignment_1_2; }
+		
+		//ComponentClass
+		public RuleCall getUicontentComponentClassParserRuleCall_1_2_0() { return cUicontentComponentClassParserRuleCall_1_2_0; }
+	}
+	public class ComponentClassElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ComponentClass");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cComponentclassAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cComponentclassReactFunctionsParserRuleCall_0_0 = (RuleCall)cComponentclassAssignment_0.eContents().get(0);
+		private final Assignment cComponentclassAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cComponentclassPropsParserRuleCall_1_0 = (RuleCall)cComponentclassAssignment_1.eContents().get(0);
+		
+		//ComponentClass:
+		//	componentclass+=ReactFunctions componentclass+=Props;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//componentclass+=ReactFunctions componentclass+=Props
+		public Group getGroup() { return cGroup; }
+		
+		//componentclass+=ReactFunctions
+		public Assignment getComponentclassAssignment_0() { return cComponentclassAssignment_0; }
+		
+		//ReactFunctions
+		public RuleCall getComponentclassReactFunctionsParserRuleCall_0_0() { return cComponentclassReactFunctionsParserRuleCall_0_0; }
+		
+		//componentclass+=Props
+		public Assignment getComponentclassAssignment_1() { return cComponentclassAssignment_1; }
+		
+		//Props
+		public RuleCall getComponentclassPropsParserRuleCall_1_0() { return cComponentclassPropsParserRuleCall_1_0; }
+	}
+	public class ReactFunctionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactFunctions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cComponentclassAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cComponentclassReactConstructorParserRuleCall_0_0 = (RuleCall)cComponentclassAssignment_0.eContents().get(0);
+		private final Assignment cLifecycleclassAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLifecycleclassReactLifeCycleParserRuleCall_1_0 = (RuleCall)cLifecycleclassAssignment_1.eContents().get(0);
+		private final Assignment cComponentclassAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cComponentclassReactCoreFunctionsParserRuleCall_2_0 = (RuleCall)cComponentclassAssignment_2.eContents().get(0);
+		private final Assignment cRenderclassAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRenderclassReactRenderParserRuleCall_3_0 = (RuleCall)cRenderclassAssignment_3.eContents().get(0);
+		
+		//ReactFunctions:
+		//	componentclass+=ReactConstructor lifecycleclass+=ReactLifeCycle* componentclass+=ReactCoreFunctions*
+		//	renderclass+=ReactRender;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//componentclass+=ReactConstructor lifecycleclass+=ReactLifeCycle* componentclass+=ReactCoreFunctions*
+		//renderclass+=ReactRender
+		public Group getGroup() { return cGroup; }
+		
+		//componentclass+=ReactConstructor
+		public Assignment getComponentclassAssignment_0() { return cComponentclassAssignment_0; }
+		
+		//ReactConstructor
+		public RuleCall getComponentclassReactConstructorParserRuleCall_0_0() { return cComponentclassReactConstructorParserRuleCall_0_0; }
+		
+		//lifecycleclass+=ReactLifeCycle*
+		public Assignment getLifecycleclassAssignment_1() { return cLifecycleclassAssignment_1; }
+		
+		//ReactLifeCycle
+		public RuleCall getLifecycleclassReactLifeCycleParserRuleCall_1_0() { return cLifecycleclassReactLifeCycleParserRuleCall_1_0; }
+		
+		//componentclass+=ReactCoreFunctions*
+		public Assignment getComponentclassAssignment_2() { return cComponentclassAssignment_2; }
+		
+		//ReactCoreFunctions
+		public RuleCall getComponentclassReactCoreFunctionsParserRuleCall_2_0() { return cComponentclassReactCoreFunctionsParserRuleCall_2_0; }
+		
+		//renderclass+=ReactRender
+		public Assignment getRenderclassAssignment_3() { return cRenderclassAssignment_3; }
+		
+		//ReactRender
+		public RuleCall getRenderclassReactRenderParserRuleCall_3_0() { return cRenderclassReactRenderParserRuleCall_3_0; }
+	}
+	public class ReactConstructorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactConstructor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConstructorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cComponentclassAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cComponentclassStateParserRuleCall_1_0 = (RuleCall)cComponentclassAssignment_1.eContents().get(0);
+		private final Assignment cComponentclassAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cComponentclassCoreFunctionsDeclarationParserRuleCall_2_0 = (RuleCall)cComponentclassAssignment_2.eContents().get(0);
+		
+		//ReactConstructor:
+		//	'Constructor' componentclass+=State componentclass+=CoreFunctionsDeclaration*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Constructor' componentclass+=State componentclass+=CoreFunctionsDeclaration*
+		public Group getGroup() { return cGroup; }
+		
+		//'Constructor'
+		public Keyword getConstructorKeyword_0() { return cConstructorKeyword_0; }
+		
+		//componentclass+=State
+		public Assignment getComponentclassAssignment_1() { return cComponentclassAssignment_1; }
+		
+		//State
+		public RuleCall getComponentclassStateParserRuleCall_1_0() { return cComponentclassStateParserRuleCall_1_0; }
+		
+		//componentclass+=CoreFunctionsDeclaration*
+		public Assignment getComponentclassAssignment_2() { return cComponentclassAssignment_2; }
+		
+		//CoreFunctionsDeclaration
+		public RuleCall getComponentclassCoreFunctionsDeclarationParserRuleCall_2_0() { return cComponentclassCoreFunctionsDeclarationParserRuleCall_2_0; }
+	}
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.State");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
+		private final Assignment cComponentclassAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cComponentclassDataTypeParserRuleCall_1_1_0 = (RuleCall)cComponentclassAssignment_1_1.eContents().get(0);
+		
+		//State:
+		//	'State' (name=ID componentclass+=DataType)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'State' (name=ID componentclass+=DataType)*
+		public Group getGroup() { return cGroup; }
+		
+		//'State'
+		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
+		
+		//(name=ID componentclass+=DataType)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0_0() { return cNameIDTerminalRuleCall_1_0_0; }
+		
+		//componentclass+=DataType
+		public Assignment getComponentclassAssignment_1_1() { return cComponentclassAssignment_1_1; }
+		
+		//DataType
+		public RuleCall getComponentclassDataTypeParserRuleCall_1_1_0() { return cComponentclassDataTypeParserRuleCall_1_1_0; }
+	}
+	public class DataTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DataType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cStringKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cArrayKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cObjectKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cNumberKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cNullKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cBooleanKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//DataType:
+		//	'String' | 'Array' | 'Object' | 'Number' | 'null' | 'Boolean';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'String' | 'Array' | 'Object' | 'Number' | 'null' | 'Boolean'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'String'
+		public Keyword getStringKeyword_0() { return cStringKeyword_0; }
+		
+		//'Array'
+		public Keyword getArrayKeyword_1() { return cArrayKeyword_1; }
+		
+		//'Object'
+		public Keyword getObjectKeyword_2() { return cObjectKeyword_2; }
+		
+		//'Number'
+		public Keyword getNumberKeyword_3() { return cNumberKeyword_3; }
+		
+		//'null'
+		public Keyword getNullKeyword_4() { return cNullKeyword_4; }
+		
+		//'Boolean'
+		public Keyword getBooleanKeyword_5() { return cBooleanKeyword_5; }
+	}
+	public class CoreFunctionsDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.CoreFunctionsDeclaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cFunctionBindingDeclarationKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//CoreFunctionsDeclaration:
+		//	name=ID 'FunctionBindingDeclaration';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID 'FunctionBindingDeclaration'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'FunctionBindingDeclaration'
+		public Keyword getFunctionBindingDeclarationKeyword_1() { return cFunctionBindingDeclarationKeyword_1; }
+	}
+	public class ReactLifeCycleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactLifeCycle");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cComponentDidMountKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cFunctionStructureKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cComponentDidUpdateKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cFunctionStructureKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cComponentWillUnmountKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cFunctionStructureKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		
+		//ReactLifeCycle:
+		//	'ComponentDidMount' 'FunctionStructure' |
+		//	'ComponentDidUpdate' 'FunctionStructure' |
+		//	'ComponentWillUnmount' 'FunctionStructure';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ComponentDidMount' 'FunctionStructure' | 'ComponentDidUpdate' 'FunctionStructure' | 'ComponentWillUnmount'
+		//'FunctionStructure'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'ComponentDidMount' 'FunctionStructure'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'ComponentDidMount'
+		public Keyword getComponentDidMountKeyword_0_0() { return cComponentDidMountKeyword_0_0; }
+		
+		//'FunctionStructure'
+		public Keyword getFunctionStructureKeyword_0_1() { return cFunctionStructureKeyword_0_1; }
+		
+		//'ComponentDidUpdate' 'FunctionStructure'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'ComponentDidUpdate'
+		public Keyword getComponentDidUpdateKeyword_1_0() { return cComponentDidUpdateKeyword_1_0; }
+		
+		//'FunctionStructure'
+		public Keyword getFunctionStructureKeyword_1_1() { return cFunctionStructureKeyword_1_1; }
+		
+		//'ComponentWillUnmount' 'FunctionStructure'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'ComponentWillUnmount'
+		public Keyword getComponentWillUnmountKeyword_2_0() { return cComponentWillUnmountKeyword_2_0; }
+		
+		//'FunctionStructure'
+		public Keyword getFunctionStructureKeyword_2_1() { return cFunctionStructureKeyword_2_1; }
+	}
+	public class ReactRenderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactRender");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRenderKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cRenderContentKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ReactRender:
+		//	'Render' 'RenderContent';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Render' 'RenderContent'
+		public Group getGroup() { return cGroup; }
+		
+		//'Render'
+		public Keyword getRenderKeyword_0() { return cRenderKeyword_0; }
+		
+		//'RenderContent'
+		public Keyword getRenderContentKeyword_1() { return cRenderContentKeyword_1; }
+	}
+	public class PropsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Props");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPropsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
+		private final Assignment cComponentclassAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cComponentclassDataTypeParserRuleCall_1_1_0 = (RuleCall)cComponentclassAssignment_1_1.eContents().get(0);
+		
+		//Props:
+		//	'Props' (name=ID componentclass+=DataType)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Props' (name=ID componentclass+=DataType)*
+		public Group getGroup() { return cGroup; }
+		
+		//'Props'
+		public Keyword getPropsKeyword_0() { return cPropsKeyword_0; }
+		
+		//(name=ID componentclass+=DataType)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0_0() { return cNameIDTerminalRuleCall_1_0_0; }
+		
+		//componentclass+=DataType
+		public Assignment getComponentclassAssignment_1_1() { return cComponentclassAssignment_1_1; }
+		
+		//DataType
+		public RuleCall getComponentclassDataTypeParserRuleCall_1_1_0() { return cComponentclassDataTypeParserRuleCall_1_1_0; }
+	}
+	public class ReactCoreFunctionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactCoreFunctions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cFunctionStructureKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ReactCoreFunctions:
+		//	name=ID 'FunctionStructure';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID 'FunctionStructure'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'FunctionStructure'
+		public Keyword getFunctionStructureKeyword_1() { return cFunctionStructureKeyword_1; }
 	}
 	public class ReactActionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactActions");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReactActionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cReactactcontentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cReactactcontentReactActionsContentParserRuleCall_3_0 = (RuleCall)cReactactcontentAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ReactActions:
-		//	'ReactActions' name=ID;
+		//	'ReactActions' ':' '{' reactactcontent+=ReactActionsContent '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ReactActions' name=ID
+		//'ReactActions' ':' '{' reactactcontent+=ReactActionsContent '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'ReactActions'
 		public Keyword getReactActionsKeyword_0() { return cReactActionsKeyword_0; }
 		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//reactactcontent+=ReactActionsContent
+		public Assignment getReactactcontentAssignment_3() { return cReactactcontentAssignment_3; }
+		
+		//ReactActionsContent
+		public RuleCall getReactactcontentReactActionsContentParserRuleCall_3_0() { return cReactactcontentReactActionsContentParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class ReactActionsContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactActionsContent");
+		private final Assignment cReactrelcontentAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cReactrelcontentReactServicesRelationParserRuleCall_0 = (RuleCall)cReactrelcontentAssignment.eContents().get(0);
+		
+		//ReactActionsContent:
+		//	reactrelcontent+=ReactServicesRelation+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//reactrelcontent+=ReactServicesRelation+
+		public Assignment getReactrelcontentAssignment() { return cReactrelcontentAssignment; }
+		
+		//ReactServicesRelation
+		public RuleCall getReactrelcontentReactServicesRelationParserRuleCall_0() { return cReactrelcontentReactServicesRelationParserRuleCall_0; }
+	}
+	public class ReactServicesTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactServicesType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cServiceTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cServiceContentKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ReactServicesType:
+		//	'ServiceType' name=ID 'ServiceContent';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ServiceType' name=ID 'ServiceContent'
+		public Group getGroup() { return cGroup; }
+		
+		//'ServiceType'
+		public Keyword getServiceTypeKeyword_0() { return cServiceTypeKeyword_0; }
+		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'ServiceContent'
+		public Keyword getServiceContentKeyword_2() { return cServiceContentKeyword_2; }
+	}
+	public class ReactServicesRelationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactServicesRelation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cServicesRelationsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cReactrelationcontentAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cReactrelationcontentReactServicesTypeParserRuleCall_1_0_0 = (RuleCall)cReactrelationcontentAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final RuleCall cReactRequestParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		
+		//ReactServicesRelation:
+		//	'ServicesRelations' (reactrelationcontent+=ReactServicesType name=ID ReactRequest)+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ServicesRelations' (reactrelationcontent+=ReactServicesType name=ID ReactRequest)+
+		public Group getGroup() { return cGroup; }
+		
+		//'ServicesRelations'
+		public Keyword getServicesRelationsKeyword_0() { return cServicesRelationsKeyword_0; }
+		
+		//(reactrelationcontent+=ReactServicesType name=ID ReactRequest)+
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//reactrelationcontent+=ReactServicesType
+		public Assignment getReactrelationcontentAssignment_1_0() { return cReactrelationcontentAssignment_1_0; }
+		
+		//ReactServicesType
+		public RuleCall getReactrelationcontentReactServicesTypeParserRuleCall_1_0_0() { return cReactrelationcontentReactServicesTypeParserRuleCall_1_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		
+		//ReactRequest
+		public RuleCall getReactRequestParserRuleCall_1_2() { return cReactRequestParserRuleCall_1_2; }
+	}
+	public class ReactRequestElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactRequest");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cWrapperKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAuxWrapperKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//ReactRequest:
+		//	'Wrapper' | 'AuxWrapper';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Wrapper' | 'AuxWrapper'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Wrapper'
+		public Keyword getWrapperKeyword_0() { return cWrapperKeyword_0; }
+		
+		//'AuxWrapper'
+		public Keyword getAuxWrapperKeyword_1() { return cAuxWrapperKeyword_1; }
 	}
 	public class ReactLibrariesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactLibraries");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLibrariesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cReactLibrariesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cReactlibrariesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cReactlibrariesReactLibraryParserRuleCall_3_0 = (RuleCall)cReactlibrariesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ReactLibraries:
-		//	'Libraries' name=ID;
+		//	'ReactLibraries' ':' '{' reactlibraries+=ReactLibrary+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Libraries' name=ID
+		//'ReactLibraries' ':' '{' reactlibraries+=ReactLibrary+ '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'Libraries'
-		public Keyword getLibrariesKeyword_0() { return cLibrariesKeyword_0; }
+		//'ReactLibraries'
+		public Keyword getReactLibrariesKeyword_0() { return cReactLibrariesKeyword_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//reactlibraries+=ReactLibrary+
+		public Assignment getReactlibrariesAssignment_3() { return cReactlibrariesAssignment_3; }
+		
+		//ReactLibrary
+		public RuleCall getReactlibrariesReactLibraryParserRuleCall_3_0() { return cReactlibrariesReactLibraryParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class ReactLibraryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactLibrary");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cReactLibraryTypeParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLibraryContentKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ReactLibrary:
+		//	ReactLibraryType name=ID 'LibraryContent';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ReactLibraryType name=ID 'LibraryContent'
+		public Group getGroup() { return cGroup; }
+		
+		//ReactLibraryType
+		public RuleCall getReactLibraryTypeParserRuleCall_0() { return cReactLibraryTypeParserRuleCall_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'LibraryContent'
+		public Keyword getLibraryContentKeyword_2() { return cLibraryContentKeyword_2; }
+	}
+	public class ReactLibraryTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactLibraryType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cReactDesignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cReactRoutingKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cComponentManagementKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cStoreManagementKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cReactDeploymentKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cConfigurationLibraryKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//ReactLibraryType:
+		//	'ReactDesign' | 'ReactRouting' | 'ComponentManagement' |
+		//	'StoreManagement' | 'ReactDeployment' | 'ConfigurationLibrary';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ReactDesign' | 'ReactRouting' | 'ComponentManagement' | 'StoreManagement' | 'ReactDeployment' | 'ConfigurationLibrary'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'ReactDesign'
+		public Keyword getReactDesignKeyword_0() { return cReactDesignKeyword_0; }
+		
+		//'ReactRouting'
+		public Keyword getReactRoutingKeyword_1() { return cReactRoutingKeyword_1; }
+		
+		//'ComponentManagement'
+		public Keyword getComponentManagementKeyword_2() { return cComponentManagementKeyword_2; }
+		
+		//'StoreManagement'
+		public Keyword getStoreManagementKeyword_3() { return cStoreManagementKeyword_3; }
+		
+		//'ReactDeployment'
+		public Keyword getReactDeploymentKeyword_4() { return cReactDeploymentKeyword_4; }
+		
+		//'ConfigurationLibrary'
+		public Keyword getConfigurationLibraryKeyword_5() { return cConfigurationLibraryKeyword_5; }
 	}
 	public class ReactInfoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactInfo");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cInformationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cReactInformationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cReactinformationAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cReactinformationReactInformationParserRuleCall_3_0 = (RuleCall)cReactinformationAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ReactInfo:
-		//	'Information' name=ID;
+		//	'ReactInformation' ':' '{' reactinformation+=ReactInformation+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Information' name=ID
+		//'ReactInformation' ':' '{' reactinformation+=ReactInformation+ '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'Information'
-		public Keyword getInformationKeyword_0() { return cInformationKeyword_0; }
+		//'ReactInformation'
+		public Keyword getReactInformationKeyword_0() { return cReactInformationKeyword_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//reactinformation+=ReactInformation+
+		public Assignment getReactinformationAssignment_3() { return cReactinformationAssignment_3; }
+		
+		//ReactInformation
+		public RuleCall getReactinformationReactInformationParserRuleCall_3_0() { return cReactinformationReactInformationParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class ReactInformationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactInformation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cReactInformationTypeParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cInformationContentKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ReactInformation:
+		//	ReactInformationType name=ID 'InformationContent';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ReactInformationType name=ID 'InformationContent'
+		public Group getGroup() { return cGroup; }
+		
+		//ReactInformationType
+		public RuleCall getReactInformationTypeParserRuleCall_0() { return cReactInformationTypeParserRuleCall_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'InformationContent'
+		public Keyword getInformationContentKeyword_2() { return cInformationContentKeyword_2; }
+	}
+	public class ReactInformationTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReactInformationType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cReactReadmeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cReactAditionalInfoKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//ReactInformationType:
+		//	'ReactReadme' | 'ReactAditionalInfo';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ReactReadme' | 'ReactAditionalInfo'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'ReactReadme'
+		public Keyword getReactReadmeKeyword_0() { return cReactReadmeKeyword_0; }
+		
+		//'ReactAditionalInfo'
+		public Keyword getReactAditionalInfoKeyword_1() { return cReactAditionalInfoKeyword_1; }
 	}
 	public class SpringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Spring");
@@ -1585,12 +2393,35 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final PackageNameElements pPackageName;
 	private final PackageVersionElements pPackageVersion;
 	private final ReactConfigurationsElements pReactConfigurations;
+	private final DOMConfigurationsElements pDOMConfigurations;
+	private final DOMTypeConfElements pDOMTypeConf;
 	private final ReactComponentsElements pReactComponents;
 	private final ComponentsLogicElements pComponentsLogic;
+	private final LogicContentElements pLogicContent;
+	private final LogicStructureElements pLogicStructure;
 	private final ComponentsUIElements pComponentsUI;
+	private final UIContentElements pUIContent;
+	private final ComponentClassElements pComponentClass;
+	private final ReactFunctionsElements pReactFunctions;
+	private final ReactConstructorElements pReactConstructor;
+	private final StateElements pState;
+	private final DataTypeElements pDataType;
+	private final CoreFunctionsDeclarationElements pCoreFunctionsDeclaration;
+	private final ReactLifeCycleElements pReactLifeCycle;
+	private final ReactRenderElements pReactRender;
+	private final PropsElements pProps;
+	private final ReactCoreFunctionsElements pReactCoreFunctions;
 	private final ReactActionsElements pReactActions;
+	private final ReactActionsContentElements pReactActionsContent;
+	private final ReactServicesTypeElements pReactServicesType;
+	private final ReactServicesRelationElements pReactServicesRelation;
+	private final ReactRequestElements pReactRequest;
 	private final ReactLibrariesElements pReactLibraries;
+	private final ReactLibraryElements pReactLibrary;
+	private final ReactLibraryTypeElements pReactLibraryType;
 	private final ReactInfoElements pReactInfo;
+	private final ReactInformationElements pReactInformation;
+	private final ReactInformationTypeElements pReactInformationType;
 	private final SpringElements pSpring;
 	private final PostgreSQLElements pPostgreSQL;
 	private final AmazonWebServicesElements pAmazonWebServices;
@@ -1639,12 +2470,35 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPackageName = new PackageNameElements();
 		this.pPackageVersion = new PackageVersionElements();
 		this.pReactConfigurations = new ReactConfigurationsElements();
+		this.pDOMConfigurations = new DOMConfigurationsElements();
+		this.pDOMTypeConf = new DOMTypeConfElements();
 		this.pReactComponents = new ReactComponentsElements();
 		this.pComponentsLogic = new ComponentsLogicElements();
+		this.pLogicContent = new LogicContentElements();
+		this.pLogicStructure = new LogicStructureElements();
 		this.pComponentsUI = new ComponentsUIElements();
+		this.pUIContent = new UIContentElements();
+		this.pComponentClass = new ComponentClassElements();
+		this.pReactFunctions = new ReactFunctionsElements();
+		this.pReactConstructor = new ReactConstructorElements();
+		this.pState = new StateElements();
+		this.pDataType = new DataTypeElements();
+		this.pCoreFunctionsDeclaration = new CoreFunctionsDeclarationElements();
+		this.pReactLifeCycle = new ReactLifeCycleElements();
+		this.pReactRender = new ReactRenderElements();
+		this.pProps = new PropsElements();
+		this.pReactCoreFunctions = new ReactCoreFunctionsElements();
 		this.pReactActions = new ReactActionsElements();
+		this.pReactActionsContent = new ReactActionsContentElements();
+		this.pReactServicesType = new ReactServicesTypeElements();
+		this.pReactServicesRelation = new ReactServicesRelationElements();
+		this.pReactRequest = new ReactRequestElements();
 		this.pReactLibraries = new ReactLibrariesElements();
+		this.pReactLibrary = new ReactLibraryElements();
+		this.pReactLibraryType = new ReactLibraryTypeElements();
 		this.pReactInfo = new ReactInfoElements();
+		this.pReactInformation = new ReactInformationElements();
+		this.pReactInformationType = new ReactInformationTypeElements();
 		this.pSpring = new SpringElements();
 		this.pPostgreSQL = new PostgreSQLElements();
 		this.pAmazonWebServices = new AmazonWebServicesElements();
@@ -1711,7 +2565,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Entities:
-	//	elements+=Photo elements+=Album elements+=UserDomain;
+	//	elements+=Photo+ elements+=Album+ elements+=UserDomain+;
 	public EntitiesElements getEntitiesAccess() {
 		return pEntities;
 	}
@@ -1966,7 +2820,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ReactConfiguration:
-	//	'ReactConfiguration' dependencies+=ReactDependencies configurations+=ReactConfigurations;
+	//	'ReactConfiguration' ':' '{' dependencies+=ReactDependencies configurations+=ReactConfigurations '}';
 	public ReactConfigurationElements getReactConfigurationAccess() {
 		return pReactConfiguration;
 	}
@@ -2036,7 +2890,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ReactConfigurations:
-	//	'ReactDOMConfigurations' name=ID;
+	//	'ReactDOMConfigurations' name=ID configurations+=DOMConfigurations+;
 	public ReactConfigurationsElements getReactConfigurationsAccess() {
 		return pReactConfigurations;
 	}
@@ -2045,8 +2899,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getReactConfigurationsAccess().getRule();
 	}
 	
+	//DOMConfigurations:
+	//	elements+=DOMTypeConf name=ID;
+	public DOMConfigurationsElements getDOMConfigurationsAccess() {
+		return pDOMConfigurations;
+	}
+	
+	public ParserRule getDOMConfigurationsRule() {
+		return getDOMConfigurationsAccess().getRule();
+	}
+	
+	//DOMTypeConf:
+	//	'RoutingConf' | 'ServiceWorker' | 'HTMLStructure' | 'Manifest' | 'RepositoriesConf';
+	public DOMTypeConfElements getDOMTypeConfAccess() {
+		return pDOMTypeConf;
+	}
+	
+	public ParserRule getDOMTypeConfRule() {
+		return getDOMTypeConfAccess().getRule();
+	}
+	
 	//ReactComponents:
-	//	'ReactComponents' componentslogic+=ComponentsLogic componentsui+=ComponentsUI;
+	//	'ReactComponents' ':' '{' componentslogic+=ComponentsLogic componentsui+=ComponentsUI '}';
 	public ReactComponentsElements getReactComponentsAccess() {
 		return pReactComponents;
 	}
@@ -2056,7 +2930,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ComponentsLogic:
-	//	'LogicComponents' name=ID;
+	//	'LogicComponents' name=ID logiccomponents+=LogicContent;
 	public ComponentsLogicElements getComponentsLogicAccess() {
 		return pComponentsLogic;
 	}
@@ -2065,8 +2939,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getComponentsLogicAccess().getRule();
 	}
 	
+	//LogicContent:
+	//	'RoutingComponents' name=ID logiccomponents+=LogicStructure;
+	public LogicContentElements getLogicContentAccess() {
+		return pLogicContent;
+	}
+	
+	public ParserRule getLogicContentRule() {
+		return getLogicContentAccess().getRule();
+	}
+	
+	//LogicStructure:
+	//	'AppComponent' name=ID logiccomponents+=ComponentClass 'IndexComponent' name=ID;
+	public LogicStructureElements getLogicStructureAccess() {
+		return pLogicStructure;
+	}
+	
+	public ParserRule getLogicStructureRule() {
+		return getLogicStructureAccess().getRule();
+	}
+	
 	//ComponentsUI:
-	//	'UIComponents' name=ID;
+	//	'UIComponents' name=ID uicomponents+=UIContent;
 	public ComponentsUIElements getComponentsUIAccess() {
 		return pComponentsUI;
 	}
@@ -2075,8 +2969,121 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getComponentsUIAccess().getRule();
 	}
 	
+	//UIContent:
+	//	('ViewComponent' name=ID uicontent+=ComponentClass)+ ('Subcomponents' name=ID uicontent+=ComponentClass)+;
+	public UIContentElements getUIContentAccess() {
+		return pUIContent;
+	}
+	
+	public ParserRule getUIContentRule() {
+		return getUIContentAccess().getRule();
+	}
+	
+	//ComponentClass:
+	//	componentclass+=ReactFunctions componentclass+=Props;
+	public ComponentClassElements getComponentClassAccess() {
+		return pComponentClass;
+	}
+	
+	public ParserRule getComponentClassRule() {
+		return getComponentClassAccess().getRule();
+	}
+	
+	//ReactFunctions:
+	//	componentclass+=ReactConstructor lifecycleclass+=ReactLifeCycle* componentclass+=ReactCoreFunctions*
+	//	renderclass+=ReactRender;
+	public ReactFunctionsElements getReactFunctionsAccess() {
+		return pReactFunctions;
+	}
+	
+	public ParserRule getReactFunctionsRule() {
+		return getReactFunctionsAccess().getRule();
+	}
+	
+	//ReactConstructor:
+	//	'Constructor' componentclass+=State componentclass+=CoreFunctionsDeclaration*;
+	public ReactConstructorElements getReactConstructorAccess() {
+		return pReactConstructor;
+	}
+	
+	public ParserRule getReactConstructorRule() {
+		return getReactConstructorAccess().getRule();
+	}
+	
+	//State:
+	//	'State' (name=ID componentclass+=DataType)*;
+	public StateElements getStateAccess() {
+		return pState;
+	}
+	
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
+	}
+	
+	//DataType:
+	//	'String' | 'Array' | 'Object' | 'Number' | 'null' | 'Boolean';
+	public DataTypeElements getDataTypeAccess() {
+		return pDataType;
+	}
+	
+	public ParserRule getDataTypeRule() {
+		return getDataTypeAccess().getRule();
+	}
+	
+	//CoreFunctionsDeclaration:
+	//	name=ID 'FunctionBindingDeclaration';
+	public CoreFunctionsDeclarationElements getCoreFunctionsDeclarationAccess() {
+		return pCoreFunctionsDeclaration;
+	}
+	
+	public ParserRule getCoreFunctionsDeclarationRule() {
+		return getCoreFunctionsDeclarationAccess().getRule();
+	}
+	
+	//ReactLifeCycle:
+	//	'ComponentDidMount' 'FunctionStructure' |
+	//	'ComponentDidUpdate' 'FunctionStructure' |
+	//	'ComponentWillUnmount' 'FunctionStructure';
+	public ReactLifeCycleElements getReactLifeCycleAccess() {
+		return pReactLifeCycle;
+	}
+	
+	public ParserRule getReactLifeCycleRule() {
+		return getReactLifeCycleAccess().getRule();
+	}
+	
+	//ReactRender:
+	//	'Render' 'RenderContent';
+	public ReactRenderElements getReactRenderAccess() {
+		return pReactRender;
+	}
+	
+	public ParserRule getReactRenderRule() {
+		return getReactRenderAccess().getRule();
+	}
+	
+	//Props:
+	//	'Props' (name=ID componentclass+=DataType)*;
+	public PropsElements getPropsAccess() {
+		return pProps;
+	}
+	
+	public ParserRule getPropsRule() {
+		return getPropsAccess().getRule();
+	}
+	
+	//ReactCoreFunctions:
+	//	name=ID 'FunctionStructure';
+	public ReactCoreFunctionsElements getReactCoreFunctionsAccess() {
+		return pReactCoreFunctions;
+	}
+	
+	public ParserRule getReactCoreFunctionsRule() {
+		return getReactCoreFunctionsAccess().getRule();
+	}
+	
 	//ReactActions:
-	//	'ReactActions' name=ID;
+	//	'ReactActions' ':' '{' reactactcontent+=ReactActionsContent '}';
 	public ReactActionsElements getReactActionsAccess() {
 		return pReactActions;
 	}
@@ -2085,8 +3092,48 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getReactActionsAccess().getRule();
 	}
 	
+	//ReactActionsContent:
+	//	reactrelcontent+=ReactServicesRelation+;
+	public ReactActionsContentElements getReactActionsContentAccess() {
+		return pReactActionsContent;
+	}
+	
+	public ParserRule getReactActionsContentRule() {
+		return getReactActionsContentAccess().getRule();
+	}
+	
+	//ReactServicesType:
+	//	'ServiceType' name=ID 'ServiceContent';
+	public ReactServicesTypeElements getReactServicesTypeAccess() {
+		return pReactServicesType;
+	}
+	
+	public ParserRule getReactServicesTypeRule() {
+		return getReactServicesTypeAccess().getRule();
+	}
+	
+	//ReactServicesRelation:
+	//	'ServicesRelations' (reactrelationcontent+=ReactServicesType name=ID ReactRequest)+;
+	public ReactServicesRelationElements getReactServicesRelationAccess() {
+		return pReactServicesRelation;
+	}
+	
+	public ParserRule getReactServicesRelationRule() {
+		return getReactServicesRelationAccess().getRule();
+	}
+	
+	//ReactRequest:
+	//	'Wrapper' | 'AuxWrapper';
+	public ReactRequestElements getReactRequestAccess() {
+		return pReactRequest;
+	}
+	
+	public ParserRule getReactRequestRule() {
+		return getReactRequestAccess().getRule();
+	}
+	
 	//ReactLibraries:
-	//	'Libraries' name=ID;
+	//	'ReactLibraries' ':' '{' reactlibraries+=ReactLibrary+ '}';
 	public ReactLibrariesElements getReactLibrariesAccess() {
 		return pReactLibraries;
 	}
@@ -2095,14 +3142,55 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getReactLibrariesAccess().getRule();
 	}
 	
+	//ReactLibrary:
+	//	ReactLibraryType name=ID 'LibraryContent';
+	public ReactLibraryElements getReactLibraryAccess() {
+		return pReactLibrary;
+	}
+	
+	public ParserRule getReactLibraryRule() {
+		return getReactLibraryAccess().getRule();
+	}
+	
+	//ReactLibraryType:
+	//	'ReactDesign' | 'ReactRouting' | 'ComponentManagement' |
+	//	'StoreManagement' | 'ReactDeployment' | 'ConfigurationLibrary';
+	public ReactLibraryTypeElements getReactLibraryTypeAccess() {
+		return pReactLibraryType;
+	}
+	
+	public ParserRule getReactLibraryTypeRule() {
+		return getReactLibraryTypeAccess().getRule();
+	}
+	
 	//ReactInfo:
-	//	'Information' name=ID;
+	//	'ReactInformation' ':' '{' reactinformation+=ReactInformation+ '}';
 	public ReactInfoElements getReactInfoAccess() {
 		return pReactInfo;
 	}
 	
 	public ParserRule getReactInfoRule() {
 		return getReactInfoAccess().getRule();
+	}
+	
+	//ReactInformation:
+	//	ReactInformationType name=ID 'InformationContent';
+	public ReactInformationElements getReactInformationAccess() {
+		return pReactInformation;
+	}
+	
+	public ParserRule getReactInformationRule() {
+		return getReactInformationAccess().getRule();
+	}
+	
+	//ReactInformationType:
+	//	'ReactReadme' | 'ReactAditionalInfo';
+	public ReactInformationTypeElements getReactInformationTypeAccess() {
+		return pReactInformationType;
+	}
+	
+	public ParserRule getReactInformationTypeRule() {
+		return getReactInformationTypeAccess().getRule();
 	}
 	
 	////Spring

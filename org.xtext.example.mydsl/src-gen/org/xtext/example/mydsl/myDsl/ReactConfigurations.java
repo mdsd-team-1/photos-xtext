@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.ReactConfigurations#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.ReactConfigurations#getConfigurations <em>Configurations</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReactConfigurations()
@@ -44,5 +47,17 @@ public interface ReactConfigurations extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.DOMConfigurations}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Configurations</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReactConfigurations_Configurations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<DOMConfigurations> getConfigurations();
 
 } // ReactConfigurations

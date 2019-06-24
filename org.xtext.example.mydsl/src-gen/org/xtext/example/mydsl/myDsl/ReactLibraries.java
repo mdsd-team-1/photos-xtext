@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.ReactLibraries#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.ReactLibraries#getReactlibraries <em>Reactlibraries</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReactLibraries()
@@ -24,25 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface ReactLibraries extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Reactlibraries</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.ReactLibrary}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReactLibraries_Name()
-   * @model
+   * @return the value of the '<em>Reactlibraries</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReactLibraries_Reactlibraries()
+   * @model containment="true"
    * @generated
    */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.ReactLibraries#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
+  EList<ReactLibrary> getReactlibraries();
 
 } // ReactLibraries

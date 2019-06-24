@@ -251,6 +251,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createReactConfigurationsAdapter();
       }
       @Override
+      public Adapter caseDOMConfigurations(DOMConfigurations object)
+      {
+        return createDOMConfigurationsAdapter();
+      }
+      @Override
       public Adapter caseReactComponents(ReactComponents object)
       {
         return createReactComponentsAdapter();
@@ -261,9 +266,59 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createComponentsLogicAdapter();
       }
       @Override
+      public Adapter caseLogicContent(LogicContent object)
+      {
+        return createLogicContentAdapter();
+      }
+      @Override
+      public Adapter caseLogicStructure(LogicStructure object)
+      {
+        return createLogicStructureAdapter();
+      }
+      @Override
       public Adapter caseComponentsUI(ComponentsUI object)
       {
         return createComponentsUIAdapter();
+      }
+      @Override
+      public Adapter caseUIContent(UIContent object)
+      {
+        return createUIContentAdapter();
+      }
+      @Override
+      public Adapter caseComponentClass(ComponentClass object)
+      {
+        return createComponentClassAdapter();
+      }
+      @Override
+      public Adapter caseReactFunctions(ReactFunctions object)
+      {
+        return createReactFunctionsAdapter();
+      }
+      @Override
+      public Adapter caseReactConstructor(ReactConstructor object)
+      {
+        return createReactConstructorAdapter();
+      }
+      @Override
+      public Adapter caseState(State object)
+      {
+        return createStateAdapter();
+      }
+      @Override
+      public Adapter caseCoreFunctionsDeclaration(CoreFunctionsDeclaration object)
+      {
+        return createCoreFunctionsDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseProps(Props object)
+      {
+        return createPropsAdapter();
+      }
+      @Override
+      public Adapter caseReactCoreFunctions(ReactCoreFunctions object)
+      {
+        return createReactCoreFunctionsAdapter();
       }
       @Override
       public Adapter caseReactActions(ReactActions object)
@@ -271,14 +326,39 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createReactActionsAdapter();
       }
       @Override
+      public Adapter caseReactActionsContent(ReactActionsContent object)
+      {
+        return createReactActionsContentAdapter();
+      }
+      @Override
+      public Adapter caseReactServicesType(ReactServicesType object)
+      {
+        return createReactServicesTypeAdapter();
+      }
+      @Override
+      public Adapter caseReactServicesRelation(ReactServicesRelation object)
+      {
+        return createReactServicesRelationAdapter();
+      }
+      @Override
       public Adapter caseReactLibraries(ReactLibraries object)
       {
         return createReactLibrariesAdapter();
       }
       @Override
+      public Adapter caseReactLibrary(ReactLibrary object)
+      {
+        return createReactLibraryAdapter();
+      }
+      @Override
       public Adapter caseReactInfo(ReactInfo object)
       {
         return createReactInfoAdapter();
+      }
+      @Override
+      public Adapter caseReactInformation(ReactInformation object)
+      {
+        return createReactInformationAdapter();
       }
       @Override
       public Adapter caseSpring(Spring object)
@@ -843,6 +923,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.DOMConfigurations <em>DOM Configurations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.DOMConfigurations
+   * @generated
+   */
+  public Adapter createDOMConfigurationsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactComponents <em>React Components</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -873,6 +968,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LogicContent <em>Logic Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LogicContent
+   * @generated
+   */
+  public Adapter createLogicContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LogicStructure <em>Logic Structure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LogicStructure
+   * @generated
+   */
+  public Adapter createLogicStructureAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ComponentsUI <em>Components UI</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -883,6 +1008,126 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComponentsUIAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.UIContent <em>UI Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.UIContent
+   * @generated
+   */
+  public Adapter createUIContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ComponentClass <em>Component Class</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ComponentClass
+   * @generated
+   */
+  public Adapter createComponentClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactFunctions <em>React Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactFunctions
+   * @generated
+   */
+  public Adapter createReactFunctionsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactConstructor <em>React Constructor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactConstructor
+   * @generated
+   */
+  public Adapter createReactConstructorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.State
+   * @generated
+   */
+  public Adapter createStateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration <em>Core Functions Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration
+   * @generated
+   */
+  public Adapter createCoreFunctionsDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Props <em>Props</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Props
+   * @generated
+   */
+  public Adapter createPropsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactCoreFunctions <em>React Core Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactCoreFunctions
+   * @generated
+   */
+  public Adapter createReactCoreFunctionsAdapter()
   {
     return null;
   }
@@ -903,6 +1148,51 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactActionsContent <em>React Actions Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactActionsContent
+   * @generated
+   */
+  public Adapter createReactActionsContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactServicesType <em>React Services Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesType
+   * @generated
+   */
+  public Adapter createReactServicesTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactServicesRelation <em>React Services Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactServicesRelation
+   * @generated
+   */
+  public Adapter createReactServicesRelationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactLibraries <em>React Libraries</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -918,6 +1208,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactLibrary <em>React Library</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactLibrary
+   * @generated
+   */
+  public Adapter createReactLibraryAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactInfo <em>React Info</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -928,6 +1233,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createReactInfoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReactInformation <em>React Information</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReactInformation
+   * @generated
+   */
+  public Adapter createReactInformationAdapter()
   {
     return null;
   }

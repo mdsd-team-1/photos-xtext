@@ -21,8 +21,11 @@ import org.xtext.example.mydsl.myDsl.AmazonWebServices;
 import org.xtext.example.mydsl.myDsl.AppAccess;
 import org.xtext.example.mydsl.myDsl.AppAccessFunctions;
 import org.xtext.example.mydsl.myDsl.Architecture;
+import org.xtext.example.mydsl.myDsl.ComponentClass;
 import org.xtext.example.mydsl.myDsl.ComponentsLogic;
 import org.xtext.example.mydsl.myDsl.ComponentsUI;
+import org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration;
+import org.xtext.example.mydsl.myDsl.DOMConfigurations;
 import org.xtext.example.mydsl.myDsl.Domain;
 import org.xtext.example.mydsl.myDsl.DomainConnection;
 import org.xtext.example.mydsl.myDsl.DomainRelations;
@@ -32,6 +35,8 @@ import org.xtext.example.mydsl.myDsl.Functionalities;
 import org.xtext.example.mydsl.myDsl.Functionality;
 import org.xtext.example.mydsl.myDsl.LandingActions;
 import org.xtext.example.mydsl.myDsl.LandingFunctions;
+import org.xtext.example.mydsl.myDsl.LogicContent;
+import org.xtext.example.mydsl.myDsl.LogicStructure;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.PackageName;
@@ -42,22 +47,33 @@ import org.xtext.example.mydsl.myDsl.PhotoActionsFunctions;
 import org.xtext.example.mydsl.myDsl.PostgreSQL;
 import org.xtext.example.mydsl.myDsl.ProfileManagement;
 import org.xtext.example.mydsl.myDsl.ProfileManagementFunctions;
+import org.xtext.example.mydsl.myDsl.Props;
 import org.xtext.example.mydsl.myDsl.React;
 import org.xtext.example.mydsl.myDsl.ReactActions;
+import org.xtext.example.mydsl.myDsl.ReactActionsContent;
 import org.xtext.example.mydsl.myDsl.ReactComponents;
 import org.xtext.example.mydsl.myDsl.ReactConfiguration;
 import org.xtext.example.mydsl.myDsl.ReactConfigurations;
+import org.xtext.example.mydsl.myDsl.ReactConstructor;
+import org.xtext.example.mydsl.myDsl.ReactCoreFunctions;
 import org.xtext.example.mydsl.myDsl.ReactDependencies;
 import org.xtext.example.mydsl.myDsl.ReactDependenciesRules;
 import org.xtext.example.mydsl.myDsl.ReactDependenciesSubRules;
+import org.xtext.example.mydsl.myDsl.ReactFunctions;
 import org.xtext.example.mydsl.myDsl.ReactInfo;
+import org.xtext.example.mydsl.myDsl.ReactInformation;
 import org.xtext.example.mydsl.myDsl.ReactLibraries;
+import org.xtext.example.mydsl.myDsl.ReactLibrary;
 import org.xtext.example.mydsl.myDsl.ReactModules;
+import org.xtext.example.mydsl.myDsl.ReactServicesRelation;
+import org.xtext.example.mydsl.myDsl.ReactServicesType;
 import org.xtext.example.mydsl.myDsl.ReactSubModules;
 import org.xtext.example.mydsl.myDsl.SingleDependencies;
 import org.xtext.example.mydsl.myDsl.Spring;
+import org.xtext.example.mydsl.myDsl.State;
 import org.xtext.example.mydsl.myDsl.Technologies;
 import org.xtext.example.mydsl.myDsl.Technology;
+import org.xtext.example.mydsl.myDsl.UIContent;
 import org.xtext.example.mydsl.myDsl.UserDomain;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
@@ -96,11 +112,20 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.ARCHITECTURE:
 				sequence_Architecture(context, (Architecture) semanticObject); 
 				return; 
+			case MyDslPackage.COMPONENT_CLASS:
+				sequence_ComponentClass(context, (ComponentClass) semanticObject); 
+				return; 
 			case MyDslPackage.COMPONENTS_LOGIC:
 				sequence_ComponentsLogic(context, (ComponentsLogic) semanticObject); 
 				return; 
 			case MyDslPackage.COMPONENTS_UI:
 				sequence_ComponentsUI(context, (ComponentsUI) semanticObject); 
+				return; 
+			case MyDslPackage.CORE_FUNCTIONS_DECLARATION:
+				sequence_CoreFunctionsDeclaration(context, (CoreFunctionsDeclaration) semanticObject); 
+				return; 
+			case MyDslPackage.DOM_CONFIGURATIONS:
+				sequence_DOMConfigurations(context, (DOMConfigurations) semanticObject); 
 				return; 
 			case MyDslPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
@@ -129,6 +154,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.LANDING_FUNCTIONS:
 				sequence_LandingFunctions(context, (LandingFunctions) semanticObject); 
 				return; 
+			case MyDslPackage.LOGIC_CONTENT:
+				sequence_LogicContent(context, (LogicContent) semanticObject); 
+				return; 
+			case MyDslPackage.LOGIC_STRUCTURE:
+				sequence_LogicStructure(context, (LogicStructure) semanticObject); 
+				return; 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
@@ -156,11 +187,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.PROFILE_MANAGEMENT_FUNCTIONS:
 				sequence_ProfileManagementFunctions(context, (ProfileManagementFunctions) semanticObject); 
 				return; 
+			case MyDslPackage.PROPS:
+				sequence_Props(context, (Props) semanticObject); 
+				return; 
 			case MyDslPackage.REACT:
 				sequence_React(context, (React) semanticObject); 
 				return; 
 			case MyDslPackage.REACT_ACTIONS:
 				sequence_ReactActions(context, (ReactActions) semanticObject); 
+				return; 
+			case MyDslPackage.REACT_ACTIONS_CONTENT:
+				sequence_ReactActionsContent(context, (ReactActionsContent) semanticObject); 
 				return; 
 			case MyDslPackage.REACT_COMPONENTS:
 				sequence_ReactComponents(context, (ReactComponents) semanticObject); 
@@ -171,6 +208,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.REACT_CONFIGURATIONS:
 				sequence_ReactConfigurations(context, (ReactConfigurations) semanticObject); 
 				return; 
+			case MyDslPackage.REACT_CONSTRUCTOR:
+				sequence_ReactConstructor(context, (ReactConstructor) semanticObject); 
+				return; 
+			case MyDslPackage.REACT_CORE_FUNCTIONS:
+				sequence_ReactCoreFunctions(context, (ReactCoreFunctions) semanticObject); 
+				return; 
 			case MyDslPackage.REACT_DEPENDENCIES:
 				sequence_ReactDependencies(context, (ReactDependencies) semanticObject); 
 				return; 
@@ -180,14 +223,29 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.REACT_DEPENDENCIES_SUB_RULES:
 				sequence_ReactDependenciesSubRules(context, (ReactDependenciesSubRules) semanticObject); 
 				return; 
+			case MyDslPackage.REACT_FUNCTIONS:
+				sequence_ReactFunctions(context, (ReactFunctions) semanticObject); 
+				return; 
 			case MyDslPackage.REACT_INFO:
 				sequence_ReactInfo(context, (ReactInfo) semanticObject); 
+				return; 
+			case MyDslPackage.REACT_INFORMATION:
+				sequence_ReactInformation(context, (ReactInformation) semanticObject); 
 				return; 
 			case MyDslPackage.REACT_LIBRARIES:
 				sequence_ReactLibraries(context, (ReactLibraries) semanticObject); 
 				return; 
+			case MyDslPackage.REACT_LIBRARY:
+				sequence_ReactLibrary(context, (ReactLibrary) semanticObject); 
+				return; 
 			case MyDslPackage.REACT_MODULES:
 				sequence_ReactModules(context, (ReactModules) semanticObject); 
+				return; 
+			case MyDslPackage.REACT_SERVICES_RELATION:
+				sequence_ReactServicesRelation(context, (ReactServicesRelation) semanticObject); 
+				return; 
+			case MyDslPackage.REACT_SERVICES_TYPE:
+				sequence_ReactServicesType(context, (ReactServicesType) semanticObject); 
 				return; 
 			case MyDslPackage.REACT_SUB_MODULES:
 				sequence_ReactSubModules(context, (ReactSubModules) semanticObject); 
@@ -198,11 +256,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.SPRING:
 				sequence_Spring(context, (Spring) semanticObject); 
 				return; 
+			case MyDslPackage.STATE:
+				sequence_State(context, (State) semanticObject); 
+				return; 
 			case MyDslPackage.TECHNOLOGIES:
 				sequence_Technologies(context, (Technologies) semanticObject); 
 				return; 
 			case MyDslPackage.TECHNOLOGY:
 				sequence_Technology(context, (Technology) semanticObject); 
+				return; 
+			case MyDslPackage.UI_CONTENT:
+				sequence_UIContent(context, (UIContent) semanticObject); 
 				return; 
 			case MyDslPackage.USER_DOMAIN:
 				sequence_UserDomain(context, (UserDomain) semanticObject); 
@@ -316,19 +380,25 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ComponentClass returns ComponentClass
+	 *
+	 * Constraint:
+	 *     (componentclass+=ReactFunctions componentclass+=Props)
+	 */
+	protected void sequence_ComponentClass(ISerializationContext context, ComponentClass semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ComponentsLogic returns ComponentsLogic
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID logiccomponents+=LogicContent)
 	 */
 	protected void sequence_ComponentsLogic(ISerializationContext context, ComponentsLogic semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.COMPONENTS_LOGIC__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.COMPONENTS_LOGIC__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComponentsLogicAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -337,16 +407,40 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ComponentsUI returns ComponentsUI
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID uicomponents+=UIContent)
 	 */
 	protected void sequence_ComponentsUI(ISerializationContext context, ComponentsUI semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CoreFunctionsDeclaration returns CoreFunctionsDeclaration
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_CoreFunctionsDeclaration(ISerializationContext context, CoreFunctionsDeclaration semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.COMPONENTS_UI__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.COMPONENTS_UI__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CORE_FUNCTIONS_DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CORE_FUNCTIONS_DECLARATION__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComponentsUIAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCoreFunctionsDeclarationAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DOMConfigurations returns DOMConfigurations
+	 *
+	 * Constraint:
+	 *     (elements+=DOMTypeConf name=ID)
+	 */
+	protected void sequence_DOMConfigurations(ISerializationContext context, DOMConfigurations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -404,7 +498,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Entities returns Entities
 	 *
 	 * Constraint:
-	 *     (elements+=Photo elements+=Album elements+=UserDomain)
+	 *     (elements+=Photo+ elements+=Album+ elements+=UserDomain+)
 	 */
 	protected void sequence_Entities(ISerializationContext context, Entities semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -467,6 +561,30 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID name=ID)
 	 */
 	protected void sequence_LandingFunctions(ISerializationContext context, LandingFunctions semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LogicContent returns LogicContent
+	 *
+	 * Constraint:
+	 *     (name=ID logiccomponents+=LogicStructure)
+	 */
+	protected void sequence_LogicContent(ISerializationContext context, LogicContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LogicStructure returns LogicStructure
+	 *
+	 * Constraint:
+	 *     (name=ID logiccomponents+=ComponentClass name=ID)
+	 */
+	protected void sequence_LogicStructure(ISerializationContext context, LogicStructure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -605,19 +723,37 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Props returns Props
+	 *
+	 * Constraint:
+	 *     (name=ID componentclass+=DataType)+
+	 */
+	protected void sequence_Props(ISerializationContext context, Props semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactActionsContent returns ReactActionsContent
+	 *
+	 * Constraint:
+	 *     reactrelcontent+=ReactServicesRelation+
+	 */
+	protected void sequence_ReactActionsContent(ISerializationContext context, ReactActionsContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ReactActions returns ReactActions
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     reactactcontent+=ReactActionsContent
 	 */
 	protected void sequence_ReactActions(ISerializationContext context, ReactActions semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_ACTIONS__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_ACTIONS__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReactActionsAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -650,15 +786,39 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ReactConfigurations returns ReactConfigurations
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID configurations+=DOMConfigurations+)
 	 */
 	protected void sequence_ReactConfigurations(ISerializationContext context, ReactConfigurations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactConstructor returns ReactConstructor
+	 *
+	 * Constraint:
+	 *     (componentclass+=State componentclass+=CoreFunctionsDeclaration*)
+	 */
+	protected void sequence_ReactConstructor(ISerializationContext context, ReactConstructor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactCoreFunctions returns ReactCoreFunctions
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ReactCoreFunctions(ISerializationContext context, ReactCoreFunctions semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_CONFIGURATIONS__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_CONFIGURATIONS__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_CORE_FUNCTIONS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_CORE_FUNCTIONS__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReactConfigurationsAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getReactCoreFunctionsAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -701,18 +861,42 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReactFunctions returns ReactFunctions
+	 *
+	 * Constraint:
+	 *     (componentclass+=ReactConstructor lifecycleclass+=ReactLifeCycle* componentclass+=ReactCoreFunctions* renderclass+=ReactRender)
+	 */
+	protected void sequence_ReactFunctions(ISerializationContext context, ReactFunctions semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ReactInfo returns ReactInfo
+	 *
+	 * Constraint:
+	 *     reactinformation+=ReactInformation+
+	 */
+	protected void sequence_ReactInfo(ISerializationContext context, ReactInfo semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactInformation returns ReactInformation
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_ReactInfo(ISerializationContext context, ReactInfo semanticObject) {
+	protected void sequence_ReactInformation(ISerializationContext context, ReactInformation semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_INFO__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_INFO__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_INFORMATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_INFORMATION__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReactInfoAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getReactInformationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -722,15 +906,27 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ReactLibraries returns ReactLibraries
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     reactlibraries+=ReactLibrary+
 	 */
 	protected void sequence_ReactLibraries(ISerializationContext context, ReactLibraries semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactLibrary returns ReactLibrary
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ReactLibrary(ISerializationContext context, ReactLibrary semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_LIBRARIES__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_LIBRARIES__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_LIBRARY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_LIBRARY__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReactLibrariesAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getReactLibraryAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -744,6 +940,36 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_ReactModules(ISerializationContext context, ReactModules semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactServicesRelation returns ReactServicesRelation
+	 *
+	 * Constraint:
+	 *     (reactrelationcontent+=ReactServicesType name=ID)+
+	 */
+	protected void sequence_ReactServicesRelation(ISerializationContext context, ReactServicesRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReactServicesType returns ReactServicesType
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ReactServicesType(ISerializationContext context, ReactServicesType semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REACT_SERVICES_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REACT_SERVICES_TYPE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReactServicesTypeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -803,6 +1029,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     State returns State
+	 *
+	 * Constraint:
+	 *     (name=ID componentclass+=DataType)+
+	 */
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Technologies returns Technologies
 	 *
 	 * Constraint:
@@ -821,6 +1059,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID elements+=Technologies)
 	 */
 	protected void sequence_Technology(ISerializationContext context, Technology semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UIContent returns UIContent
+	 *
+	 * Constraint:
+	 *     ((name=ID uicontent+=ComponentClass)+ (name=ID uicontent+=ComponentClass)+)
+	 */
+	protected void sequence_UIContent(ISerializationContext context, UIContent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

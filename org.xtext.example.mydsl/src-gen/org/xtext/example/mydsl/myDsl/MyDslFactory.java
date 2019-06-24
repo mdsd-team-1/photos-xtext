@@ -339,6 +339,15 @@ public interface MyDslFactory extends EFactory
   ReactConfigurations createReactConfigurations();
 
   /**
+   * Returns a new object of class '<em>DOM Configurations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DOM Configurations</em>'.
+   * @generated
+   */
+  DOMConfigurations createDOMConfigurations();
+
+  /**
    * Returns a new object of class '<em>React Components</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -357,6 +366,24 @@ public interface MyDslFactory extends EFactory
   ComponentsLogic createComponentsLogic();
 
   /**
+   * Returns a new object of class '<em>Logic Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logic Content</em>'.
+   * @generated
+   */
+  LogicContent createLogicContent();
+
+  /**
+   * Returns a new object of class '<em>Logic Structure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logic Structure</em>'.
+   * @generated
+   */
+  LogicStructure createLogicStructure();
+
+  /**
    * Returns a new object of class '<em>Components UI</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -364,6 +391,78 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   ComponentsUI createComponentsUI();
+
+  /**
+   * Returns a new object of class '<em>UI Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Content</em>'.
+   * @generated
+   */
+  UIContent createUIContent();
+
+  /**
+   * Returns a new object of class '<em>Component Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Component Class</em>'.
+   * @generated
+   */
+  ComponentClass createComponentClass();
+
+  /**
+   * Returns a new object of class '<em>React Functions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Functions</em>'.
+   * @generated
+   */
+  ReactFunctions createReactFunctions();
+
+  /**
+   * Returns a new object of class '<em>React Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Constructor</em>'.
+   * @generated
+   */
+  ReactConstructor createReactConstructor();
+
+  /**
+   * Returns a new object of class '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State</em>'.
+   * @generated
+   */
+  State createState();
+
+  /**
+   * Returns a new object of class '<em>Core Functions Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Core Functions Declaration</em>'.
+   * @generated
+   */
+  CoreFunctionsDeclaration createCoreFunctionsDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Props</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Props</em>'.
+   * @generated
+   */
+  Props createProps();
+
+  /**
+   * Returns a new object of class '<em>React Core Functions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Core Functions</em>'.
+   * @generated
+   */
+  ReactCoreFunctions createReactCoreFunctions();
 
   /**
    * Returns a new object of class '<em>React Actions</em>'.
@@ -375,6 +474,33 @@ public interface MyDslFactory extends EFactory
   ReactActions createReactActions();
 
   /**
+   * Returns a new object of class '<em>React Actions Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Actions Content</em>'.
+   * @generated
+   */
+  ReactActionsContent createReactActionsContent();
+
+  /**
+   * Returns a new object of class '<em>React Services Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Services Type</em>'.
+   * @generated
+   */
+  ReactServicesType createReactServicesType();
+
+  /**
+   * Returns a new object of class '<em>React Services Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Services Relation</em>'.
+   * @generated
+   */
+  ReactServicesRelation createReactServicesRelation();
+
+  /**
    * Returns a new object of class '<em>React Libraries</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -384,6 +510,15 @@ public interface MyDslFactory extends EFactory
   ReactLibraries createReactLibraries();
 
   /**
+   * Returns a new object of class '<em>React Library</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Library</em>'.
+   * @generated
+   */
+  ReactLibrary createReactLibrary();
+
+  /**
    * Returns a new object of class '<em>React Info</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -391,6 +526,15 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   ReactInfo createReactInfo();
+
+  /**
+   * Returns a new object of class '<em>React Information</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React Information</em>'.
+   * @generated
+   */
+  ReactInformation createReactInformation();
 
   /**
    * Returns a new object of class '<em>Spring</em>'.

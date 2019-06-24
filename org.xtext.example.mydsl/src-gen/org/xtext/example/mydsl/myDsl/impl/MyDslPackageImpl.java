@@ -17,8 +17,11 @@ import org.xtext.example.mydsl.myDsl.AmazonWebServices;
 import org.xtext.example.mydsl.myDsl.AppAccess;
 import org.xtext.example.mydsl.myDsl.AppAccessFunctions;
 import org.xtext.example.mydsl.myDsl.Architecture;
+import org.xtext.example.mydsl.myDsl.ComponentClass;
 import org.xtext.example.mydsl.myDsl.ComponentsLogic;
 import org.xtext.example.mydsl.myDsl.ComponentsUI;
+import org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration;
+import org.xtext.example.mydsl.myDsl.DOMConfigurations;
 import org.xtext.example.mydsl.myDsl.Domain;
 import org.xtext.example.mydsl.myDsl.DomainConnection;
 import org.xtext.example.mydsl.myDsl.DomainRelations;
@@ -28,6 +31,8 @@ import org.xtext.example.mydsl.myDsl.Functionalities;
 import org.xtext.example.mydsl.myDsl.Functionality;
 import org.xtext.example.mydsl.myDsl.LandingActions;
 import org.xtext.example.mydsl.myDsl.LandingFunctions;
+import org.xtext.example.mydsl.myDsl.LogicContent;
+import org.xtext.example.mydsl.myDsl.LogicStructure;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -39,22 +44,33 @@ import org.xtext.example.mydsl.myDsl.PhotoActionsFunctions;
 import org.xtext.example.mydsl.myDsl.PostgreSQL;
 import org.xtext.example.mydsl.myDsl.ProfileManagement;
 import org.xtext.example.mydsl.myDsl.ProfileManagementFunctions;
+import org.xtext.example.mydsl.myDsl.Props;
 import org.xtext.example.mydsl.myDsl.React;
 import org.xtext.example.mydsl.myDsl.ReactActions;
+import org.xtext.example.mydsl.myDsl.ReactActionsContent;
 import org.xtext.example.mydsl.myDsl.ReactComponents;
 import org.xtext.example.mydsl.myDsl.ReactConfiguration;
 import org.xtext.example.mydsl.myDsl.ReactConfigurations;
+import org.xtext.example.mydsl.myDsl.ReactConstructor;
+import org.xtext.example.mydsl.myDsl.ReactCoreFunctions;
 import org.xtext.example.mydsl.myDsl.ReactDependencies;
 import org.xtext.example.mydsl.myDsl.ReactDependenciesRules;
 import org.xtext.example.mydsl.myDsl.ReactDependenciesSubRules;
+import org.xtext.example.mydsl.myDsl.ReactFunctions;
 import org.xtext.example.mydsl.myDsl.ReactInfo;
+import org.xtext.example.mydsl.myDsl.ReactInformation;
 import org.xtext.example.mydsl.myDsl.ReactLibraries;
+import org.xtext.example.mydsl.myDsl.ReactLibrary;
 import org.xtext.example.mydsl.myDsl.ReactModules;
+import org.xtext.example.mydsl.myDsl.ReactServicesRelation;
+import org.xtext.example.mydsl.myDsl.ReactServicesType;
 import org.xtext.example.mydsl.myDsl.ReactSubModules;
 import org.xtext.example.mydsl.myDsl.SingleDependencies;
 import org.xtext.example.mydsl.myDsl.Spring;
+import org.xtext.example.mydsl.myDsl.State;
 import org.xtext.example.mydsl.myDsl.Technologies;
 import org.xtext.example.mydsl.myDsl.Technology;
+import org.xtext.example.mydsl.myDsl.UIContent;
 import org.xtext.example.mydsl.myDsl.UserDomain;
 
 /**
@@ -315,6 +331,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass domConfigurationsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass reactComponentsEClass = null;
 
   /**
@@ -329,7 +352,77 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass logicContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicStructureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass componentsUIEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uiContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass componentClassEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactFunctionsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactConstructorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass coreFunctionsDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass propsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactCoreFunctionsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -343,6 +436,27 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass reactActionsContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactServicesTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactServicesRelationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass reactLibrariesEClass = null;
 
   /**
@@ -350,7 +464,21 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass reactLibraryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass reactInfoEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactInformationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1322,6 +1450,50 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EReference getReactConfigurations_Configurations()
+  {
+    return (EReference)reactConfigurationsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDOMConfigurations()
+  {
+    return domConfigurationsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDOMConfigurations_Elements()
+  {
+    return (EAttribute)domConfigurationsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDOMConfigurations_Name()
+  {
+    return (EAttribute)domConfigurationsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getReactComponents()
   {
     return reactComponentsEClass;
@@ -1377,6 +1549,83 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EReference getComponentsLogic_Logiccomponents()
+  {
+    return (EReference)componentsLogicEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLogicContent()
+  {
+    return logicContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLogicContent_Name()
+  {
+    return (EAttribute)logicContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicContent_Logiccomponents()
+  {
+    return (EReference)logicContentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLogicStructure()
+  {
+    return logicStructureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLogicStructure_Name()
+  {
+    return (EAttribute)logicStructureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicStructure_Logiccomponents()
+  {
+    return (EReference)logicStructureEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getComponentsUI()
   {
     return componentsUIEClass;
@@ -1399,6 +1648,248 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EReference getComponentsUI_Uicomponents()
+  {
+    return (EReference)componentsUIEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUIContent()
+  {
+    return uiContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUIContent_Name()
+  {
+    return (EAttribute)uiContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUIContent_Uicontent()
+  {
+    return (EReference)uiContentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getComponentClass()
+  {
+    return componentClassEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComponentClass_Componentclass()
+  {
+    return (EReference)componentClassEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactFunctions()
+  {
+    return reactFunctionsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactFunctions_Componentclass()
+  {
+    return (EReference)reactFunctionsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactFunctions_Lifecycleclass()
+  {
+    return (EAttribute)reactFunctionsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactFunctions_Renderclass()
+  {
+    return (EAttribute)reactFunctionsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactConstructor()
+  {
+    return reactConstructorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactConstructor_Componentclass()
+  {
+    return (EReference)reactConstructorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getState()
+  {
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getState_Name()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getState_Componentclass()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCoreFunctionsDeclaration()
+  {
+    return coreFunctionsDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCoreFunctionsDeclaration_Name()
+  {
+    return (EAttribute)coreFunctionsDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getProps()
+  {
+    return propsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getProps_Name()
+  {
+    return (EAttribute)propsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getProps_Componentclass()
+  {
+    return (EAttribute)propsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactCoreFunctions()
+  {
+    return reactCoreFunctionsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactCoreFunctions_Name()
+  {
+    return (EAttribute)reactCoreFunctionsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getReactActions()
   {
     return reactActionsEClass;
@@ -1410,9 +1901,86 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getReactActions_Name()
+  public EReference getReactActions_Reactactcontent()
   {
-    return (EAttribute)reactActionsEClass.getEStructuralFeatures().get(0);
+    return (EReference)reactActionsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactActionsContent()
+  {
+    return reactActionsContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactActionsContent_Reactrelcontent()
+  {
+    return (EReference)reactActionsContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactServicesType()
+  {
+    return reactServicesTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactServicesType_Name()
+  {
+    return (EAttribute)reactServicesTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactServicesRelation()
+  {
+    return reactServicesRelationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactServicesRelation_Reactrelationcontent()
+  {
+    return (EReference)reactServicesRelationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactServicesRelation_Name()
+  {
+    return (EAttribute)reactServicesRelationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1432,9 +2000,31 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getReactLibraries_Name()
+  public EReference getReactLibraries_Reactlibraries()
   {
-    return (EAttribute)reactLibrariesEClass.getEStructuralFeatures().get(0);
+    return (EReference)reactLibrariesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactLibrary()
+  {
+    return reactLibraryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactLibrary_Name()
+  {
+    return (EAttribute)reactLibraryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1454,9 +2044,31 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getReactInfo_Name()
+  public EReference getReactInfo_Reactinformation()
   {
-    return (EAttribute)reactInfoEClass.getEStructuralFeatures().get(0);
+    return (EReference)reactInfoEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactInformation()
+  {
+    return reactInformationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReactInformation_Name()
+  {
+    return (EAttribute)reactInformationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1670,6 +2282,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     reactConfigurationsEClass = createEClass(REACT_CONFIGURATIONS);
     createEAttribute(reactConfigurationsEClass, REACT_CONFIGURATIONS__NAME);
+    createEReference(reactConfigurationsEClass, REACT_CONFIGURATIONS__CONFIGURATIONS);
+
+    domConfigurationsEClass = createEClass(DOM_CONFIGURATIONS);
+    createEAttribute(domConfigurationsEClass, DOM_CONFIGURATIONS__ELEMENTS);
+    createEAttribute(domConfigurationsEClass, DOM_CONFIGURATIONS__NAME);
 
     reactComponentsEClass = createEClass(REACT_COMPONENTS);
     createEReference(reactComponentsEClass, REACT_COMPONENTS__COMPONENTSLOGIC);
@@ -1677,18 +2294,73 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     componentsLogicEClass = createEClass(COMPONENTS_LOGIC);
     createEAttribute(componentsLogicEClass, COMPONENTS_LOGIC__NAME);
+    createEReference(componentsLogicEClass, COMPONENTS_LOGIC__LOGICCOMPONENTS);
+
+    logicContentEClass = createEClass(LOGIC_CONTENT);
+    createEAttribute(logicContentEClass, LOGIC_CONTENT__NAME);
+    createEReference(logicContentEClass, LOGIC_CONTENT__LOGICCOMPONENTS);
+
+    logicStructureEClass = createEClass(LOGIC_STRUCTURE);
+    createEAttribute(logicStructureEClass, LOGIC_STRUCTURE__NAME);
+    createEReference(logicStructureEClass, LOGIC_STRUCTURE__LOGICCOMPONENTS);
 
     componentsUIEClass = createEClass(COMPONENTS_UI);
     createEAttribute(componentsUIEClass, COMPONENTS_UI__NAME);
+    createEReference(componentsUIEClass, COMPONENTS_UI__UICOMPONENTS);
+
+    uiContentEClass = createEClass(UI_CONTENT);
+    createEAttribute(uiContentEClass, UI_CONTENT__NAME);
+    createEReference(uiContentEClass, UI_CONTENT__UICONTENT);
+
+    componentClassEClass = createEClass(COMPONENT_CLASS);
+    createEReference(componentClassEClass, COMPONENT_CLASS__COMPONENTCLASS);
+
+    reactFunctionsEClass = createEClass(REACT_FUNCTIONS);
+    createEReference(reactFunctionsEClass, REACT_FUNCTIONS__COMPONENTCLASS);
+    createEAttribute(reactFunctionsEClass, REACT_FUNCTIONS__LIFECYCLECLASS);
+    createEAttribute(reactFunctionsEClass, REACT_FUNCTIONS__RENDERCLASS);
+
+    reactConstructorEClass = createEClass(REACT_CONSTRUCTOR);
+    createEReference(reactConstructorEClass, REACT_CONSTRUCTOR__COMPONENTCLASS);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__NAME);
+    createEAttribute(stateEClass, STATE__COMPONENTCLASS);
+
+    coreFunctionsDeclarationEClass = createEClass(CORE_FUNCTIONS_DECLARATION);
+    createEAttribute(coreFunctionsDeclarationEClass, CORE_FUNCTIONS_DECLARATION__NAME);
+
+    propsEClass = createEClass(PROPS);
+    createEAttribute(propsEClass, PROPS__NAME);
+    createEAttribute(propsEClass, PROPS__COMPONENTCLASS);
+
+    reactCoreFunctionsEClass = createEClass(REACT_CORE_FUNCTIONS);
+    createEAttribute(reactCoreFunctionsEClass, REACT_CORE_FUNCTIONS__NAME);
 
     reactActionsEClass = createEClass(REACT_ACTIONS);
-    createEAttribute(reactActionsEClass, REACT_ACTIONS__NAME);
+    createEReference(reactActionsEClass, REACT_ACTIONS__REACTACTCONTENT);
+
+    reactActionsContentEClass = createEClass(REACT_ACTIONS_CONTENT);
+    createEReference(reactActionsContentEClass, REACT_ACTIONS_CONTENT__REACTRELCONTENT);
+
+    reactServicesTypeEClass = createEClass(REACT_SERVICES_TYPE);
+    createEAttribute(reactServicesTypeEClass, REACT_SERVICES_TYPE__NAME);
+
+    reactServicesRelationEClass = createEClass(REACT_SERVICES_RELATION);
+    createEReference(reactServicesRelationEClass, REACT_SERVICES_RELATION__REACTRELATIONCONTENT);
+    createEAttribute(reactServicesRelationEClass, REACT_SERVICES_RELATION__NAME);
 
     reactLibrariesEClass = createEClass(REACT_LIBRARIES);
-    createEAttribute(reactLibrariesEClass, REACT_LIBRARIES__NAME);
+    createEReference(reactLibrariesEClass, REACT_LIBRARIES__REACTLIBRARIES);
+
+    reactLibraryEClass = createEClass(REACT_LIBRARY);
+    createEAttribute(reactLibraryEClass, REACT_LIBRARY__NAME);
 
     reactInfoEClass = createEClass(REACT_INFO);
-    createEAttribute(reactInfoEClass, REACT_INFO__NAME);
+    createEReference(reactInfoEClass, REACT_INFO__REACTINFORMATION);
+
+    reactInformationEClass = createEClass(REACT_INFORMATION);
+    createEAttribute(reactInformationEClass, REACT_INFORMATION__NAME);
 
     springEClass = createEClass(SPRING);
     createEAttribute(springEClass, SPRING__NAME);
@@ -1845,6 +2517,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(reactConfigurationsEClass, ReactConfigurations.class, "ReactConfigurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReactConfigurations_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactConfigurations_Configurations(), this.getDOMConfigurations(), null, "configurations", null, 0, -1, ReactConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(domConfigurationsEClass, DOMConfigurations.class, "DOMConfigurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDOMConfigurations_Elements(), ecorePackage.getEString(), "elements", null, 0, -1, DOMConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDOMConfigurations_Name(), ecorePackage.getEString(), "name", null, 0, 1, DOMConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reactComponentsEClass, ReactComponents.class, "ReactComponents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReactComponents_Componentslogic(), this.getComponentsLogic(), null, "componentslogic", null, 0, -1, ReactComponents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1852,18 +2529,73 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(componentsLogicEClass, ComponentsLogic.class, "ComponentsLogic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentsLogic_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentsLogic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponentsLogic_Logiccomponents(), this.getLogicContent(), null, "logiccomponents", null, 0, -1, ComponentsLogic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicContentEClass, LogicContent.class, "LogicContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLogicContent_Name(), ecorePackage.getEString(), "name", null, 0, 1, LogicContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicContent_Logiccomponents(), this.getLogicStructure(), null, "logiccomponents", null, 0, -1, LogicContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicStructureEClass, LogicStructure.class, "LogicStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLogicStructure_Name(), ecorePackage.getEString(), "name", null, 0, 1, LogicStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicStructure_Logiccomponents(), this.getComponentClass(), null, "logiccomponents", null, 0, -1, LogicStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentsUIEClass, ComponentsUI.class, "ComponentsUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentsUI_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentsUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponentsUI_Uicomponents(), this.getUIContent(), null, "uicomponents", null, 0, -1, ComponentsUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(uiContentEClass, UIContent.class, "UIContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUIContent_Name(), ecorePackage.getEString(), "name", null, 0, 1, UIContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUIContent_Uicontent(), this.getComponentClass(), null, "uicontent", null, 0, -1, UIContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(componentClassEClass, ComponentClass.class, "ComponentClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComponentClass_Componentclass(), ecorePackage.getEObject(), null, "componentclass", null, 0, -1, ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactFunctionsEClass, ReactFunctions.class, "ReactFunctions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReactFunctions_Componentclass(), ecorePackage.getEObject(), null, "componentclass", null, 0, -1, ReactFunctions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getReactFunctions_Lifecycleclass(), ecorePackage.getEString(), "lifecycleclass", null, 0, -1, ReactFunctions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getReactFunctions_Renderclass(), ecorePackage.getEString(), "renderclass", null, 0, -1, ReactFunctions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactConstructorEClass, ReactConstructor.class, "ReactConstructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReactConstructor_Componentclass(), ecorePackage.getEObject(), null, "componentclass", null, 0, -1, ReactConstructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getState_Componentclass(), ecorePackage.getEString(), "componentclass", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(coreFunctionsDeclarationEClass, CoreFunctionsDeclaration.class, "CoreFunctionsDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCoreFunctionsDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, CoreFunctionsDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(propsEClass, Props.class, "Props", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProps_Name(), ecorePackage.getEString(), "name", null, 0, 1, Props.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProps_Componentclass(), ecorePackage.getEString(), "componentclass", null, 0, -1, Props.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactCoreFunctionsEClass, ReactCoreFunctions.class, "ReactCoreFunctions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReactCoreFunctions_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactCoreFunctions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reactActionsEClass, ReactActions.class, "ReactActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getReactActions_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactActions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactActions_Reactactcontent(), this.getReactActionsContent(), null, "reactactcontent", null, 0, -1, ReactActions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactActionsContentEClass, ReactActionsContent.class, "ReactActionsContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReactActionsContent_Reactrelcontent(), this.getReactServicesRelation(), null, "reactrelcontent", null, 0, -1, ReactActionsContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactServicesTypeEClass, ReactServicesType.class, "ReactServicesType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReactServicesType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactServicesType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactServicesRelationEClass, ReactServicesRelation.class, "ReactServicesRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReactServicesRelation_Reactrelationcontent(), this.getReactServicesType(), null, "reactrelationcontent", null, 0, -1, ReactServicesRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getReactServicesRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactServicesRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reactLibrariesEClass, ReactLibraries.class, "ReactLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getReactLibraries_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactLibraries_Reactlibraries(), this.getReactLibrary(), null, "reactlibraries", null, 0, -1, ReactLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactLibraryEClass, ReactLibrary.class, "ReactLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReactLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reactInfoEClass, ReactInfo.class, "ReactInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getReactInfo_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactInfo_Reactinformation(), this.getReactInformation(), null, "reactinformation", null, 0, -1, ReactInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reactInformationEClass, ReactInformation.class, "ReactInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReactInformation_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReactInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(springEClass, Spring.class, "Spring", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpring_Name(), ecorePackage.getEString(), "name", null, 0, 1, Spring.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

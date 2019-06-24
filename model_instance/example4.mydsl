@@ -41,7 +41,7 @@ System: {
 				LandingActions:
 					ViewCarousel verCarrusel
 					PassPhoto pasarFoto
-			}	
+				}
 			Album ExampleCart 
 				seVincula: {
 					CreateAlbum crearAlbum
@@ -60,7 +60,7 @@ System: {
 						AlbumManagement:
 							CreateAlbum crearAlbum
 							SelectAlbum seleccionarAlbum
-			} 
+				} 
 			
 		} 	
 	}
@@ -71,20 +71,69 @@ System: {
 		Spring SpringExample
 		React ReactJS : {
 			ReactModules: {
-				ReactConfiguration
+				ReactConfiguration : {
 					DependenciesStruct
-					DependencyType Design
-						PackageName antd
-						PackageVersion version1
+						DependencyType Design
+							PackageName antd
+							PackageVersion version1
+						DependencyType RouteDOM
+							PackageName routedom
+							PackageVersion version12
 					ReactDOMConfigurations Configurations
-				ReactComponents
+						RoutingConf routes
+				}
+				ReactComponents : {
 					LogicComponents componentesLogicos
+						RoutingComponents component
+							AppComponent Appjs
+								Constructor
+									State name
+									FunctionBindingDeclaration
+								ComponentDidMount
+									FunctionStructure
+								setData
+									FunctionStructure
+								Render
+									RenderContent 								
+								Props 
+									props String
+									props2 String
+							IndexComponent indexjs
 					UIComponents componentesVisuales
-				ReactActions accionesReact
-				Libraries librerias
-				Information readme			
+						ViewComponent upload
+							Constructor
+									State name
+									FunctionBindingDeclaration
+								Render
+									RenderContent 								
+								Props 
+									props String
+									props2 String
+						Subcomponents FieldTitle
+							Constructor
+									State name
+									FunctionBindingDeclaration
+								Render
+									RenderContent 								
+								Props 
+									props String
+									props2 String
+				}		 						
+				ReactActions: { 
+					ServicesRelations
+						ServiceType login ServiceContent relacionadoCon Wrapper
+						ServiceType login ServiceContent relacionadoCon AuxWrapper		
+				}	
+				ReactLibraries: {
+					 ReactDesign antd
+					 	LibraryContent
+				}
+				ReactInformation : {
+					ReactReadme readme
+						InformationContent
+				}
 			}
-		}
+		}	 
 		PostgreSQL postgreSQL
 		AmazonWebServices AmazonExample
 	}

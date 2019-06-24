@@ -3,15 +3,23 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.ReactActions;
+import org.xtext.example.mydsl.myDsl.ReactActionsContent;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +29,7 @@ import org.xtext.example.mydsl.myDsl.ReactActions;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReactActionsImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReactActionsImpl#getReactactcontent <em>Reactactcontent</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +37,14 @@ import org.xtext.example.mydsl.myDsl.ReactActions;
 public class ReactActionsImpl extends MinimalEObjectImpl.Container implements ReactActions
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getReactactcontent() <em>Reactactcontent</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getReactactcontent()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<ReactActionsContent> reactactcontent;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +73,13 @@ public class ReactActionsImpl extends MinimalEObjectImpl.Container implements Re
    * @generated
    */
   @Override
-  public String getName()
+  public EList<ReactActionsContent> getReactactcontent()
   {
-    return name;
+    if (reactactcontent == null)
+    {
+      reactactcontent = new EObjectContainmentEList<ReactActionsContent>(ReactActionsContent.class, this, MyDslPackage.REACT_ACTIONS__REACTACTCONTENT);
+    }
+    return reactactcontent;
   }
 
   /**
@@ -86,12 +88,14 @@ public class ReactActionsImpl extends MinimalEObjectImpl.Container implements Re
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REACT_ACTIONS__NAME, oldName, name));
+    switch (featureID)
+    {
+      case MyDslPackage.REACT_ACTIONS__REACTACTCONTENT:
+        return ((InternalEList<?>)getReactactcontent()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,8 +108,8 @@ public class ReactActionsImpl extends MinimalEObjectImpl.Container implements Re
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_ACTIONS__NAME:
-        return getName();
+      case MyDslPackage.REACT_ACTIONS__REACTACTCONTENT:
+        return getReactactcontent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +119,15 @@ public class ReactActionsImpl extends MinimalEObjectImpl.Container implements Re
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_ACTIONS__NAME:
-        setName((String)newValue);
+      case MyDslPackage.REACT_ACTIONS__REACTACTCONTENT:
+        getReactactcontent().clear();
+        getReactactcontent().addAll((Collection<? extends ReactActionsContent>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +143,8 @@ public class ReactActionsImpl extends MinimalEObjectImpl.Container implements Re
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_ACTIONS__NAME:
-        setName(NAME_EDEFAULT);
+      case MyDslPackage.REACT_ACTIONS__REACTACTCONTENT:
+        getReactactcontent().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +160,10 @@ public class ReactActionsImpl extends MinimalEObjectImpl.Container implements Re
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_ACTIONS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyDslPackage.REACT_ACTIONS__REACTACTCONTENT:
+        return reactactcontent != null && !reactactcontent.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ReactActionsImpl

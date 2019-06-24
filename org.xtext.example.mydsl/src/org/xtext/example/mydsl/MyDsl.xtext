@@ -15,7 +15,7 @@ Entity:
 'Entities' ':' '{' (elements+=Entities) '}';
 
 Entities:
-elements+=Photo elements+=Album elements+=UserDomain;
+(elements+=Photo)+ (elements+=Album)+ (elements+=UserDomain)+;
 
 Photo:
 'Photo' name=ID;
@@ -104,7 +104,7 @@ reactmodules+=ReactInfo
 ;
 
 ReactConfiguration:
-'ReactConfiguration' dependencies+=ReactDependencies configurations+=ReactConfigurations;
+'ReactConfiguration' ':' '{' dependencies+=ReactDependencies configurations+=ReactConfigurations '}';
 
 ReactDependencies:
 'DependenciesStruct' (dependencies+=ReactDependenciesRules)+;
@@ -125,25 +125,98 @@ PackageVersion:
 'PackageVersion' name=ID;	
 
 ReactConfigurations:
-'ReactDOMConfigurations' name=ID;
+'ReactDOMConfigurations' name=ID (configurations+=DOMConfigurations)+;
+
+DOMConfigurations:
+(elements+=DOMTypeConf) name=ID;
+
+DOMTypeConf:
+'RoutingConf' | 'ServiceWorker' | 'HTMLStructure' | 'Manifest' | 'RepositoriesConf';
 
 ReactComponents:
-'ReactComponents' componentslogic+=ComponentsLogic componentsui+=ComponentsUI;
+'ReactComponents' ':' '{' componentslogic+=ComponentsLogic componentsui+=ComponentsUI '}';
 
 ComponentsLogic:
-'LogicComponents' name=ID;
+'LogicComponents' name=ID logiccomponents+=LogicContent;
+
+LogicContent:
+'RoutingComponents' name=ID logiccomponents+=LogicStructure;
+
+LogicStructure:
+'AppComponent' name=ID logiccomponents+=ComponentClass 'IndexComponent' name=ID;
 
 ComponentsUI:
-'UIComponents' name=ID;
+'UIComponents' name=ID uicomponents+=UIContent;
+
+UIContent: 
+('ViewComponent' name=ID uicontent+=ComponentClass)+
+('Subcomponents' name=ID uicontent+=ComponentClass)+;
+
+ComponentClass:
+componentclass+=ReactFunctions componentclass+=Props;
+
+ReactFunctions:
+componentclass+=ReactConstructor (lifecycleclass+=ReactLifeCycle)* (componentclass+=ReactCoreFunctions)* renderclass+=ReactRender;
+
+ReactConstructor:
+'Constructor' componentclass+=State (componentclass+=CoreFunctionsDeclaration)*;
+
+State:
+'State' (name=ID componentclass+=DataType)*;
+
+DataType:
+'String' | 'Array' | 'Object' | 'Number' | 'null' | 'Boolean';
+
+CoreFunctionsDeclaration:
+name=ID 'FunctionBindingDeclaration';
+
+ReactLifeCycle:
+'ComponentDidMount' 'FunctionStructure' |
+'ComponentDidUpdate' 'FunctionStructure' |
+'ComponentWillUnmount' 'FunctionStructure';
+
+ReactRender:
+'Render' 'RenderContent';
+
+Props:
+'Props' (name=ID componentclass+=DataType)*;
+
+ReactCoreFunctions:
+name=ID 'FunctionStructure';
 
 ReactActions:
-'ReactActions' name=ID;
+'ReactActions' ':' '{' reactactcontent+=ReactActionsContent '}';
+
+ReactActionsContent:
+(reactrelcontent+=ReactServicesRelation)+ ;
+	
+ReactServicesType:
+'ServiceType' name=ID 'ServiceContent';
+
+ReactServicesRelation:
+'ServicesRelations' (reactrelationcontent+=ReactServicesType name=ID ReactRequest)+;
+
+ReactRequest: 
+'Wrapper' | 'AuxWrapper';
 
 ReactLibraries:
-'Libraries' name=ID;
+'ReactLibraries' ':' '{' (reactlibraries+=ReactLibrary)+ '}';
+
+ReactLibrary:
+ReactLibraryType name=ID 'LibraryContent';
+
+ReactLibraryType:
+'ReactDesign' | 'ReactRouting' | 'ComponentManagement' |
+'StoreManagement' | 'ReactDeployment' | 'ConfigurationLibrary';
 
 ReactInfo:
-'Information' name=ID;
+'ReactInformation' ':' '{' (reactinformation+=ReactInformation)+ '}';
+
+ReactInformation:
+ReactInformationType name=ID 'InformationContent';
+
+ReactInformationType:
+'ReactReadme' | 'ReactAditionalInfo';
 
 //Spring
 Spring:

@@ -350,7 +350,7 @@ ruleEntities returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 		(
 			(
 				{
@@ -369,7 +369,7 @@ ruleEntities returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 		(
 			(
 				{
@@ -388,7 +388,7 @@ ruleEntities returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 	)
 ;
 
@@ -2071,12 +2071,20 @@ ruleReactConfiguration returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getReactConfigurationAccess().getReactConfigurationKeyword_0());
 		}
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReactConfigurationAccess().getColonKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactConfigurationAccess().getLeftCurlyBracketKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getReactConfigurationAccess().getDependenciesReactDependenciesParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getReactConfigurationAccess().getDependenciesReactDependenciesParserRuleCall_3_0());
 				}
-				lv_dependencies_1_0=ruleReactDependencies
+				lv_dependencies_3_0=ruleReactDependencies
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getReactConfigurationRule());
@@ -2084,7 +2092,7 @@ ruleReactConfiguration returns [EObject current=null]
 					add(
 						$current,
 						"dependencies",
-						lv_dependencies_1_0,
+						lv_dependencies_3_0,
 						"org.xtext.example.mydsl.MyDsl.ReactDependencies");
 					afterParserOrEnumRuleCall();
 				}
@@ -2093,9 +2101,9 @@ ruleReactConfiguration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getReactConfigurationAccess().getConfigurationsReactConfigurationsParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getReactConfigurationAccess().getConfigurationsReactConfigurationsParserRuleCall_4_0());
 				}
-				lv_configurations_2_0=ruleReactConfigurations
+				lv_configurations_4_0=ruleReactConfigurations
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getReactConfigurationRule());
@@ -2103,12 +2111,16 @@ ruleReactConfiguration returns [EObject current=null]
 					add(
 						$current,
 						"configurations",
-						lv_configurations_2_0,
+						lv_configurations_4_0,
 						"org.xtext.example.mydsl.MyDsl.ReactConfigurations");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getReactConfigurationAccess().getRightCurlyBracketKeyword_5());
+		}
 	)
 ;
 
@@ -2427,6 +2439,129 @@ ruleReactConfigurations returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactConfigurationsAccess().getConfigurationsDOMConfigurationsParserRuleCall_2_0());
+				}
+				lv_configurations_2_0=ruleDOMConfigurations
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactConfigurationsRule());
+					}
+					add(
+						$current,
+						"configurations",
+						lv_configurations_2_0,
+						"org.xtext.example.mydsl.MyDsl.DOMConfigurations");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleDOMConfigurations
+entryRuleDOMConfigurations returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDOMConfigurationsRule()); }
+	iv_ruleDOMConfigurations=ruleDOMConfigurations
+	{ $current=$iv_ruleDOMConfigurations.current; }
+	EOF;
+
+// Rule DOMConfigurations
+ruleDOMConfigurations returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDOMConfigurationsAccess().getElementsDOMTypeConfParserRuleCall_0_0());
+				}
+				lv_elements_0_0=ruleDOMTypeConf
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDOMConfigurationsRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_0_0,
+						"org.xtext.example.mydsl.MyDsl.DOMTypeConf");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDOMConfigurationsAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDOMConfigurationsRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleDOMTypeConf
+entryRuleDOMTypeConf returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDOMTypeConfRule()); }
+	iv_ruleDOMTypeConf=ruleDOMTypeConf
+	{ $current=$iv_ruleDOMTypeConf.current.getText(); }
+	EOF;
+
+// Rule DOMTypeConf
+ruleDOMTypeConf returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='RoutingConf'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDOMTypeConfAccess().getRoutingConfKeyword_0());
+		}
+		    |
+		kw='ServiceWorker'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDOMTypeConfAccess().getServiceWorkerKeyword_1());
+		}
+		    |
+		kw='HTMLStructure'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDOMTypeConfAccess().getHTMLStructureKeyword_2());
+		}
+		    |
+		kw='Manifest'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDOMTypeConfAccess().getManifestKeyword_3());
+		}
+		    |
+		kw='RepositoriesConf'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDOMTypeConfAccess().getRepositoriesConfKeyword_4());
+		}
 	)
 ;
 
@@ -2450,12 +2585,20 @@ ruleReactComponents returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getReactComponentsAccess().getReactComponentsKeyword_0());
 		}
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReactComponentsAccess().getColonKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactComponentsAccess().getLeftCurlyBracketKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getReactComponentsAccess().getComponentslogicComponentsLogicParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getReactComponentsAccess().getComponentslogicComponentsLogicParserRuleCall_3_0());
 				}
-				lv_componentslogic_1_0=ruleComponentsLogic
+				lv_componentslogic_3_0=ruleComponentsLogic
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getReactComponentsRule());
@@ -2463,7 +2606,7 @@ ruleReactComponents returns [EObject current=null]
 					add(
 						$current,
 						"componentslogic",
-						lv_componentslogic_1_0,
+						lv_componentslogic_3_0,
 						"org.xtext.example.mydsl.MyDsl.ComponentsLogic");
 					afterParserOrEnumRuleCall();
 				}
@@ -2472,9 +2615,9 @@ ruleReactComponents returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getReactComponentsAccess().getComponentsuiComponentsUIParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getReactComponentsAccess().getComponentsuiComponentsUIParserRuleCall_4_0());
 				}
-				lv_componentsui_2_0=ruleComponentsUI
+				lv_componentsui_4_0=ruleComponentsUI
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getReactComponentsRule());
@@ -2482,12 +2625,16 @@ ruleReactComponents returns [EObject current=null]
 					add(
 						$current,
 						"componentsui",
-						lv_componentsui_2_0,
+						lv_componentsui_4_0,
 						"org.xtext.example.mydsl.MyDsl.ComponentsUI");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getReactComponentsAccess().getRightCurlyBracketKeyword_5());
+		}
 	)
 ;
 
@@ -2525,6 +2672,167 @@ ruleComponentsLogic returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComponentsLogicAccess().getLogiccomponentsLogicContentParserRuleCall_2_0());
+				}
+				lv_logiccomponents_2_0=ruleLogicContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComponentsLogicRule());
+					}
+					add(
+						$current,
+						"logiccomponents",
+						lv_logiccomponents_2_0,
+						"org.xtext.example.mydsl.MyDsl.LogicContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleLogicContent
+entryRuleLogicContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLogicContentRule()); }
+	iv_ruleLogicContent=ruleLogicContent
+	{ $current=$iv_ruleLogicContent.current; }
+	EOF;
+
+// Rule LogicContent
+ruleLogicContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='RoutingComponents'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLogicContentAccess().getRoutingComponentsKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getLogicContentAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLogicContentRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLogicContentAccess().getLogiccomponentsLogicStructureParserRuleCall_2_0());
+				}
+				lv_logiccomponents_2_0=ruleLogicStructure
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLogicContentRule());
+					}
+					add(
+						$current,
+						"logiccomponents",
+						lv_logiccomponents_2_0,
+						"org.xtext.example.mydsl.MyDsl.LogicStructure");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleLogicStructure
+entryRuleLogicStructure returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLogicStructureRule()); }
+	iv_ruleLogicStructure=ruleLogicStructure
+	{ $current=$iv_ruleLogicStructure.current; }
+	EOF;
+
+// Rule LogicStructure
+ruleLogicStructure returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='AppComponent'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLogicStructureAccess().getAppComponentKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getLogicStructureAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLogicStructureRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLogicStructureAccess().getLogiccomponentsComponentClassParserRuleCall_2_0());
+				}
+				lv_logiccomponents_2_0=ruleComponentClass
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLogicStructureRule());
+					}
+					add(
+						$current,
+						"logiccomponents",
+						lv_logiccomponents_2_0,
+						"org.xtext.example.mydsl.MyDsl.ComponentClass");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='IndexComponent'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getLogicStructureAccess().getIndexComponentKeyword_3());
+		}
+		(
+			(
+				lv_name_4_0=RULE_ID
+				{
+					newLeafNode(lv_name_4_0, grammarAccess.getLogicStructureAccess().getNameIDTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLogicStructureRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_4_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -2570,6 +2878,689 @@ ruleComponentsUI returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComponentsUIAccess().getUicomponentsUIContentParserRuleCall_2_0());
+				}
+				lv_uicomponents_2_0=ruleUIContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComponentsUIRule());
+					}
+					add(
+						$current,
+						"uicomponents",
+						lv_uicomponents_2_0,
+						"org.xtext.example.mydsl.MyDsl.UIContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleUIContent
+entryRuleUIContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUIContentRule()); }
+	iv_ruleUIContent=ruleUIContent
+	{ $current=$iv_ruleUIContent.current; }
+	EOF;
+
+// Rule UIContent
+ruleUIContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='ViewComponent'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getUIContentAccess().getViewComponentKeyword_0_0());
+			}
+			(
+				(
+					lv_name_1_0=RULE_ID
+					{
+						newLeafNode(lv_name_1_0, grammarAccess.getUIContentAccess().getNameIDTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getUIContentRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_1_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUIContentAccess().getUicontentComponentClassParserRuleCall_0_2_0());
+					}
+					lv_uicontent_2_0=ruleComponentClass
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUIContentRule());
+						}
+						add(
+							$current,
+							"uicontent",
+							lv_uicontent_2_0,
+							"org.xtext.example.mydsl.MyDsl.ComponentClass");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)+
+		(
+			otherlv_3='Subcomponents'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getUIContentAccess().getSubcomponentsKeyword_1_0());
+			}
+			(
+				(
+					lv_name_4_0=RULE_ID
+					{
+						newLeafNode(lv_name_4_0, grammarAccess.getUIContentAccess().getNameIDTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getUIContentRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_4_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUIContentAccess().getUicontentComponentClassParserRuleCall_1_2_0());
+					}
+					lv_uicontent_5_0=ruleComponentClass
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUIContentRule());
+						}
+						add(
+							$current,
+							"uicontent",
+							lv_uicontent_5_0,
+							"org.xtext.example.mydsl.MyDsl.ComponentClass");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleComponentClass
+entryRuleComponentClass returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getComponentClassRule()); }
+	iv_ruleComponentClass=ruleComponentClass
+	{ $current=$iv_ruleComponentClass.current; }
+	EOF;
+
+// Rule ComponentClass
+ruleComponentClass returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComponentClassAccess().getComponentclassReactFunctionsParserRuleCall_0_0());
+				}
+				lv_componentclass_0_0=ruleReactFunctions
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComponentClassRule());
+					}
+					add(
+						$current,
+						"componentclass",
+						lv_componentclass_0_0,
+						"org.xtext.example.mydsl.MyDsl.ReactFunctions");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComponentClassAccess().getComponentclassPropsParserRuleCall_1_0());
+				}
+				lv_componentclass_1_0=ruleProps
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComponentClassRule());
+					}
+					add(
+						$current,
+						"componentclass",
+						lv_componentclass_1_0,
+						"org.xtext.example.mydsl.MyDsl.Props");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleReactFunctions
+entryRuleReactFunctions returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactFunctionsRule()); }
+	iv_ruleReactFunctions=ruleReactFunctions
+	{ $current=$iv_ruleReactFunctions.current; }
+	EOF;
+
+// Rule ReactFunctions
+ruleReactFunctions returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactFunctionsAccess().getComponentclassReactConstructorParserRuleCall_0_0());
+				}
+				lv_componentclass_0_0=ruleReactConstructor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactFunctionsRule());
+					}
+					add(
+						$current,
+						"componentclass",
+						lv_componentclass_0_0,
+						"org.xtext.example.mydsl.MyDsl.ReactConstructor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactFunctionsAccess().getLifecycleclassReactLifeCycleParserRuleCall_1_0());
+				}
+				lv_lifecycleclass_1_0=ruleReactLifeCycle
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactFunctionsRule());
+					}
+					add(
+						$current,
+						"lifecycleclass",
+						lv_lifecycleclass_1_0,
+						"org.xtext.example.mydsl.MyDsl.ReactLifeCycle");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactFunctionsAccess().getComponentclassReactCoreFunctionsParserRuleCall_2_0());
+				}
+				lv_componentclass_2_0=ruleReactCoreFunctions
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactFunctionsRule());
+					}
+					add(
+						$current,
+						"componentclass",
+						lv_componentclass_2_0,
+						"org.xtext.example.mydsl.MyDsl.ReactCoreFunctions");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactFunctionsAccess().getRenderclassReactRenderParserRuleCall_3_0());
+				}
+				lv_renderclass_3_0=ruleReactRender
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactFunctionsRule());
+					}
+					add(
+						$current,
+						"renderclass",
+						lv_renderclass_3_0,
+						"org.xtext.example.mydsl.MyDsl.ReactRender");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleReactConstructor
+entryRuleReactConstructor returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactConstructorRule()); }
+	iv_ruleReactConstructor=ruleReactConstructor
+	{ $current=$iv_ruleReactConstructor.current; }
+	EOF;
+
+// Rule ReactConstructor
+ruleReactConstructor returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Constructor'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getReactConstructorAccess().getConstructorKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactConstructorAccess().getComponentclassStateParserRuleCall_1_0());
+				}
+				lv_componentclass_1_0=ruleState
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactConstructorRule());
+					}
+					add(
+						$current,
+						"componentclass",
+						lv_componentclass_1_0,
+						"org.xtext.example.mydsl.MyDsl.State");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactConstructorAccess().getComponentclassCoreFunctionsDeclarationParserRuleCall_2_0());
+				}
+				lv_componentclass_2_0=ruleCoreFunctionsDeclaration
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactConstructorRule());
+					}
+					add(
+						$current,
+						"componentclass",
+						lv_componentclass_2_0,
+						"org.xtext.example.mydsl.MyDsl.CoreFunctionsDeclaration");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleState
+entryRuleState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStateRule()); }
+	iv_ruleState=ruleState
+	{ $current=$iv_ruleState.current; }
+	EOF;
+
+// Rule State
+ruleState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='State'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
+		}
+		(
+			(
+				(
+					lv_name_1_0=RULE_ID
+					{
+						newLeafNode(lv_name_1_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getStateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_1_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getComponentclassDataTypeParserRuleCall_1_1_0());
+					}
+					lv_componentclass_2_0=ruleDataType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						add(
+							$current,
+							"componentclass",
+							lv_componentclass_2_0,
+							"org.xtext.example.mydsl.MyDsl.DataType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleDataType
+entryRuleDataType returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDataTypeRule()); }
+	iv_ruleDataType=ruleDataType
+	{ $current=$iv_ruleDataType.current.getText(); }
+	EOF;
+
+// Rule DataType
+ruleDataType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='String'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDataTypeAccess().getStringKeyword_0());
+		}
+		    |
+		kw='Array'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDataTypeAccess().getArrayKeyword_1());
+		}
+		    |
+		kw='Object'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDataTypeAccess().getObjectKeyword_2());
+		}
+		    |
+		kw='Number'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDataTypeAccess().getNumberKeyword_3());
+		}
+		    |
+		kw='null'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDataTypeAccess().getNullKeyword_4());
+		}
+		    |
+		kw='Boolean'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDataTypeAccess().getBooleanKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleCoreFunctionsDeclaration
+entryRuleCoreFunctionsDeclaration returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCoreFunctionsDeclarationRule()); }
+	iv_ruleCoreFunctionsDeclaration=ruleCoreFunctionsDeclaration
+	{ $current=$iv_ruleCoreFunctionsDeclaration.current; }
+	EOF;
+
+// Rule CoreFunctionsDeclaration
+ruleCoreFunctionsDeclaration returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getCoreFunctionsDeclarationAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCoreFunctionsDeclarationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='FunctionBindingDeclaration'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCoreFunctionsDeclarationAccess().getFunctionBindingDeclarationKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleReactLifeCycle
+entryRuleReactLifeCycle returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getReactLifeCycleRule()); }
+	iv_ruleReactLifeCycle=ruleReactLifeCycle
+	{ $current=$iv_ruleReactLifeCycle.current.getText(); }
+	EOF;
+
+// Rule ReactLifeCycle
+ruleReactLifeCycle returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='ComponentDidMount'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getReactLifeCycleAccess().getComponentDidMountKeyword_0_0());
+			}
+			kw='FunctionStructure'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getReactLifeCycleAccess().getFunctionStructureKeyword_0_1());
+			}
+		)
+		    |
+		(
+			kw='ComponentDidUpdate'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getReactLifeCycleAccess().getComponentDidUpdateKeyword_1_0());
+			}
+			kw='FunctionStructure'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getReactLifeCycleAccess().getFunctionStructureKeyword_1_1());
+			}
+		)
+		    |
+		(
+			kw='ComponentWillUnmount'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getReactLifeCycleAccess().getComponentWillUnmountKeyword_2_0());
+			}
+			kw='FunctionStructure'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getReactLifeCycleAccess().getFunctionStructureKeyword_2_1());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleReactRender
+entryRuleReactRender returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getReactRenderRule()); }
+	iv_ruleReactRender=ruleReactRender
+	{ $current=$iv_ruleReactRender.current.getText(); }
+	EOF;
+
+// Rule ReactRender
+ruleReactRender returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='Render'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactRenderAccess().getRenderKeyword_0());
+		}
+		kw='RenderContent'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactRenderAccess().getRenderContentKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleProps
+entryRuleProps returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPropsRule()); }
+	iv_ruleProps=ruleProps
+	{ $current=$iv_ruleProps.current; }
+	EOF;
+
+// Rule Props
+ruleProps returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Props'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPropsAccess().getPropsKeyword_0());
+		}
+		(
+			(
+				(
+					lv_name_1_0=RULE_ID
+					{
+						newLeafNode(lv_name_1_0, grammarAccess.getPropsAccess().getNameIDTerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPropsRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_1_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPropsAccess().getComponentclassDataTypeParserRuleCall_1_1_0());
+					}
+					lv_componentclass_2_0=ruleDataType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPropsRule());
+						}
+						add(
+							$current,
+							"componentclass",
+							lv_componentclass_2_0,
+							"org.xtext.example.mydsl.MyDsl.DataType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleReactCoreFunctions
+entryRuleReactCoreFunctions returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactCoreFunctionsRule()); }
+	iv_ruleReactCoreFunctions=ruleReactCoreFunctions
+	{ $current=$iv_ruleReactCoreFunctions.current; }
+	EOF;
+
+// Rule ReactCoreFunctions
+ruleReactCoreFunctions returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getReactCoreFunctionsAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getReactCoreFunctionsRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='FunctionStructure'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReactCoreFunctionsAccess().getFunctionStructureKeyword_1());
+		}
 	)
 ;
 
@@ -2593,15 +3584,105 @@ ruleReactActions returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getReactActionsAccess().getReactActionsKeyword_0());
 		}
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReactActionsAccess().getColonKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactActionsAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactActionsAccess().getReactactcontentReactActionsContentParserRuleCall_3_0());
+				}
+				lv_reactactcontent_3_0=ruleReactActionsContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactActionsRule());
+					}
+					add(
+						$current,
+						"reactactcontent",
+						lv_reactactcontent_3_0,
+						"org.xtext.example.mydsl.MyDsl.ReactActionsContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getReactActionsAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleReactActionsContent
+entryRuleReactActionsContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactActionsContentRule()); }
+	iv_ruleReactActionsContent=ruleReactActionsContent
+	{ $current=$iv_ruleReactActionsContent.current; }
+	EOF;
+
+// Rule ReactActionsContent
+ruleReactActionsContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getReactActionsContentAccess().getReactrelcontentReactServicesRelationParserRuleCall_0());
+			}
+			lv_reactrelcontent_0_0=ruleReactServicesRelation
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getReactActionsContentRule());
+				}
+				add(
+					$current,
+					"reactrelcontent",
+					lv_reactrelcontent_0_0,
+					"org.xtext.example.mydsl.MyDsl.ReactServicesRelation");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)+
+;
+
+// Entry rule entryRuleReactServicesType
+entryRuleReactServicesType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactServicesTypeRule()); }
+	iv_ruleReactServicesType=ruleReactServicesType
+	{ $current=$iv_ruleReactServicesType.current; }
+	EOF;
+
+// Rule ReactServicesType
+ruleReactServicesType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='ServiceType'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getReactServicesTypeAccess().getServiceTypeKeyword_0());
+		}
 		(
 			(
 				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getReactActionsAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getReactServicesTypeAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getReactActionsRule());
+						$current = createModelElement(grammarAccess.getReactServicesTypeRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -2611,6 +3692,109 @@ ruleReactActions returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='ServiceContent'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactServicesTypeAccess().getServiceContentKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleReactServicesRelation
+entryRuleReactServicesRelation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactServicesRelationRule()); }
+	iv_ruleReactServicesRelation=ruleReactServicesRelation
+	{ $current=$iv_ruleReactServicesRelation.current; }
+	EOF;
+
+// Rule ReactServicesRelation
+ruleReactServicesRelation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='ServicesRelations'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getReactServicesRelationAccess().getServicesRelationsKeyword_0());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getReactServicesRelationAccess().getReactrelationcontentReactServicesTypeParserRuleCall_1_0_0());
+					}
+					lv_reactrelationcontent_1_0=ruleReactServicesType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getReactServicesRelationRule());
+						}
+						add(
+							$current,
+							"reactrelationcontent",
+							lv_reactrelationcontent_1_0,
+							"org.xtext.example.mydsl.MyDsl.ReactServicesType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					lv_name_2_0=RULE_ID
+					{
+						newLeafNode(lv_name_2_0, grammarAccess.getReactServicesRelationAccess().getNameIDTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getReactServicesRelationRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_2_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			{
+				newCompositeNode(grammarAccess.getReactServicesRelationAccess().getReactRequestParserRuleCall_1_2());
+			}
+			ruleReactRequest
+			{
+				afterParserOrEnumRuleCall();
+			}
+		)+
+	)
+;
+
+// Entry rule entryRuleReactRequest
+entryRuleReactRequest returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getReactRequestRule()); }
+	iv_ruleReactRequest=ruleReactRequest
+	{ $current=$iv_ruleReactRequest.current.getText(); }
+	EOF;
+
+// Rule ReactRequest
+ruleReactRequest returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='Wrapper'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactRequestAccess().getWrapperKeyword_0());
+		}
+		    |
+		kw='AuxWrapper'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactRequestAccess().getAuxWrapperKeyword_1());
+		}
 	)
 ;
 
@@ -2630,19 +3814,76 @@ ruleReactLibraries returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Libraries'
+		otherlv_0='ReactLibraries'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getReactLibrariesAccess().getLibrariesKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getReactLibrariesAccess().getReactLibrariesKeyword_0());
+		}
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReactLibrariesAccess().getColonKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactLibrariesAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactLibrariesAccess().getReactlibrariesReactLibraryParserRuleCall_3_0());
+				}
+				lv_reactlibraries_3_0=ruleReactLibrary
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactLibrariesRule());
+					}
+					add(
+						$current,
+						"reactlibraries",
+						lv_reactlibraries_3_0,
+						"org.xtext.example.mydsl.MyDsl.ReactLibrary");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getReactLibrariesAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleReactLibrary
+entryRuleReactLibrary returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactLibraryRule()); }
+	iv_ruleReactLibrary=ruleReactLibrary
+	{ $current=$iv_ruleReactLibrary.current; }
+	EOF;
+
+// Rule ReactLibrary
+ruleReactLibrary returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getReactLibraryAccess().getReactLibraryTypeParserRuleCall_0());
+		}
+		ruleReactLibraryType
+		{
+			afterParserOrEnumRuleCall();
 		}
 		(
 			(
 				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getReactLibrariesAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getReactLibraryAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getReactLibrariesRule());
+						$current = createModelElement(grammarAccess.getReactLibraryRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -2652,6 +3893,64 @@ ruleReactLibraries returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='LibraryContent'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactLibraryAccess().getLibraryContentKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleReactLibraryType
+entryRuleReactLibraryType returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getReactLibraryTypeRule()); }
+	iv_ruleReactLibraryType=ruleReactLibraryType
+	{ $current=$iv_ruleReactLibraryType.current.getText(); }
+	EOF;
+
+// Rule ReactLibraryType
+ruleReactLibraryType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='ReactDesign'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactLibraryTypeAccess().getReactDesignKeyword_0());
+		}
+		    |
+		kw='ReactRouting'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactLibraryTypeAccess().getReactRoutingKeyword_1());
+		}
+		    |
+		kw='ComponentManagement'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactLibraryTypeAccess().getComponentManagementKeyword_2());
+		}
+		    |
+		kw='StoreManagement'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactLibraryTypeAccess().getStoreManagementKeyword_3());
+		}
+		    |
+		kw='ReactDeployment'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactLibraryTypeAccess().getReactDeploymentKeyword_4());
+		}
+		    |
+		kw='ConfigurationLibrary'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactLibraryTypeAccess().getConfigurationLibraryKeyword_5());
+		}
 	)
 ;
 
@@ -2671,19 +3970,76 @@ ruleReactInfo returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Information'
+		otherlv_0='ReactInformation'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getReactInfoAccess().getInformationKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getReactInfoAccess().getReactInformationKeyword_0());
+		}
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReactInfoAccess().getColonKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactInfoAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReactInfoAccess().getReactinformationReactInformationParserRuleCall_3_0());
+				}
+				lv_reactinformation_3_0=ruleReactInformation
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReactInfoRule());
+					}
+					add(
+						$current,
+						"reactinformation",
+						lv_reactinformation_3_0,
+						"org.xtext.example.mydsl.MyDsl.ReactInformation");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getReactInfoAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleReactInformation
+entryRuleReactInformation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReactInformationRule()); }
+	iv_ruleReactInformation=ruleReactInformation
+	{ $current=$iv_ruleReactInformation.current; }
+	EOF;
+
+// Rule ReactInformation
+ruleReactInformation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getReactInformationAccess().getReactInformationTypeParserRuleCall_0());
+		}
+		ruleReactInformationType
+		{
+			afterParserOrEnumRuleCall();
 		}
 		(
 			(
 				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getReactInfoAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getReactInformationAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getReactInfoRule());
+						$current = createModelElement(grammarAccess.getReactInformationRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -2693,6 +4049,40 @@ ruleReactInfo returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='InformationContent'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReactInformationAccess().getInformationContentKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleReactInformationType
+entryRuleReactInformationType returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getReactInformationTypeRule()); }
+	iv_ruleReactInformationType=ruleReactInformationType
+	{ $current=$iv_ruleReactInformationType.current.getText(); }
+	EOF;
+
+// Rule ReactInformationType
+ruleReactInformationType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='ReactReadme'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactInformationTypeAccess().getReactReadmeKeyword_0());
+		}
+		    |
+		kw='ReactAditionalInfo'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactInformationTypeAccess().getReactAditionalInfoKeyword_1());
+		}
 	)
 ;
 

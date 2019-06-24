@@ -3,15 +3,23 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.ReactLibraries;
+import org.xtext.example.mydsl.myDsl.ReactLibrary;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +29,7 @@ import org.xtext.example.mydsl.myDsl.ReactLibraries;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReactLibrariesImpl#getReactlibraries <em>Reactlibraries</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +37,14 @@ import org.xtext.example.mydsl.myDsl.ReactLibraries;
 public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements ReactLibraries
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getReactlibraries() <em>Reactlibraries</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getReactlibraries()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<ReactLibrary> reactlibraries;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +73,13 @@ public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public String getName()
+  public EList<ReactLibrary> getReactlibraries()
   {
-    return name;
+    if (reactlibraries == null)
+    {
+      reactlibraries = new EObjectContainmentEList<ReactLibrary>(ReactLibrary.class, this, MyDslPackage.REACT_LIBRARIES__REACTLIBRARIES);
+    }
+    return reactlibraries;
   }
 
   /**
@@ -86,12 +88,14 @@ public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REACT_LIBRARIES__NAME, oldName, name));
+    switch (featureID)
+    {
+      case MyDslPackage.REACT_LIBRARIES__REACTLIBRARIES:
+        return ((InternalEList<?>)getReactlibraries()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,8 +108,8 @@ public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_LIBRARIES__NAME:
-        return getName();
+      case MyDslPackage.REACT_LIBRARIES__REACTLIBRARIES:
+        return getReactlibraries();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +119,15 @@ public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_LIBRARIES__NAME:
-        setName((String)newValue);
+      case MyDslPackage.REACT_LIBRARIES__REACTLIBRARIES:
+        getReactlibraries().clear();
+        getReactlibraries().addAll((Collection<? extends ReactLibrary>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +143,8 @@ public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_LIBRARIES__NAME:
-        setName(NAME_EDEFAULT);
+      case MyDslPackage.REACT_LIBRARIES__REACTLIBRARIES:
+        getReactlibraries().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +160,10 @@ public class ReactLibrariesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MyDslPackage.REACT_LIBRARIES__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyDslPackage.REACT_LIBRARIES__REACTLIBRARIES:
+        return reactlibraries != null && !reactlibraries.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ReactLibrariesImpl

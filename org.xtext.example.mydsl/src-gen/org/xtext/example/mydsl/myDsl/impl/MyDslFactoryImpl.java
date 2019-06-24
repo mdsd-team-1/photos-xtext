@@ -100,12 +100,28 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.PACKAGE_NAME: return createPackageName();
       case MyDslPackage.PACKAGE_VERSION: return createPackageVersion();
       case MyDslPackage.REACT_CONFIGURATIONS: return createReactConfigurations();
+      case MyDslPackage.DOM_CONFIGURATIONS: return createDOMConfigurations();
       case MyDslPackage.REACT_COMPONENTS: return createReactComponents();
       case MyDslPackage.COMPONENTS_LOGIC: return createComponentsLogic();
+      case MyDslPackage.LOGIC_CONTENT: return createLogicContent();
+      case MyDslPackage.LOGIC_STRUCTURE: return createLogicStructure();
       case MyDslPackage.COMPONENTS_UI: return createComponentsUI();
+      case MyDslPackage.UI_CONTENT: return createUIContent();
+      case MyDslPackage.COMPONENT_CLASS: return createComponentClass();
+      case MyDslPackage.REACT_FUNCTIONS: return createReactFunctions();
+      case MyDslPackage.REACT_CONSTRUCTOR: return createReactConstructor();
+      case MyDslPackage.STATE: return createState();
+      case MyDslPackage.CORE_FUNCTIONS_DECLARATION: return createCoreFunctionsDeclaration();
+      case MyDslPackage.PROPS: return createProps();
+      case MyDslPackage.REACT_CORE_FUNCTIONS: return createReactCoreFunctions();
       case MyDslPackage.REACT_ACTIONS: return createReactActions();
+      case MyDslPackage.REACT_ACTIONS_CONTENT: return createReactActionsContent();
+      case MyDslPackage.REACT_SERVICES_TYPE: return createReactServicesType();
+      case MyDslPackage.REACT_SERVICES_RELATION: return createReactServicesRelation();
       case MyDslPackage.REACT_LIBRARIES: return createReactLibraries();
+      case MyDslPackage.REACT_LIBRARY: return createReactLibrary();
       case MyDslPackage.REACT_INFO: return createReactInfo();
+      case MyDslPackage.REACT_INFORMATION: return createReactInformation();
       case MyDslPackage.SPRING: return createSpring();
       case MyDslPackage.POSTGRE_SQL: return createPostgreSQL();
       case MyDslPackage.AMAZON_WEB_SERVICES: return createAmazonWebServices();
@@ -540,6 +556,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public DOMConfigurations createDOMConfigurations()
+  {
+    DOMConfigurationsImpl domConfigurations = new DOMConfigurationsImpl();
+    return domConfigurations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ReactComponents createReactComponents()
   {
     ReactComponentsImpl reactComponents = new ReactComponentsImpl();
@@ -564,10 +592,130 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public LogicContent createLogicContent()
+  {
+    LogicContentImpl logicContent = new LogicContentImpl();
+    return logicContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicStructure createLogicStructure()
+  {
+    LogicStructureImpl logicStructure = new LogicStructureImpl();
+    return logicStructure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ComponentsUI createComponentsUI()
   {
     ComponentsUIImpl componentsUI = new ComponentsUIImpl();
     return componentsUI;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UIContent createUIContent()
+  {
+    UIContentImpl uiContent = new UIContentImpl();
+    return uiContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ComponentClass createComponentClass()
+  {
+    ComponentClassImpl componentClass = new ComponentClassImpl();
+    return componentClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactFunctions createReactFunctions()
+  {
+    ReactFunctionsImpl reactFunctions = new ReactFunctionsImpl();
+    return reactFunctions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactConstructor createReactConstructor()
+  {
+    ReactConstructorImpl reactConstructor = new ReactConstructorImpl();
+    return reactConstructor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public State createState()
+  {
+    StateImpl state = new StateImpl();
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CoreFunctionsDeclaration createCoreFunctionsDeclaration()
+  {
+    CoreFunctionsDeclarationImpl coreFunctionsDeclaration = new CoreFunctionsDeclarationImpl();
+    return coreFunctionsDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Props createProps()
+  {
+    PropsImpl props = new PropsImpl();
+    return props;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactCoreFunctions createReactCoreFunctions()
+  {
+    ReactCoreFunctionsImpl reactCoreFunctions = new ReactCoreFunctionsImpl();
+    return reactCoreFunctions;
   }
 
   /**
@@ -588,6 +736,42 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public ReactActionsContent createReactActionsContent()
+  {
+    ReactActionsContentImpl reactActionsContent = new ReactActionsContentImpl();
+    return reactActionsContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactServicesType createReactServicesType()
+  {
+    ReactServicesTypeImpl reactServicesType = new ReactServicesTypeImpl();
+    return reactServicesType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactServicesRelation createReactServicesRelation()
+  {
+    ReactServicesRelationImpl reactServicesRelation = new ReactServicesRelationImpl();
+    return reactServicesRelation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ReactLibraries createReactLibraries()
   {
     ReactLibrariesImpl reactLibraries = new ReactLibrariesImpl();
@@ -600,10 +784,34 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public ReactLibrary createReactLibrary()
+  {
+    ReactLibraryImpl reactLibrary = new ReactLibraryImpl();
+    return reactLibrary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ReactInfo createReactInfo()
   {
     ReactInfoImpl reactInfo = new ReactInfoImpl();
     return reactInfo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactInformation createReactInformation()
+  {
+    ReactInformationImpl reactInformation = new ReactInformationImpl();
+    return reactInformation;
   }
 
   /**
