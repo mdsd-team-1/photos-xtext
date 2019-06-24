@@ -1,0 +1,198 @@
+<System> := Domain Architecture Technology;
+
+
+Domain := (Entities)+ (Functionalities)+ (DomainRelations)+;
+
+Entities := Photo | Album | User_Domain;
+Functionalities := ProfileManagement | AppAccess | AlbumManagement | PhotoActions | LandingContent;
+DomainRelations := User_Domain name Functionalities | 
+				   PhotoActions name AlbumManagement |
+				   Album name AlbumManagement |
+				   Photo name PhotoActions;
+
+Photo := 'Photo' name;
+Album := 'Album' name;
+User_Domain := 'User_Domain' name;
+
+ProfileManagement := 'ViewProfilePhoto' name | 'EditProfileInfo' name;
+AppAccess := 'Login' name | 'Register' name;
+AlbumManagement := 'CreateAlbum' name | 'SelectAlbum' name;
+PhotoActions := 'ViewAllPhotos' name | 'ViewPhoto' name | 'LoadPhoto' name | 'ViewExtendedPhoto' name;
+LandingContent := 'ViewCarousel' name | 'PassPhoto' name;
+
+Architecture := (NTiers)+ (NTiersConnections)+;
+
+NTiers := (Layer)+; (LayerRelations)+ (ArchitectureComponent)+;
+
+Layer := Presentation '
+ Presentation' SegmentStructure |
+		 BusinessLogic 'BusinessLogic' SegmentStructure |
+		 Data 'Data' SegmentStructure;
+
+LayerRelations := RelationType name LayerSource LayerTarget;
+LayerSource := 'source' Layer;
+LayerTarget := 'target' Layer;
+RelationType := 'AllowedToUse';		 
+
+ArchitectureComponent := FrontEnd | BackEnd | PersistenceData;
+FrontEnd := 'FrontEndArchitecture' name;
+BackEnd :=  'BackEndArchitecture' name;
+PersistenceData := 'PersistenceDataArchitecture' name;
+
+NTiersConnections := ConnectionType name NTierSource NTierTarget;
+NTierSource := 'source' Layer;
+NTierTarget := 'target' Layer;
+ConnectionType := 'REST' | 'PostgreSQLConnection' | 'AmazonS3API';
+
+Presentation := null | 'presentationSegment' name PresentationSegment;
+PresentationSegment := PresentationView | PresentationComponents | PresentationActions;
+PresentationView := 'PresentationView' name;
+PresentationComponents := 'PresentationComponent' name;
+PresentationActions := 'PresentationAction' name;
+
+BusinessLogic := null | 'businessLogic' name BusinessLogicSegment;
+BusinessLogicSegment := ControllerSubSegment | ModelSubSegment | RepositorySubSegment | SecuritySubSegment;
+ControllerSubSegment := 'ControllerSegment' name;
+ModelSubSegment := 'ModelSegment' name;
+RepositorySubSegment := 'RepositorySegment' name;
+SecuritySubSegment := 'SecuritySegment' name;
+
+Data := null | 'data' name DataSegment;
+DataSegment := PostgreSLQ_a | AmazonS3Storage;
+PostgreSLQ_a := 'PostgreSLQ_a' name;
+AmazonS3Storage := 'AmazonS3Storage' name;
+
+SegmentStructure := 'Directory' name Directories | (Files)+;
+Directories := (Files)+;
+Files := ('File' name)+;
+
+Technology := Spring React PostgreSQL AmazonServices;
+
+React := 'React' ReactModules;
+ReactModules := (ReactConfigurations)+ (ReactComponents)+ (ReactActions)+ (ReactLibraries)+ (ReactInfo)+;
+ReactConfigurations := Dependency (Dependencies)+ ReactConf (ReactDOMConfs)+;
+Dependency := 'DependencyStruct' name;
+ReactConf := 'ReactConfStruct' name;
+Dependencies := DependenciesType name;
+DependenciesType := (DependenciesTypeObject)+;
+DependenciesTypeObject := SingleDependency | MultipleDependency;
+MultipleDependency := (SingleDependency)+;
+SingleDependency := PackagesName PackagesVersion;
+PackagesName := 'PackageName' name;
+PackagesVersion := 'PackageVersion' name;
+ReactDOMConfs := (DOMConfigurations name)+;
+DOMConfigurations := 'RoutingConf' | 'ServiceWorker' |
+					 'HTMLStructure' | 'Manifest' | 'RepositoriesConf';
+
+ReactComponents := ReactComponentsLogic ReactComponentsUI;
+ReactComponentsLogic := 'Router' LogicStructures;
+LogicStructures := 'AppComponent' name ComponentClass 'IndexComponent' name;
+ReactComponentsUI := ('ViewComponent' name ComponentClass)+ ('Subcomponents' name ComponentClass)+;
+
+ComponentClass := Props State ReactFunctions
+Props := 'Props' name DataType;
+State := 'State' name DataType;
+ReactFunctions := Constructor LifeCycle Render CoreFunctions;
+
+Constructor := State? CoreFunctionDeclaration;
+CoreFunctionDeclaration := 'FunctionStructure' 'name';
+
+LifeCycle := 'ComponentWillMount' 'FunctionStructure' |
+			 'ComponentDidUpdate' 'FunctionStructure';
+			 
+Render := 'Return' 'RenderContent';
+
+CoreFunctions := 'Function' name 'FunctionStructure';
+
+DataType := 'String' | 'Array' | 'Object' | 'Number' | 'null' | 'Boolean';
+
+ReactActions := Request (ReactServices)+;
+ReactServices := 'ServiceType' name;
+ServicesRelation := 'ServiceType' name Request;
+Request := 'Wrapper' | 'AuxWrapper';
+
+ReactLibraries := (ReactLibraryType name Library)+;
+ReactLibraryType := 'ReactDesign' | 'ReactRouting' |
+					'ComponentManagement' | 'StoreManagement' |
+					'ReactDeployment' | 'ConfigurationLibrary';
+
+ReactInfo := (ReactInfoType name InformationDisplay)+;
+ReactInfoType := 'ReactReadme' | 'ReactAditionalInfo';
+
+
+Spring := SpringBootApplication;
+SpringBootApplication := (SpringConfiguration)+ (SpringComponent)+ (SpringRepository)+ (RestController)+ (SpringEntity)+;
+ 
+SpringConfiguration := EnableGlobalMethodSecurity  EnableAuthorizationServer  EnableResourceServer  EnableWebSecurity;
+EnableGlobalMethodSecurity := ‘EnableGlobalMethodSecurity’ name;
+EnableAuthorizationServer := ‘EnableAuthorizationServer’ name;
+EnableResourceServer := ‘EnableResourceServer’ name;
+EnableWebSecurity := ‘EnableWebSecurity’ name;
+
+SpringComponent := OrderSpring;
+OrderSpring:= 'OrderSpring' name;
+
+SpringRepository := (SpringRepositories)+;
+SpringRepositories := 'SpringRepository' name;
+
+RestController := Specification  Autowired  RequestMapping ExceptionHandler;
+Specification := (Predicate)+ SearchCriteria;
+Predicate :='Predicate' name ;
+SearchCriteria := 'SearchCriteria' name;
+Autowired := (AutowiredType)+;
+AutowiredType := 'Autowired' name;
+RequestMapping := (RequestPart)+ (RequestMappingType)+;
+RequestPart := ‘ExceptionRequest’ name;
+RequestMappingType := (PostMapping)+ | (GetMapping)+ | (PutMapping)+ | (DeleteMapping)+;
+PostMapping := ‘PostMapping’ name;
+GetMapping := ‘GetMapping’ name;
+PutMapping := ‘PutMapping’ name;
+DeleteMapping := ‘DeleteMapping’ name;
+ExceptionHandler := (ExceptionProcess)+;
+ExceptionProcess := 'ExceptionProcess' name;
+SpringEntity := (SpringTable)+ (NameNativeQuery)+;
+SpringTable := id (Columns)+;
+id := GeneratedValue | null;
+GeneratedValue := GeneratedValue ‘name’;
+NameNativeQuery := 'NameNativeQuery' name;
+
+PostgreSQL := 'Cluster' Cluster;
+Cluster := 'Database' Database (PostgresUser)+;
+
+Database := 'Schema' Schema;
+Schema := Index_p ViewSchema (Table_p)+ Trigger Function;
+Index_p := ‘Index_p’ name;
+ViewSchema := ‘ViewSchema’ name;
+Table_p := (ForeignKey)+ (Column)+ (Row)+;
+ForeignKey := ForeignKey_n ForeignKeyRef;
+ForeignKey_n := ‘ForeingKey’ name;
+ForeignKeyRef := RefTable_p | null;
+RefTable_p := ‘RefTable_p’ name;
+Column := Datatype Constraint;
+Datatype := ‘Datatype’ name;
+Constraint := ‘Constraint’ name;
+Row := Policy;
+Policy := ‘Policy’ name;
+Trigger := ‘Trigger’ name;
+Function := ‘Function’ name;
+
+PostgresUser := Privilege Query;
+Privilege := ‘Privilege’ name;
+Query := Clause;
+Clause := ‘Clause’ name;
+
+AmazonWebServices := AmazonSimpleStorageService AmazonElasticComputeCloud;
+
+AmazonSimpleStorageService := BatchOperation Bucket;
+BatchOperation := ‘BatchOperation’ name;
+Bucket := BucketAccess  AmazonFolder  (AmazonFile)+;
+BucketAccess := PublicAccess | ObjectsPublic | BucketObjectsNotPublic | OnlyAuthorized;
+PublicAccess := ‘PublicAccess’ name;
+ObjectsPublic := ‘ObjectsPublic’ name;
+BucketObjectsNotPublic := ‘BucketObjectsNotPublic’ name;
+OnlyAuthorized := ‘OnlyAuthorized’ name;
+AmazonFolder := ‘AmazonFolder’ name;
+AmazonFile := Metadata;
+Metadata := ‘Metadata’ name;
+
+AmazonElasticComputeCloud := ‘AmazonElasticComputeCloud’ name;
