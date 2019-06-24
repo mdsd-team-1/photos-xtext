@@ -5,8 +5,10 @@ Domain := (Entities)+ (Functionalities)+ (DomainRelations)+;
 
 Entities := Photo | Album | User_Domain;
 Functionalities := ProfileManagement | AppAccess | AlbumManagement | PhotoActions | LandingContent;
-DomainRelations := User_Domain name Functionalities | PhotoActions name AlbumManagement |
-			 Album name AlbumManagement | Photo name PhotoActions;
+DomainRelations := User_Domain name Functionalities | 
+				   PhotoActions name AlbumManagement |
+				   Album name AlbumManagement |
+				   Photo name PhotoActions;
 
 Photo := 'Photo' name;
 Album := 'Album' name;
@@ -18,12 +20,12 @@ AlbumManagement := 'CreateAlbum' name | 'SelectAlbum' name;
 PhotoActions := 'ViewAllPhotos' name | 'ViewPhoto' name | 'LoadPhoto' name | 'ViewExtendedPhoto' name;
 LandingContent := 'ViewCarousel' name | 'PassPhoto' name;
 
-
 Architecture := (NTiers)+ (NTiersConnections)+;
 
 NTiers := (Layer)+; (LayerRelations)+ (ArchitectureComponent)+;
 
-Layer := Presentation 'Presentation' SegmentStructure |
+Layer := Presentation '
+ Presentation' SegmentStructure |
 		 BusinessLogic 'BusinessLogic' SegmentStructure |
 		 Data 'Data' SegmentStructure;
 
@@ -64,13 +66,10 @@ SegmentStructure := 'Directory' name Directories | (Files)+;
 Directories := (Files)+;
 Files := ('File' name)+;
 
-
-
 Technology := Spring React PostgreSQL AmazonServices;
 
 React := 'React' ReactModules;
 ReactModules := (ReactConfigurations)+ (ReactComponents)+ (ReactActions)+ (ReactLibraries)+ (ReactInfo)+;
-
 ReactConfigurations := Dependency (Dependencies)+ ReactConf (ReactDOMConfs)+;
 Dependency := 'DependencyStruct' name;
 ReactConf := 'ReactConfStruct' name;
@@ -87,23 +86,24 @@ DOMConfigurations := 'RoutingConf' | 'ServiceWorker' |
 
 ReactComponents := ReactComponentsLogic ReactComponentsUI;
 ReactComponentsLogic := 'Router' LogicStructures;
-LogicStructures := ComponentClass 'AppComponent' name ComponentClass 'IndexComponent' name;
-ReactComponentsUI := (ComponentClass 'ViewComponents' name)+ (ComponentClass 'Subcomponents' name)+;
+LogicStructures := 'AppComponent' name ComponentClass 'IndexComponent' name;
+ReactComponentsUI := ('ViewComponent' name ComponentClass)+ ('Subcomponents' name ComponentClass)+;
 
 ComponentClass := Props State ReactFunctions
 Props := 'Props' name DataType;
 State := 'State' name DataType;
 ReactFunctions := Constructor LifeCycle Render CoreFunctions;
 
-Constructor := State? CoreFunctionDeclaration;
-CoreFunctionDeclaration := 'FunctionStructure' 'name';
+Constructor := 'Constructor' State? CoreFunctionDeclaration;
+CoreFunctionDeclaration := 'name' 'FunctionBindingDeclaration';
 
-LifeCycle := 'ComponentWillMount' 'FunctionStructure' |
-			 'ComponentDidUpdate' 'FunctionStructure';
+LifeCycle := 'ComponentDidMount' 'FunctionStructure' |
+			 'ComponentDidUpdate' 'FunctionStructure' |
+			 'ComponentWillUnmount' 'FunctionStructure' |;
 			 
-Render := 'Return' 'RenderContent';
+Render := 'Render' 'RenderContent';
 
-CoreFunctions := 'Function' name 'FunctionStructure';
+CoreFunctions := name 'FunctionStructure';
 
 DataType := 'String' | 'Array' | 'Object' | 'Number' | 'null' | 'Boolean';
 
