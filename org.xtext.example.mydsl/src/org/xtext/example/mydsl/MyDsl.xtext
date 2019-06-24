@@ -1,0 +1,156 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+//System
+Model:
+'System' ':' '{' elements+=Domain elements+=Architecture elements+=Technology '}';
+
+// Domain
+Domain:
+'Domain' name=ID ':' '{' elements+=Entity elements+=Functionality elements+=DomainConnection '}';
+
+// Domain - Entities
+Entity:
+'Entities' ':' '{' (elements+=Entities) '}';
+
+Entities:
+elements+=Photo elements+=Album elements+=UserDomain;
+
+Photo:
+'Photo' name=ID;
+
+Album:
+'Album' name=ID;
+
+UserDomain:
+'UserDomain' name=ID;
+
+// Domain - Functionalities
+Functionality:
+'Functionalities' ':' '{' (elements+=Functionalities) '}';
+
+Functionalities:
+functions+=ProfileManagement 
+elements+=AppAccess
+items+=AlbumManagement
+resources+=PhotoActions
+aditionals+=LandingActions;
+
+ProfileManagement:
+'ProfileManagement' ':' items+=ProfileManagementFunctions;
+
+ProfileManagementFunctions:
+'ViewProfilePhoto' name=ID 'EditProfileInfo' name=ID;
+
+AppAccess:
+'AppAccess' ':' items+=AppAccessFunctions;
+
+AppAccessFunctions:
+'Login' name=ID 'Register' name=ID;
+
+AlbumManagement:
+'AlbumManagement' ':'items+=AlbumManagementFunctions;
+
+AlbumManagementFunctions:
+'CreateAlbum' name=ID 'SelectAlbum' name=ID;
+
+PhotoActions:
+'PhotoActions' ':'items+=PhotoActionsFunctions;
+
+PhotoActionsFunctions:
+'ViewAllPhotos' name=ID 'ViewExtendedPhoto' name=ID 'LoadPhoto' name=ID;
+
+LandingActions:
+'LandingActions' ':'items+=LandingFunctions;
+
+LandingFunctions:
+'ViewCarousel' name=ID 'PassPhoto' name=ID;
+
+
+//Domain - Relations
+DomainConnection:
+'DomainRelations' ':' '{' elements+=DomainRelations '}';
+
+DomainRelations:
+elements+=UserDomain name=ID ':' '{' elements+=Functionalities '}'
+elements+=Album name=ID ':' '{' elements+=AlbumManagementFunctions '}'
+elements+=Photo name=ID ':' '{' elements+=PhotoActionsFunctions '}'
+elements+=PhotoActions name=ID  ':' '{'elements+=AlbumManagement '}';
+		
+//Architecture
+Architecture:
+'Architecture:' '{' name=ID '}';
+
+//Technology
+Technology:
+'Technology' name=ID ':' '{' elements+=Technologies '}';
+
+Technologies:
+factors+=Spring factors+=React factors+=PostgreSQL factors+=AmazonWebServices;
+
+React:
+'React' name=ID ':' '{' reacts+=ReactModules '}';
+
+ReactModules:
+'ReactModules' ':' '{' reactmodules+=ReactSubModules '}';
+
+ReactSubModules:
+reactmodules+=ReactConfiguration
+reactmodules+=ReactComponents
+reactmodules+=ReactActions
+reactmodules+=ReactLibraries
+reactmodules+=ReactInfo
+;
+
+ReactConfiguration:
+'ReactConfiguration' dependencies+=ReactDependencies configurations+=ReactConfigurations;
+
+ReactDependencies:
+'DependenciesStruct' (dependencies+=ReactDependenciesRules)+;
+
+ReactDependenciesRules:
+'DependencyType' name=ID (dependencies+=ReactDependenciesSubRules)+;
+
+ReactDependenciesSubRules:
+(dependencies+=SingleDependencies);
+
+SingleDependencies:
+(dependencies+=PackageName) (dependencies+=PackageVersion);
+
+PackageName:
+'PackageName' name=ID;
+
+PackageVersion:
+'PackageVersion' name=ID;	
+
+ReactConfigurations:
+'ReactDOMConfigurations' name=ID;
+
+ReactComponents:
+'ReactComponents' componentslogic+=ComponentsLogic componentsui+=ComponentsUI;
+
+ComponentsLogic:
+'LogicComponents' name=ID;
+
+ComponentsUI:
+'UIComponents' name=ID;
+
+ReactActions:
+'ReactActions' name=ID;
+
+ReactLibraries:
+'Libraries' name=ID;
+
+ReactInfo:
+'Information' name=ID;
+
+//Spring
+Spring:
+'Spring' name=ID;
+
+PostgreSQL:
+'PostgreSQL' name=ID;
+
+AmazonWebServices: 
+'AmazonWebServices' name=ID;
