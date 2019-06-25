@@ -1,6 +1,5 @@
 <System> := Domain Architecture Technology;
 
-
 Domain := (Entities)+ (Functionalities)+ (DomainRelations)+;
 
 Entities := Photo | Album | User_Domain;
@@ -20,12 +19,12 @@ AlbumManagement := 'CreateAlbum' name | 'SelectAlbum' name;
 PhotoActions := 'ViewAllPhotos' name | 'ViewPhoto' name | 'LoadPhoto' name | 'ViewExtendedPhoto' name;
 LandingContent := 'ViewCarousel' name | 'PassPhoto' name;
 
+
 Architecture := (NTiers)+ (NTiersConnections)+;
 
 NTiers := (Layer)+; (LayerRelations)+ (ArchitectureComponent)+;
 
-Layer := Presentation '
- Presentation' SegmentStructure |
+Layer := Presentation 'Presentation' SegmentStructure |
 		 BusinessLogic 'BusinessLogic' SegmentStructure |
 		 Data 'Data' SegmentStructure;
 
@@ -65,6 +64,7 @@ AmazonS3Storage := 'AmazonS3Storage' name;
 SegmentStructure := 'Directory' name Directories | (Files)+;
 Directories := (Files)+;
 Files := ('File' name)+;
+
 
 Technology := Spring React PostgreSQL AmazonServices;
 
@@ -123,19 +123,15 @@ ReactInfoType := 'ReactReadme' | 'ReactAditionalInfo';
 
 Spring := SpringBootApplication;
 SpringBootApplication := (SpringConfiguration)+ (SpringComponent)+ (SpringRepository)+ (RestController)+ (SpringEntity)+;
- 
 SpringConfiguration := EnableGlobalMethodSecurity  EnableAuthorizationServer  EnableResourceServer  EnableWebSecurity;
-EnableGlobalMethodSecurity := ‘EnableGlobalMethodSecurity’ name;
-EnableAuthorizationServer := ‘EnableAuthorizationServer’ name;
-EnableResourceServer := ‘EnableResourceServer’ name;
-EnableWebSecurity := ‘EnableWebSecurity’ name;
-
+EnableGlobalMethodSecurity := 'EnableGlobalMethodSecurity' name;
+EnableAuthorizationServer := 'EnableAuthorizationServer' name;
+EnableResourceServer := 'EnableResourceServer' name;
+EnableWebSecurity := 'EnableWebSecurity' name;
 SpringComponent := OrderSpring;
 OrderSpring:= 'OrderSpring' name;
-
 SpringRepository := (SpringRepositories)+;
 SpringRepositories := 'SpringRepository' name;
-
 RestController := Specification  Autowired  RequestMapping ExceptionHandler;
 Specification := (Predicate)+ SearchCriteria;
 Predicate :='Predicate' name ;
@@ -143,57 +139,55 @@ SearchCriteria := 'SearchCriteria' name;
 Autowired := (AutowiredType)+;
 AutowiredType := 'Autowired' name;
 RequestMapping := (RequestPart)+ (RequestMappingType)+;
-RequestPart := ‘ExceptionRequest’ name;
+RequestPart := 'ExceptionRequest' name;
 RequestMappingType := (PostMapping)+ | (GetMapping)+ | (PutMapping)+ | (DeleteMapping)+;
-PostMapping := ‘PostMapping’ name;
-GetMapping := ‘GetMapping’ name;
-PutMapping := ‘PutMapping’ name;
-DeleteMapping := ‘DeleteMapping’ name;
+PostMapping := 'PostMapping' name;
+GetMapping := 'GetMapping' name;
+PutMapping := 'PutMapping' name;
+DeleteMapping := 'DeleteMapping' name;
 ExceptionHandler := (ExceptionProcess)+;
 ExceptionProcess := 'ExceptionProcess' name;
 SpringEntity := (SpringTable)+ (NameNativeQuery)+;
 SpringTable := id (Columns)+;
 id := GeneratedValue | null;
-GeneratedValue := GeneratedValue ‘name’;
+GeneratedValue := GeneratedValue 'name';
 NameNativeQuery := 'NameNativeQuery' name;
+
 
 PostgreSQL := 'Cluster' Cluster;
 Cluster := 'Database' Database (PostgresUser)+;
-
 Database := 'Schema' Schema;
 Schema := Index_p ViewSchema (Table_p)+ Trigger Function;
-Index_p := ‘Index_p’ name;
-ViewSchema := ‘ViewSchema’ name;
+Index_p := 'Index_p' name;
+ViewSchema := 'ViewSchema' name;
 Table_p := (ForeignKey)+ (Column)+ (Row)+;
 ForeignKey := ForeignKey_n ForeignKeyRef;
-ForeignKey_n := ‘ForeingKey’ name;
+ForeignKey_n := 'ForeingKey' name;
 ForeignKeyRef := RefTable_p | null;
-RefTable_p := ‘RefTable_p’ name;
+RefTable_p := 'RefTable_p' name;
 Column := Datatype Constraint;
-Datatype := ‘Datatype’ name;
-Constraint := ‘Constraint’ name;
+Datatype := 'Datatype' name;
+Constraint := 'Constraint' name;
 Row := Policy;
-Policy := ‘Policy’ name;
-Trigger := ‘Trigger’ name;
-Function := ‘Function’ name;
-
+Policy := 'Policy' name;
+Trigger := 'Trigger' name;
+Function := 'Function' name;
 PostgresUser := Privilege Query;
-Privilege := ‘Privilege’ name;
+Privilege := 'Privilege' name;
 Query := Clause;
-Clause := ‘Clause’ name;
+Clause := 'Clause' name;
 
-AmazonWebServices := AmazonSimpleStorageService AmazonElasticComputeCloud;
 
+AmazonServices := AmazonSimpleStorageService AmazonElasticComputeCloud;
 AmazonSimpleStorageService := BatchOperation Bucket;
-BatchOperation := ‘BatchOperation’ name;
+BatchOperation := 'BatchOperation' name;
 Bucket := BucketAccess  AmazonFolder  (AmazonFile)+;
 BucketAccess := PublicAccess | ObjectsPublic | BucketObjectsNotPublic | OnlyAuthorized;
-PublicAccess := ‘PublicAccess’ name;
-ObjectsPublic := ‘ObjectsPublic’ name;
-BucketObjectsNotPublic := ‘BucketObjectsNotPublic’ name;
-OnlyAuthorized := ‘OnlyAuthorized’ name;
-AmazonFolder := ‘AmazonFolder’ name;
+PublicAccess := 'PublicAccess' name;
+ObjectsPublic := 'ObjectsPublic' name;
+BucketObjectsNotPublic := 'BucketObjectsNotPublic' name;
+OnlyAuthorized := 'OnlyAuthorized' name;
+AmazonFolder := 'AmazonFolder' name;
 AmazonFile := Metadata;
-Metadata := ‘Metadata’ name;
-
-AmazonElasticComputeCloud := ‘AmazonElasticComputeCloud’ name;
+Metadata := 'Metadata' name;
+AmazonElasticComputeCloud := 'AmazonElasticComputeCloud' name;
