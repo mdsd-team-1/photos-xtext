@@ -120,7 +120,120 @@ System: {
 					target PersistenceDataComponent AmazonWebService
 	}
 	Technology name: {
-		Spring SpringExample
+		Spring SpringProject : {
+			SpringBootApplication
+				Configuration : { 
+					EnableGlobalMethodSecurity AnnotationGlobalSecurity
+					EnableAuthorizationServer AnnotationAuthorizationServer
+					EnableResourceServer AnnotationResourseServer
+					EnableWebSecurity AnnotationWebSecurity
+				}
+				SpringComponent : {
+					OrderSpring HighestPrecedence
+				}
+				SpringRepositories : {
+					SpringRepository AlbumRepository
+					SpringRepository PhotoRepository
+					SpringRepository UserRepository
+				}
+				RestController AlbumComtroller : {
+					Specification
+						Predicate AlbumPredicate
+						SearchCriteria AlbumSpecification
+					Autowired
+						AutowiredType AlbumRepository
+					Autowired
+						AutowiredType PhotoRepository
+					RequestMapping
+						RequestMappingType
+							GetMapping MappingGet
+					RequestMapping
+						RequestMappingType
+							PostMapping MappingPost
+					ExceptionHandler
+						ExceptionProcess AlbumNotFoundException
+						ExceptionProcess PhotosFromAlbumNotFoundException
+						ExceptionProcess AlbumHasNoPhotosException
+						ExceptionProcess MissingParametersForNewAlbumException
+				}
+				RestController PhotoController : {
+					Specification
+						Predicate PhotoPredicate
+						SearchCriteria PhotoSpecification
+					Autowired
+						AutowiredType PhotoRepository
+					Autowired
+						AutowiredType AmazonClient
+					RequestMapping
+						RequestPart file
+						RequestMappingType
+							PostMapping MappingPost
+					RequestMapping
+						RequestPart url
+						RequestMappingType
+							DeleteMapping MappingDelete
+					RequestMapping
+						RequestMappingType
+							GetMapping MappingGet
+					ExceptionHandler
+						ExceptionProcess PhotoNotFoundException
+						ExceptionProcess PhotoUploadErrorException
+						ExceptionProcess PhotoNotCreatedException
+						ExceptionProcess PhotoNotDeletedException
+				}
+				RestController UserController : {
+					Specification
+						Predicate UserPredicate
+						SearchCriteria UserSpecification
+					Autowired
+						AutowiredType UserRepository
+					Autowired
+						AutowiredType AlbumRepository
+					Autowired
+						AutowiredType PhotoRepository
+					RequestMapping
+						RequestMappingType
+							GetMapping MappingGet
+					RequestMapping
+						RequestMappingType
+							PostMapping MappingPost
+					RequestMapping
+						RequestMappingType
+							PutMapping MappingPut
+					ExceptionHandler
+						ExceptionProcess UserNotFoundException
+						ExceptionProcess AlbumsFromUserNotFoundException
+						ExceptionProcess UserHasNoAlbumsException
+						ExceptionProcess UserHasNoPhotosException
+				}
+				SpringEntity AlbumEntity : {
+					SpringTable album
+						SpringTableId
+							GeneratedValue Id_Album
+						Column name
+						Column user_id
+				}
+				SpringEntity PhotoEntity : {
+					SpringTable photo
+						SpringTableId 
+							GeneratedValue Id_Photo
+						Column name
+						Column url 
+						Column album_id
+				}
+				SpringEntity UserEntity : {
+					SpringTable user
+						SpringTableId
+							GeneratedValue Id_User
+						Column user_name
+						Column first_name
+						Column last_name
+					    Column profile_description
+						Column password
+						Column email
+					NameNativeQuery	findLoginUser
+				}
+		}
 		React ReactJS : {
 			ReactModules: {
 				ReactConfiguration : {
@@ -271,7 +384,84 @@ System: {
 				}
 			}
 		}	 
-		PostgreSQL postgreSQL
-		AmazonWebServices AmazonExample
+		PostgreSQL postgreSQL : {
+			Database
+				Schema public
+					Table_p album : {
+						ForeignKey
+							ForeingKeyName keyUsers
+							ForeignKeyRef  
+								RefTable_p users
+						ForeignKey
+							ForeingKeyName keyAlbums
+							ForeignKeyRef  
+								RefTable_p albums
+						Column id
+							DatatypeDB integer
+							Constraint primaryKey
+						Column name
+							DatatypeDB characterVarying
+						Column user_id
+							DatatypeDB integer
+							Constraint foreignKey
+						Row Cars
+					}
+					Table_p photo : {
+						ForeignKey
+							ForeingKeyName keyAlbums
+							ForeignKeyRef  
+								RefTable_p albums
+						ForeignKey
+							ForeingKeyName keyUsers
+							ForeignKeyRef  
+								RefTable_p users
+						Column id
+							DatatypeDB integer
+							Constraint primaryKey
+						Column url
+							DatatypeDB characterVarying
+						Column name
+							DatatypeDB characterVarying
+						Column album_id
+							DatatypeDB integer
+							Constraint foreignKey
+						Row Ferrari
+					}
+					Table_p user : {
+						ForeignKey
+							ForeingKeyName keyUsers
+							ForeignKeyRef  
+								RefTable_p users
+						Column first_name
+							DatatypeDB characterVarying
+						Column last_name
+							DatatypeDB characterVarying
+						Column id
+							DatatypeDB integer
+							Constraint primaKey
+						Column profile_description
+							DatatypeDB characterVarying
+						Column user_name
+							DatatypeDB characterVarying
+						Column password
+							DatatypeDB characterVarying
+						Column email
+							DatatypeDB characterVarying
+						Row Pedro
+					}
+					Function nextval
+				PostgresUser
+		}
+		AmazonWebServices AmazonExample : {
+			AmazonSimpleStorageService : {
+				Bucket co.edu.unal.photosappback.photos-storage
+					BucketAccess
+						PublicAccess PublicAccessPhotosBucket
+					AmazonFile
+						Metadata Ferrari
+						Metadata CarroRojo
+			}
+			AmazonElasticComputeCloud Ec2PhotosInstance
+		}
 	}
 }

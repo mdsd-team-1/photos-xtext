@@ -187,7 +187,7 @@ Spring:
 'Spring' name=ID ':' '{' elements+=SpringBootApplication '}';
 
 SpringBootApplication:
-'SpringBootApplication'  (elements+=Configuration) (elements+=SpringComponent) (elements+=SpringRepository)  (elements+=RestController) (elements+=SpringEntity)  ;
+'SpringBootApplication'  elements+=Configuration (elements+=SpringComponent) (elements+=SpringRepository)  (elements+=RestController) (elements+=SpringEntity)  ;
 
 Configuration:
 'Configuration' ':' '{' elements+=EnableGlobalMethodSecurity  elements+=EnableAuthorizationServer   elements+=EnableResourceServer  elements+=EnableWebSecurity '}';
@@ -217,7 +217,7 @@ SpringRepositories:
 'SpringRepository' name=ID;
 
 RestController:
-'RestController' name=ID ':' '{' elements+=Specification  elements+=Autowired  elements+=RequestMapping elements+=ExceptionHandler '}';
+'RestController' name=ID ':' '{' elements+=Specification  (elements+=Autowired)  (elements+=RequestMapping) elements+=ExceptionHandler '}';
 
 Specification:
 'Specification' (elements+=Predicate) elements+=SearchCriteria;
@@ -229,19 +229,19 @@ SearchCriteria:
 'SearchCriteria' name=ID;
 
 Autowired: 
-(elements+=AutowiredType);
+'Autowired'elements+=AutowiredType;
 
 AutowiredType:
 'AutowiredType' name=ID;
 
 RequestMapping:
-'RequestMapping' (elements+=RequestPart) (elements+=RequestMappingType);
+'RequestMapping' (elements+=RequestPart)* elements+=RequestMappingType;
 
 RequestPart:
-'ExceptionRequest' name=ID;
+'RequestPart' name=ID;
 
 RequestMappingType:
-'RequestMappingType' (elements+=PostMapping) (elements+=GetMapping) (elements+=PutMapping) (elements+=DeleteMapping);
+'RequestMappingType' (elements+=PostMapping) | (elements+=GetMapping) | (elements+=PutMapping) | (elements+=DeleteMapping);
 
 PostMapping:
 'PostMapping' name=ID;
@@ -262,10 +262,10 @@ ExceptionProcess:
 'ExceptionProcess' name=ID;
 
 SpringEntity:
-'SpringEntity' name=ID ':' '{' (elements+=SpringTable) (elements+=NameNativeQuery) '}';
+'SpringEntity' name=ID ':' '{' (elements+=SpringTable) (elements+=NameNativeQuery)* '}';
 
 SpringTable:
-'SpringTable' elements+=SpringTableId (elements+=Columns);
+'SpringTable' name=ID elements+=SpringTableId (elements+=Columns);
 
 SpringTableId:
 'SpringTableId' (elements+=GeneratedValue)*;
@@ -274,7 +274,7 @@ GeneratedValue:
 'GeneratedValue' name=ID;
 
 Columns:
-'Columns' name=ID;
+'Column' name=ID;
 
 NameNativeQuery:
 'NameNativeQuery'  name=ID;
@@ -412,16 +412,16 @@ ReactInformationType:
 
 
 PostgreSQL:
-'Cluster' ':' '{' elements+=Cluster '}';
+'PostgreSQL' name=ID ':' '{' elements+=Cluster '}';
 
 Cluster:
 'Database' elements+=Database (elements+=PostgresUser);
 
 Database:
-'Schema'  elements+=Schema;
+'Schema' name=ID elements+=Schema;
 
 Schema: 
-	elements+=Index_p elements+=ViewSchema (elements+=Table_p) elements+=Trigger elements+=Function;
+	(elements+=Index_p)* (elements+=ViewSchema)* (elements+=Table_p) (elements+=Trigger)* elements+=Function;
 	
 Index_p:
 	'Index_p' name=ID;
@@ -433,10 +433,10 @@ Table_p:
 	'Table_p' name=ID ':' '{' (elements+=ForeignKey) (elements+=Column) (elements+=Row) '}';
 		
 ForeignKey: 
-	elements+=ForeignKey_n elements+=ForeignKeyRef;
+	'ForeignKey' elements+=ForeignKey_n elements+=ForeignKeyRef;
 	
 ForeignKey_n: 
-	'ForeingKey' name=ID;
+	'ForeingKeyName' name=ID;
 	
 ForeignKeyRef:
 	'ForeignKeyRef' (elements+=RefTable_p)*;
@@ -445,7 +445,7 @@ RefTable_p:
 	'RefTable_p' name=ID;
 
 Column: 
-	elements+=DatatypeDB elements+=Constraint;
+	'Column' name=ID elements+=DatatypeDB (elements+=Constraint)*;
 	
 DatatypeDB:
 	'DatatypeDB' name=ID;
@@ -454,7 +454,7 @@ Constraint:
 	'Constraint' name=ID;
 	
 Row :
-	'Row' elements+=Policy;
+	'Row' name=ID (elements+=Policy)*;
 
 Policy:
 	'Policy' name=ID;
@@ -485,16 +485,16 @@ AmazonWebServices:
 'AmazonWebServices'	':' '{' elements+=AmazonSimpleStorageService elements+=AmazonElasticComputeCloud '}';
 	
 AmazonSimpleStorageService:
-'AmazonSimpleStorageService' ':' '{' elements+=BatchOperation elements+=Bucket '}';
+'AmazonSimpleStorageService' ':' '{' (elements+=BatchOperation)* elements+=Bucket '}';
 	
 BatchOperation:
 	'BatchOperation' name=ID;
 	
 Bucket:
-'Bucket'	elements+=BucketAccess  elements+=AmazonFolder  (elements+=AmazonFile);
+	'Bucket' name=ID elements+=BucketAccess  (elements+=AmazonFolder)*  (elements+=AmazonFile);
 
 BucketAccess:
- 'BucketAccess'	elements+=PublicAccess | elements+=ObjectsPublic | elements+=BucketObjectsNotPublic | elements+=OnlyAuthorized;
+	'BucketAccess'	elements+=PublicAccess | elements+=ObjectsPublic | elements+=BucketObjectsNotPublic | elements+=OnlyAuthorized;
 
 PublicAccess:
 	'PublicAccess' name=ID;
