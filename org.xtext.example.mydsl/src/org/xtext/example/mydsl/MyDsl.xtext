@@ -80,7 +80,100 @@ elements+=PhotoActions name=ID  ':' '{'elements+=AlbumManagement '}';
 		
 //Architecture
 Architecture:
-'Architecture:' '{' name=ID '}';
+'Architecture:' '{' (elements+=NTiers)+  (elements+=NTiersConnections)+ '}';
+
+NTiers:
+'Layers' (elements+=Layer)+ 'LayersRelations' (elements+=LayerRelations)+ 'ArchitectureComponents' (elements+=ArchitectureComponents)+;
+
+Layer:
+elements+=PresentationLayer elements+=BusinessLogicLayer elements+=DataPersistenceLayer;
+
+PresentationLayer:
+'PresentationLayer' elements+=PresentationContent elements+=SegmentStructure;
+
+PresentationContent:
+'PresentationSegments' elements+=PresentationSegments;
+
+PresentationSegments:
+'PresentationView' name=ID 'PresentationComponent' name=ID 'PresentationAction' name=ID;
+
+BusinessLogicLayer:
+'BusinessLogicLayer' elements+=BusinessLogicContent elements+=SegmentStructure;
+
+BusinessLogicContent:
+'BusinessLogicSegments' elements+=BusinessLogicSegments;
+
+BusinessLogicSegments:
+'ControllerSegment' name=ID 'ModelSegment' name=ID 'RepositorySegment' name=ID 'SecuritySegment' name=ID;
+
+DataPersistenceLayer:
+'DataPersistenceLayer' elements+=DataPersistenceContent;
+
+DataPersistenceContent:
+'DataPersistenceSegments' elements+=DataPersistenceSegments;
+
+DataPersistenceSegments:
+'PostgreSLQSegment' name=ID 'AmazonS3Storage' name=ID;
+
+SegmentStructure:
+'SegmentStructure' elements+=SegmentStructureContent;
+
+SegmentStructureContent:
+'Directories'	name=ID (elements+=DirectoryContent)+;
+
+DirectoryContent:
+('Directory' name=ID elements+=Directories)+ | (elements+=SingleFile)+;
+
+Directories:
+(elements+=MultipleFile)+;
+
+SingleFile:
+'SingleFile' name=ID;
+
+MultipleFile:
+'CommonFile' name=ID;
+
+LayerRelations:
+(layerelations+=RelationType name=ID layerorigin+=LayerSource layertarget+=LayerTarget)+;
+
+RelationType:
+'AllowedToUse' | 'AllowToUseBelow';
+
+LayerSource:
+'source' layerelations+=LayerRelationName;
+
+LayerTarget:
+'target' layerelations+=LayerRelationName;
+
+LayerRelationName:
+'PresentationLayer' | 'BusinessLogicLayer' | 'PersistenceDataLayer';
+
+ArchitectureComponents:
+'SystemComponents' archcomponent+=FrontEnd archcomponent+=BackEnd archcomponent+=PersistenceDataComponent;
+
+FrontEnd:
+'FrontEndComponent' name=ID;
+
+BackEnd: 
+'BackEndComponent' name=ID;
+
+PersistenceDataComponent:
+'PersistenceDataComponent' name=ID;
+
+NTiersConnections:
+'Connectors' (ntierconnection+=ConnectionType name=ID ntierorigin+=NTierSource ntiertarget+=NTierTarget)+;
+
+ConnectionType:
+'REST' | 'PostgreSQLConnection' | 'AmazonS3API';
+
+NTierSource:
+'source' ntierconnection+=NTiersRelations;
+
+NTierTarget:
+'target' ntierconnection+=NTiersRelations;
+
+NTiersRelations:
+'FrontEndComponent' name=ID | 'BackEndComponent' name=ID | 'PersistenceDataComponent' name=ID | 'AmazonService' name=ID;
 
 //Technology
 Technology:

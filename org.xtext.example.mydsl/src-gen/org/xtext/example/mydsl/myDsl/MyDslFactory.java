@@ -222,6 +222,258 @@ public interface MyDslFactory extends EFactory
   Architecture createArchitecture();
 
   /**
+   * Returns a new object of class '<em>NTiers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NTiers</em>'.
+   * @generated
+   */
+  NTiers createNTiers();
+
+  /**
+   * Returns a new object of class '<em>Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer</em>'.
+   * @generated
+   */
+  Layer createLayer();
+
+  /**
+   * Returns a new object of class '<em>Presentation Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Presentation Layer</em>'.
+   * @generated
+   */
+  PresentationLayer createPresentationLayer();
+
+  /**
+   * Returns a new object of class '<em>Presentation Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Presentation Content</em>'.
+   * @generated
+   */
+  PresentationContent createPresentationContent();
+
+  /**
+   * Returns a new object of class '<em>Presentation Segments</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Presentation Segments</em>'.
+   * @generated
+   */
+  PresentationSegments createPresentationSegments();
+
+  /**
+   * Returns a new object of class '<em>Business Logic Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Logic Layer</em>'.
+   * @generated
+   */
+  BusinessLogicLayer createBusinessLogicLayer();
+
+  /**
+   * Returns a new object of class '<em>Business Logic Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Logic Content</em>'.
+   * @generated
+   */
+  BusinessLogicContent createBusinessLogicContent();
+
+  /**
+   * Returns a new object of class '<em>Business Logic Segments</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Business Logic Segments</em>'.
+   * @generated
+   */
+  BusinessLogicSegments createBusinessLogicSegments();
+
+  /**
+   * Returns a new object of class '<em>Data Persistence Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Persistence Layer</em>'.
+   * @generated
+   */
+  DataPersistenceLayer createDataPersistenceLayer();
+
+  /**
+   * Returns a new object of class '<em>Data Persistence Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Persistence Content</em>'.
+   * @generated
+   */
+  DataPersistenceContent createDataPersistenceContent();
+
+  /**
+   * Returns a new object of class '<em>Data Persistence Segments</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Persistence Segments</em>'.
+   * @generated
+   */
+  DataPersistenceSegments createDataPersistenceSegments();
+
+  /**
+   * Returns a new object of class '<em>Segment Structure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Segment Structure</em>'.
+   * @generated
+   */
+  SegmentStructure createSegmentStructure();
+
+  /**
+   * Returns a new object of class '<em>Segment Structure Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Segment Structure Content</em>'.
+   * @generated
+   */
+  SegmentStructureContent createSegmentStructureContent();
+
+  /**
+   * Returns a new object of class '<em>Directory Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Directory Content</em>'.
+   * @generated
+   */
+  DirectoryContent createDirectoryContent();
+
+  /**
+   * Returns a new object of class '<em>Directories</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Directories</em>'.
+   * @generated
+   */
+  Directories createDirectories();
+
+  /**
+   * Returns a new object of class '<em>Single File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Single File</em>'.
+   * @generated
+   */
+  SingleFile createSingleFile();
+
+  /**
+   * Returns a new object of class '<em>Multiple File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multiple File</em>'.
+   * @generated
+   */
+  MultipleFile createMultipleFile();
+
+  /**
+   * Returns a new object of class '<em>Layer Relations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Relations</em>'.
+   * @generated
+   */
+  LayerRelations createLayerRelations();
+
+  /**
+   * Returns a new object of class '<em>Layer Source</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Source</em>'.
+   * @generated
+   */
+  LayerSource createLayerSource();
+
+  /**
+   * Returns a new object of class '<em>Layer Target</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Target</em>'.
+   * @generated
+   */
+  LayerTarget createLayerTarget();
+
+  /**
+   * Returns a new object of class '<em>Architecture Components</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Architecture Components</em>'.
+   * @generated
+   */
+  ArchitectureComponents createArchitectureComponents();
+
+  /**
+   * Returns a new object of class '<em>Front End</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Front End</em>'.
+   * @generated
+   */
+  FrontEnd createFrontEnd();
+
+  /**
+   * Returns a new object of class '<em>Back End</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Back End</em>'.
+   * @generated
+   */
+  BackEnd createBackEnd();
+
+  /**
+   * Returns a new object of class '<em>Persistence Data Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Persistence Data Component</em>'.
+   * @generated
+   */
+  PersistenceDataComponent createPersistenceDataComponent();
+
+  /**
+   * Returns a new object of class '<em>NTiers Connections</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NTiers Connections</em>'.
+   * @generated
+   */
+  NTiersConnections createNTiersConnections();
+
+  /**
+   * Returns a new object of class '<em>NTier Source</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NTier Source</em>'.
+   * @generated
+   */
+  NTierSource createNTierSource();
+
+  /**
+   * Returns a new object of class '<em>NTier Target</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NTier Target</em>'.
+   * @generated
+   */
+  NTierTarget createNTierTarget();
+
+  /**
+   * Returns a new object of class '<em>NTiers Relations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NTiers Relations</em>'.
+   * @generated
+   */
+  NTiersRelations createNTiersRelations();
+
+  /**
    * Returns a new object of class '<em>Technology</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

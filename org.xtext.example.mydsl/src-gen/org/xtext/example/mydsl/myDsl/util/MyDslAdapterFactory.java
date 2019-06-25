@@ -186,6 +186,146 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createArchitectureAdapter();
       }
       @Override
+      public Adapter caseNTiers(NTiers object)
+      {
+        return createNTiersAdapter();
+      }
+      @Override
+      public Adapter caseLayer(Layer object)
+      {
+        return createLayerAdapter();
+      }
+      @Override
+      public Adapter casePresentationLayer(PresentationLayer object)
+      {
+        return createPresentationLayerAdapter();
+      }
+      @Override
+      public Adapter casePresentationContent(PresentationContent object)
+      {
+        return createPresentationContentAdapter();
+      }
+      @Override
+      public Adapter casePresentationSegments(PresentationSegments object)
+      {
+        return createPresentationSegmentsAdapter();
+      }
+      @Override
+      public Adapter caseBusinessLogicLayer(BusinessLogicLayer object)
+      {
+        return createBusinessLogicLayerAdapter();
+      }
+      @Override
+      public Adapter caseBusinessLogicContent(BusinessLogicContent object)
+      {
+        return createBusinessLogicContentAdapter();
+      }
+      @Override
+      public Adapter caseBusinessLogicSegments(BusinessLogicSegments object)
+      {
+        return createBusinessLogicSegmentsAdapter();
+      }
+      @Override
+      public Adapter caseDataPersistenceLayer(DataPersistenceLayer object)
+      {
+        return createDataPersistenceLayerAdapter();
+      }
+      @Override
+      public Adapter caseDataPersistenceContent(DataPersistenceContent object)
+      {
+        return createDataPersistenceContentAdapter();
+      }
+      @Override
+      public Adapter caseDataPersistenceSegments(DataPersistenceSegments object)
+      {
+        return createDataPersistenceSegmentsAdapter();
+      }
+      @Override
+      public Adapter caseSegmentStructure(SegmentStructure object)
+      {
+        return createSegmentStructureAdapter();
+      }
+      @Override
+      public Adapter caseSegmentStructureContent(SegmentStructureContent object)
+      {
+        return createSegmentStructureContentAdapter();
+      }
+      @Override
+      public Adapter caseDirectoryContent(DirectoryContent object)
+      {
+        return createDirectoryContentAdapter();
+      }
+      @Override
+      public Adapter caseDirectories(Directories object)
+      {
+        return createDirectoriesAdapter();
+      }
+      @Override
+      public Adapter caseSingleFile(SingleFile object)
+      {
+        return createSingleFileAdapter();
+      }
+      @Override
+      public Adapter caseMultipleFile(MultipleFile object)
+      {
+        return createMultipleFileAdapter();
+      }
+      @Override
+      public Adapter caseLayerRelations(LayerRelations object)
+      {
+        return createLayerRelationsAdapter();
+      }
+      @Override
+      public Adapter caseLayerSource(LayerSource object)
+      {
+        return createLayerSourceAdapter();
+      }
+      @Override
+      public Adapter caseLayerTarget(LayerTarget object)
+      {
+        return createLayerTargetAdapter();
+      }
+      @Override
+      public Adapter caseArchitectureComponents(ArchitectureComponents object)
+      {
+        return createArchitectureComponentsAdapter();
+      }
+      @Override
+      public Adapter caseFrontEnd(FrontEnd object)
+      {
+        return createFrontEndAdapter();
+      }
+      @Override
+      public Adapter caseBackEnd(BackEnd object)
+      {
+        return createBackEndAdapter();
+      }
+      @Override
+      public Adapter casePersistenceDataComponent(PersistenceDataComponent object)
+      {
+        return createPersistenceDataComponentAdapter();
+      }
+      @Override
+      public Adapter caseNTiersConnections(NTiersConnections object)
+      {
+        return createNTiersConnectionsAdapter();
+      }
+      @Override
+      public Adapter caseNTierSource(NTierSource object)
+      {
+        return createNTierSourceAdapter();
+      }
+      @Override
+      public Adapter caseNTierTarget(NTierTarget object)
+      {
+        return createNTierTargetAdapter();
+      }
+      @Override
+      public Adapter caseNTiersRelations(NTiersRelations object)
+      {
+        return createNTiersRelationsAdapter();
+      }
+      @Override
       public Adapter caseTechnology(Technology object)
       {
         return createTechnologyAdapter();
@@ -723,6 +863,426 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArchitectureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.NTiers <em>NTiers</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.NTiers
+   * @generated
+   */
+  public Adapter createNTiersAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Layer <em>Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Layer
+   * @generated
+   */
+  public Adapter createLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.PresentationLayer <em>Presentation Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.PresentationLayer
+   * @generated
+   */
+  public Adapter createPresentationLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.PresentationContent <em>Presentation Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.PresentationContent
+   * @generated
+   */
+  public Adapter createPresentationContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.PresentationSegments <em>Presentation Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.PresentationSegments
+   * @generated
+   */
+  public Adapter createPresentationSegmentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.BusinessLogicLayer <em>Business Logic Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.BusinessLogicLayer
+   * @generated
+   */
+  public Adapter createBusinessLogicLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.BusinessLogicContent <em>Business Logic Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.BusinessLogicContent
+   * @generated
+   */
+  public Adapter createBusinessLogicContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.BusinessLogicSegments <em>Business Logic Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.BusinessLogicSegments
+   * @generated
+   */
+  public Adapter createBusinessLogicSegmentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.DataPersistenceLayer <em>Data Persistence Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.DataPersistenceLayer
+   * @generated
+   */
+  public Adapter createDataPersistenceLayerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.DataPersistenceContent <em>Data Persistence Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.DataPersistenceContent
+   * @generated
+   */
+  public Adapter createDataPersistenceContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.DataPersistenceSegments <em>Data Persistence Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.DataPersistenceSegments
+   * @generated
+   */
+  public Adapter createDataPersistenceSegmentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.SegmentStructure <em>Segment Structure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.SegmentStructure
+   * @generated
+   */
+  public Adapter createSegmentStructureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.SegmentStructureContent <em>Segment Structure Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.SegmentStructureContent
+   * @generated
+   */
+  public Adapter createSegmentStructureContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.DirectoryContent <em>Directory Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.DirectoryContent
+   * @generated
+   */
+  public Adapter createDirectoryContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Directories <em>Directories</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Directories
+   * @generated
+   */
+  public Adapter createDirectoriesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.SingleFile <em>Single File</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.SingleFile
+   * @generated
+   */
+  public Adapter createSingleFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.MultipleFile <em>Multiple File</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.MultipleFile
+   * @generated
+   */
+  public Adapter createMultipleFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayerRelations <em>Layer Relations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayerRelations
+   * @generated
+   */
+  public Adapter createLayerRelationsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayerSource <em>Layer Source</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayerSource
+   * @generated
+   */
+  public Adapter createLayerSourceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayerTarget <em>Layer Target</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayerTarget
+   * @generated
+   */
+  public Adapter createLayerTargetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ArchitectureComponents <em>Architecture Components</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ArchitectureComponents
+   * @generated
+   */
+  public Adapter createArchitectureComponentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.FrontEnd <em>Front End</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.FrontEnd
+   * @generated
+   */
+  public Adapter createFrontEndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.BackEnd <em>Back End</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.BackEnd
+   * @generated
+   */
+  public Adapter createBackEndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.PersistenceDataComponent <em>Persistence Data Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.PersistenceDataComponent
+   * @generated
+   */
+  public Adapter createPersistenceDataComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.NTiersConnections <em>NTiers Connections</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.NTiersConnections
+   * @generated
+   */
+  public Adapter createNTiersConnectionsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.NTierSource <em>NTier Source</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.NTierSource
+   * @generated
+   */
+  public Adapter createNTierSourceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.NTierTarget <em>NTier Target</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.NTierTarget
+   * @generated
+   */
+  public Adapter createNTierTargetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.NTiersRelations <em>NTiers Relations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.NTiersRelations
+   * @generated
+   */
+  public Adapter createNTiersRelationsAdapter()
   {
     return null;
   }

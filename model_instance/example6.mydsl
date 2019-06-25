@@ -1,0 +1,277 @@
+System: {
+	Domain SoftGallery: { 
+		Entities: {
+			Photo PhotoEntity
+			Album PhotoEntity
+			UserDomain UserEntity
+		}
+		Functionalities : {
+			ProfileManagement:
+				ViewProfilePhoto verFotoPerfil
+				EditProfileInfo editarInformacionPerfil
+			AppAccess:
+				Login ingresar
+				Register registrarse
+			AlbumManagement: 
+				CreateAlbum crearAlbum
+				SelectAlbum seleccionarAlbum 
+			PhotoActions:
+				ViewAllPhotos verTodasLasFotos
+				ViewExtendedPhoto verUnicaFoto
+				LoadPhoto cargarFoto
+			LandingActions:
+				ViewCarousel verCarrusel
+				PassPhoto pasarFoto
+		}
+		DomainRelations: {
+			UserDomain UserEntity puede: {
+				ProfileManagement:
+					ViewProfilePhoto verFoto
+					EditProfileInfo editarPerfil
+				AppAccess:
+					Login ingresar
+					Register registrarse
+				AlbumManagement:
+					CreateAlbum crearAlbum
+					SelectAlbum seleccionarAlbum
+				PhotoActions:
+					ViewAllPhotos verTodasLasFotos
+					ViewExtendedPhoto verUnicaFoto
+					LoadPhoto cargarFoto
+				LandingActions:
+					ViewCarousel verCarrusel
+					PassPhoto pasarFoto
+				}
+			Album AlbumEntity 
+				seVincula: {
+					CreateAlbum crearAlbum
+					SelectAlbum seleccionarAlbum
+				}
+			Photo PhotoEntity seRelaciona:{
+				ViewAllPhotos verTodasLasFotos
+				ViewExtendedPhoto verUnicaFoto
+				LoadPhoto cargarFoto
+			}
+			PhotoActions:
+				ViewAllPhotos verTodasLasFotos
+				ViewExtendedPhoto verUnicaFoto
+				LoadPhoto cargarFoto
+					esNecesario: {
+						AlbumManagement:
+							CreateAlbum crearAlbum
+							SelectAlbum seleccionarAlbum
+				} 
+		} 	
+	}
+	
+	Architecture: {
+		Layers
+			PresentationLayer
+				PresentationSegments
+					PresentationView SegmentoVista
+					PresentationComponent SegmentoComponentes
+					PresentationAction SegmentoAcciones
+				SegmentStructure
+					Directories softgalleryFrontend
+						Directory nodeModules
+							CommonFile nodeModulesFiles
+						Directory public
+							CommonFile publicFiles
+						Directory src
+							CommonFile appFiles
+							CommonFile otherFiles
+			BusinessLogicLayer
+				BusinessLogicSegments
+					ControllerSegment SegmentoControladores
+					ModelSegment SegmentoModelo
+					RepositorySegment SegmentoRepository
+					SecuritySegment SegmentoSeguridad
+				SegmentStructure
+					Directories softgalleryBackend
+						Directory main
+							CommonFile mainFiles
+			DataPersistenceLayer
+				DataPersistenceSegments
+					PostgreSLQSegment SegmentoDatos
+					AmazonS3Storage SegmentoImagenes
+					
+		LayersRelations
+			AllowedToUse related 
+				source PresentationLayer 
+				target BusinessLogicLayer
+			AllowedToUse related 
+				source BusinessLogicLayer
+				target PersistenceDataLayer
+			
+		ArchitectureComponents
+			SystemComponents
+				FrontEndComponent FrontEnd
+				BackEndComponent BackEnd
+				PersistenceDataComponent PersistenceData
+			Connectors
+				REST protocol 
+					source FrontEndComponent FrontEnd
+					target BackEndComponent BackEnd
+				PostgreSQLConnection protocol
+					source BackEndComponent BackEnd
+					target PersistenceDataComponent PersistenceData
+				AmazonS3API protocol
+					source BackEndComponent BackEnd
+					target PersistenceDataComponent AmazonWebService
+	}
+	Technology name: {
+		Spring SpringExample
+		React ReactJS : {
+			ReactModules: {
+				ReactConfiguration : {
+					DependenciesStruct
+						DependencyType Design
+							PackageName antd
+							PackageVersion version031602
+						DependencyType Request
+							PackageName axios
+							PackageVersion version001800
+						DependencyType Querys
+							PackageName querystring
+							PackageVersion version060600
+						DependencyType ReactImplementation
+							PackageName react
+							PackageVersion version160806
+						DependencyType ReactDom
+							PackageName reactdom
+							PackageVersion version160806
+						DependencyType RouterDOM
+							PackageName reactrouterdom
+							PackageVersion version050000
+					ReactDOMConfigurations Configurations
+						RoutingConf routesJS
+						ServiceWorker serviceWorkerJS
+						HTMLStructure indexHTML
+						Manifest manifestJSON
+						RepositoriesConf gitignore
+				}
+				ReactComponents : {
+					LogicComponents componentesLogicos
+						RoutingComponents componentRouting
+							AppComponent AppJS
+								Constructor
+									State stateVars
+									FunctionBindingDeclaration
+								ComponentDidMount
+									FunctionStructure
+								anotherFunctions
+									FunctionStructure
+								Render
+									RenderContent 								
+								Props 
+									super String
+							IndexComponent indexJS
+					UIComponents componentesVisuales
+						ViewComponent home
+							Constructor
+									State stateVars
+									FunctionBindingDeclaration
+							next
+								FunctionStructure
+							previous
+								FunctionStructure
+							Render
+								RenderContent 								
+							Props 
+								super String
+						ViewComponent upload
+							Constructor
+								State stateVars
+								FunctionBindingDeclaration
+							ComponentDidMount
+								FunctionStructure
+							changeAlbum
+								FunctionStructure
+							Render
+								RenderContent 								
+							Props 
+								super String
+						ViewComponent gallery
+							Constructor
+								State stateVars
+								FunctionBindingDeclaration
+							Render
+								RenderContent 								
+							Props 
+								super String
+						ViewComponent usersManagement
+							Constructor
+								State stateVars
+								FunctionBindingDeclaration
+							ComponentDidMount
+								FunctionStructure
+							openEditModal
+								FunctionStructure
+							Render
+								RenderContent 								
+							Props 
+								super String
+						ViewComponent categoryManagement
+							Constructor
+								State stateVars
+								FunctionBindingDeclaration
+							ComponentDidMount
+								FunctionStructure
+							toggleCardImageModal
+								FunctionStructure
+							Render
+								RenderContent 								
+							Props 
+								super String
+						Subcomponents FieldTitle
+							Constructor
+									State stateVars
+									FunctionBindingDeclaration
+								Render
+									RenderContent 								
+								Props 
+									super String
+						Subcomponents MainLoading
+							Constructor
+									State stateVars
+									FunctionBindingDeclaration
+								Render
+									RenderContent 								
+								Props 
+									super String
+				}		 						
+				ReactActions: { 
+					ServicesRelations
+						ServiceType loginServices ServiceContent relacionadoCon AuxWrapper
+						ServiceType loginServices ServiceContent relacionadoCon Wrapper
+						ServiceType registerServices ServiceContent relacionadoCon Wrapper
+						ServiceType albumServices ServiceContent relacionadoCon Wrapper
+						ServiceType photoServices ServiceContent relacionadoCon Wrapper
+						ServiceType uploadServices ServiceContent relacionadoCon Wrapper
+						ServiceType userServices ServiceContent relacionadoCon Wrapper		
+				}	
+				ReactLibraries: {
+					 ReactDesign antd
+					 	LibraryContent
+					 ReactRouting reactrouter
+					 	LibraryContent
+					 ComponentManagement component
+					 	LibraryContent
+					 StoreManagement reduxthunk
+					 	LibraryContent
+					 ReactDeployment reactdom
+					 	LibraryContent
+					 ConfigurationLibrary npm
+					 	LibraryContent
+					 
+				}
+				ReactInformation : {
+					ReactReadme readme
+						InformationContent
+				}
+			}
+		}	 
+		PostgreSQL postgreSQL
+		AmazonWebServices AmazonExample
+	}
+}

@@ -889,16 +889,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cArchitectureKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsNTiersParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cElementsNTiersConnectionsParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		////Architecture
 		//Architecture:
-		//	'Architecture:' '{' name=ID '}';
+		//	'Architecture:' '{' elements+=NTiers+ elements+=NTiersConnections+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Architecture:' '{' name=ID '}'
+		//'Architecture:' '{' elements+=NTiers+ elements+=NTiersConnections+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Architecture:'
@@ -907,14 +909,992 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//elements+=NTiers+
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//NTiers
+		public RuleCall getElementsNTiersParserRuleCall_2_0() { return cElementsNTiersParserRuleCall_2_0; }
+		
+		//elements+=NTiersConnections+
+		public Assignment getElementsAssignment_3() { return cElementsAssignment_3; }
+		
+		//NTiersConnections
+		public RuleCall getElementsNTiersConnectionsParserRuleCall_3_0() { return cElementsNTiersConnectionsParserRuleCall_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class NTiersElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.NTiers");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLayersKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsLayerParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Keyword cLayersRelationsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cElementsLayerRelationsParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
+		private final Keyword cArchitectureComponentsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cElementsArchitectureComponentsParserRuleCall_5_0 = (RuleCall)cElementsAssignment_5.eContents().get(0);
+		
+		//NTiers:
+		//	'Layers' elements+=Layer+ 'LayersRelations' elements+=LayerRelations+ 'ArchitectureComponents'
+		//	elements+=ArchitectureComponents+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Layers' elements+=Layer+ 'LayersRelations' elements+=LayerRelations+ 'ArchitectureComponents'
+		//elements+=ArchitectureComponents+
+		public Group getGroup() { return cGroup; }
+		
+		//'Layers'
+		public Keyword getLayersKeyword_0() { return cLayersKeyword_0; }
+		
+		//elements+=Layer+
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//Layer
+		public RuleCall getElementsLayerParserRuleCall_1_0() { return cElementsLayerParserRuleCall_1_0; }
+		
+		//'LayersRelations'
+		public Keyword getLayersRelationsKeyword_2() { return cLayersRelationsKeyword_2; }
+		
+		//elements+=LayerRelations+
+		public Assignment getElementsAssignment_3() { return cElementsAssignment_3; }
+		
+		//LayerRelations
+		public RuleCall getElementsLayerRelationsParserRuleCall_3_0() { return cElementsLayerRelationsParserRuleCall_3_0; }
+		
+		//'ArchitectureComponents'
+		public Keyword getArchitectureComponentsKeyword_4() { return cArchitectureComponentsKeyword_4; }
+		
+		//elements+=ArchitectureComponents+
+		public Assignment getElementsAssignment_5() { return cElementsAssignment_5; }
+		
+		//ArchitectureComponents
+		public RuleCall getElementsArchitectureComponentsParserRuleCall_5_0() { return cElementsArchitectureComponentsParserRuleCall_5_0; }
+	}
+	public class LayerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Layer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cElementsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cElementsPresentationLayerParserRuleCall_0_0 = (RuleCall)cElementsAssignment_0.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsBusinessLogicLayerParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsDataPersistenceLayerParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		
+		//Layer:
+		//	elements+=PresentationLayer elements+=BusinessLogicLayer elements+=DataPersistenceLayer;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//elements+=PresentationLayer elements+=BusinessLogicLayer elements+=DataPersistenceLayer
+		public Group getGroup() { return cGroup; }
+		
+		//elements+=PresentationLayer
+		public Assignment getElementsAssignment_0() { return cElementsAssignment_0; }
+		
+		//PresentationLayer
+		public RuleCall getElementsPresentationLayerParserRuleCall_0_0() { return cElementsPresentationLayerParserRuleCall_0_0; }
+		
+		//elements+=BusinessLogicLayer
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//BusinessLogicLayer
+		public RuleCall getElementsBusinessLogicLayerParserRuleCall_1_0() { return cElementsBusinessLogicLayerParserRuleCall_1_0; }
+		
+		//elements+=DataPersistenceLayer
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//DataPersistenceLayer
+		public RuleCall getElementsDataPersistenceLayerParserRuleCall_2_0() { return cElementsDataPersistenceLayerParserRuleCall_2_0; }
+	}
+	public class PresentationLayerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.PresentationLayer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPresentationLayerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsPresentationContentParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsSegmentStructureParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		
+		//PresentationLayer:
+		//	'PresentationLayer' elements+=PresentationContent elements+=SegmentStructure;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PresentationLayer' elements+=PresentationContent elements+=SegmentStructure
+		public Group getGroup() { return cGroup; }
+		
+		//'PresentationLayer'
+		public Keyword getPresentationLayerKeyword_0() { return cPresentationLayerKeyword_0; }
+		
+		//elements+=PresentationContent
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//PresentationContent
+		public RuleCall getElementsPresentationContentParserRuleCall_1_0() { return cElementsPresentationContentParserRuleCall_1_0; }
+		
+		//elements+=SegmentStructure
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//SegmentStructure
+		public RuleCall getElementsSegmentStructureParserRuleCall_2_0() { return cElementsSegmentStructureParserRuleCall_2_0; }
+	}
+	public class PresentationContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.PresentationContent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPresentationSegmentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsPresentationSegmentsParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		
+		//PresentationContent:
+		//	'PresentationSegments' elements+=PresentationSegments;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PresentationSegments' elements+=PresentationSegments
+		public Group getGroup() { return cGroup; }
+		
+		//'PresentationSegments'
+		public Keyword getPresentationSegmentsKeyword_0() { return cPresentationSegmentsKeyword_0; }
+		
+		//elements+=PresentationSegments
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//PresentationSegments
+		public RuleCall getElementsPresentationSegmentsParserRuleCall_1_0() { return cElementsPresentationSegmentsParserRuleCall_1_0; }
+	}
+	public class PresentationSegmentsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.PresentationSegments");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPresentationViewKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cPresentationComponentKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cPresentationActionKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNameIDTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
+		
+		//PresentationSegments:
+		//	'PresentationView' name=ID 'PresentationComponent' name=ID 'PresentationAction' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PresentationView' name=ID 'PresentationComponent' name=ID 'PresentationAction' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'PresentationView'
+		public Keyword getPresentationViewKeyword_0() { return cPresentationViewKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'PresentationComponent'
+		public Keyword getPresentationComponentKeyword_2() { return cPresentationComponentKeyword_2; }
+		
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		
+		//'PresentationAction'
+		public Keyword getPresentationActionKeyword_4() { return cPresentationActionKeyword_4; }
+		
+		//name=ID
+		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_5_0() { return cNameIDTerminalRuleCall_5_0; }
+	}
+	public class BusinessLogicLayerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.BusinessLogicLayer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBusinessLogicLayerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsBusinessLogicContentParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsSegmentStructureParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		
+		//BusinessLogicLayer:
+		//	'BusinessLogicLayer' elements+=BusinessLogicContent elements+=SegmentStructure;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'BusinessLogicLayer' elements+=BusinessLogicContent elements+=SegmentStructure
+		public Group getGroup() { return cGroup; }
+		
+		//'BusinessLogicLayer'
+		public Keyword getBusinessLogicLayerKeyword_0() { return cBusinessLogicLayerKeyword_0; }
+		
+		//elements+=BusinessLogicContent
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//BusinessLogicContent
+		public RuleCall getElementsBusinessLogicContentParserRuleCall_1_0() { return cElementsBusinessLogicContentParserRuleCall_1_0; }
+		
+		//elements+=SegmentStructure
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//SegmentStructure
+		public RuleCall getElementsSegmentStructureParserRuleCall_2_0() { return cElementsSegmentStructureParserRuleCall_2_0; }
+	}
+	public class BusinessLogicContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.BusinessLogicContent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBusinessLogicSegmentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsBusinessLogicSegmentsParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		
+		//BusinessLogicContent:
+		//	'BusinessLogicSegments' elements+=BusinessLogicSegments;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'BusinessLogicSegments' elements+=BusinessLogicSegments
+		public Group getGroup() { return cGroup; }
+		
+		//'BusinessLogicSegments'
+		public Keyword getBusinessLogicSegmentsKeyword_0() { return cBusinessLogicSegmentsKeyword_0; }
+		
+		//elements+=BusinessLogicSegments
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//BusinessLogicSegments
+		public RuleCall getElementsBusinessLogicSegmentsParserRuleCall_1_0() { return cElementsBusinessLogicSegmentsParserRuleCall_1_0; }
+	}
+	public class BusinessLogicSegmentsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.BusinessLogicSegments");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cControllerSegmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cModelSegmentKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cRepositorySegmentKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNameIDTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
+		private final Keyword cSecuritySegmentKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cNameAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cNameIDTerminalRuleCall_7_0 = (RuleCall)cNameAssignment_7.eContents().get(0);
+		
+		//BusinessLogicSegments:
+		//	'ControllerSegment' name=ID 'ModelSegment' name=ID 'RepositorySegment' name=ID 'SecuritySegment' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ControllerSegment' name=ID 'ModelSegment' name=ID 'RepositorySegment' name=ID 'SecuritySegment' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'ControllerSegment'
+		public Keyword getControllerSegmentKeyword_0() { return cControllerSegmentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'ModelSegment'
+		public Keyword getModelSegmentKeyword_2() { return cModelSegmentKeyword_2; }
+		
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		
+		//'RepositorySegment'
+		public Keyword getRepositorySegmentKeyword_4() { return cRepositorySegmentKeyword_4; }
+		
+		//name=ID
+		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_5_0() { return cNameIDTerminalRuleCall_5_0; }
+		
+		//'SecuritySegment'
+		public Keyword getSecuritySegmentKeyword_6() { return cSecuritySegmentKeyword_6; }
+		
+		//name=ID
+		public Assignment getNameAssignment_7() { return cNameAssignment_7; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_7_0() { return cNameIDTerminalRuleCall_7_0; }
+	}
+	public class DataPersistenceLayerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DataPersistenceLayer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDataPersistenceLayerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsDataPersistenceContentParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		
+		//DataPersistenceLayer:
+		//	'DataPersistenceLayer' elements+=DataPersistenceContent;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'DataPersistenceLayer' elements+=DataPersistenceContent
+		public Group getGroup() { return cGroup; }
+		
+		//'DataPersistenceLayer'
+		public Keyword getDataPersistenceLayerKeyword_0() { return cDataPersistenceLayerKeyword_0; }
+		
+		//elements+=DataPersistenceContent
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//DataPersistenceContent
+		public RuleCall getElementsDataPersistenceContentParserRuleCall_1_0() { return cElementsDataPersistenceContentParserRuleCall_1_0; }
+	}
+	public class DataPersistenceContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DataPersistenceContent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDataPersistenceSegmentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsDataPersistenceSegmentsParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		
+		//DataPersistenceContent:
+		//	'DataPersistenceSegments' elements+=DataPersistenceSegments;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'DataPersistenceSegments' elements+=DataPersistenceSegments
+		public Group getGroup() { return cGroup; }
+		
+		//'DataPersistenceSegments'
+		public Keyword getDataPersistenceSegmentsKeyword_0() { return cDataPersistenceSegmentsKeyword_0; }
+		
+		//elements+=DataPersistenceSegments
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//DataPersistenceSegments
+		public RuleCall getElementsDataPersistenceSegmentsParserRuleCall_1_0() { return cElementsDataPersistenceSegmentsParserRuleCall_1_0; }
+	}
+	public class DataPersistenceSegmentsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DataPersistenceSegments");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPostgreSLQSegmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cAmazonS3StorageKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		
+		//DataPersistenceSegments:
+		//	'PostgreSLQSegment' name=ID 'AmazonS3Storage' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PostgreSLQSegment' name=ID 'AmazonS3Storage' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'PostgreSLQSegment'
+		public Keyword getPostgreSLQSegmentKeyword_0() { return cPostgreSLQSegmentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'AmazonS3Storage'
+		public Keyword getAmazonS3StorageKeyword_2() { return cAmazonS3StorageKeyword_2; }
+		
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+	}
+	public class SegmentStructureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.SegmentStructure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSegmentStructureKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsSegmentStructureContentParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		
+		//SegmentStructure:
+		//	'SegmentStructure' elements+=SegmentStructureContent;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'SegmentStructure' elements+=SegmentStructureContent
+		public Group getGroup() { return cGroup; }
+		
+		//'SegmentStructure'
+		public Keyword getSegmentStructureKeyword_0() { return cSegmentStructureKeyword_0; }
+		
+		//elements+=SegmentStructureContent
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//SegmentStructureContent
+		public RuleCall getElementsSegmentStructureContentParserRuleCall_1_0() { return cElementsSegmentStructureContentParserRuleCall_1_0; }
+	}
+	public class SegmentStructureContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.SegmentStructureContent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDirectoriesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsDirectoryContentParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		
+		//SegmentStructureContent:
+		//	'Directories' name=ID elements+=DirectoryContent+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Directories' name=ID elements+=DirectoryContent+
+		public Group getGroup() { return cGroup; }
+		
+		//'Directories'
+		public Keyword getDirectoriesKeyword_0() { return cDirectoriesKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//elements+=DirectoryContent+
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//DirectoryContent
+		public RuleCall getElementsDirectoryContentParserRuleCall_2_0() { return cElementsDirectoryContentParserRuleCall_2_0; }
+	}
+	public class DirectoryContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DirectoryContent");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cDirectoryKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Assignment cElementsAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cElementsDirectoriesParserRuleCall_0_2_0 = (RuleCall)cElementsAssignment_0_2.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cElementsSingleFileParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		
+		//DirectoryContent:
+		//	('Directory' name=ID elements+=Directories)+ | elements+=SingleFile+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('Directory' name=ID elements+=Directories)+ | elements+=SingleFile+
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//('Directory' name=ID elements+=Directories)+
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'Directory'
+		public Keyword getDirectoryKeyword_0_0() { return cDirectoryKeyword_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+		
+		//elements+=Directories
+		public Assignment getElementsAssignment_0_2() { return cElementsAssignment_0_2; }
+		
+		//Directories
+		public RuleCall getElementsDirectoriesParserRuleCall_0_2_0() { return cElementsDirectoriesParserRuleCall_0_2_0; }
+		
+		//elements+=SingleFile+
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//SingleFile
+		public RuleCall getElementsSingleFileParserRuleCall_1_0() { return cElementsSingleFileParserRuleCall_1_0; }
+	}
+	public class DirectoriesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Directories");
+		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cElementsMultipleFileParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+		
+		//Directories:
+		//	elements+=MultipleFile+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//elements+=MultipleFile+
+		public Assignment getElementsAssignment() { return cElementsAssignment; }
+		
+		//MultipleFile
+		public RuleCall getElementsMultipleFileParserRuleCall_0() { return cElementsMultipleFileParserRuleCall_0; }
+	}
+	public class SingleFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.SingleFile");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSingleFileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//SingleFile:
+		//	'SingleFile' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'SingleFile' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'SingleFile'
+		public Keyword getSingleFileKeyword_0() { return cSingleFileKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class MultipleFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MultipleFile");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCommonFileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//MultipleFile:
+		//	'CommonFile' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'CommonFile' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'CommonFile'
+		public Keyword getCommonFileKeyword_0() { return cCommonFileKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class LayerRelationsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayerRelations");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLayerelationsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLayerelationsRelationTypeParserRuleCall_0_0 = (RuleCall)cLayerelationsAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cLayeroriginAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLayeroriginLayerSourceParserRuleCall_2_0 = (RuleCall)cLayeroriginAssignment_2.eContents().get(0);
+		private final Assignment cLayertargetAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLayertargetLayerTargetParserRuleCall_3_0 = (RuleCall)cLayertargetAssignment_3.eContents().get(0);
+		
+		//LayerRelations:
+		//	(layerelations+=RelationType name=ID layerorigin+=LayerSource layertarget+=LayerTarget)+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(layerelations+=RelationType name=ID layerorigin+=LayerSource layertarget+=LayerTarget)+
+		public Group getGroup() { return cGroup; }
+		
+		//layerelations+=RelationType
+		public Assignment getLayerelationsAssignment_0() { return cLayerelationsAssignment_0; }
+		
+		//RelationType
+		public RuleCall getLayerelationsRelationTypeParserRuleCall_0_0() { return cLayerelationsRelationTypeParserRuleCall_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//layerorigin+=LayerSource
+		public Assignment getLayeroriginAssignment_2() { return cLayeroriginAssignment_2; }
+		
+		//LayerSource
+		public RuleCall getLayeroriginLayerSourceParserRuleCall_2_0() { return cLayeroriginLayerSourceParserRuleCall_2_0; }
+		
+		//layertarget+=LayerTarget
+		public Assignment getLayertargetAssignment_3() { return cLayertargetAssignment_3; }
+		
+		//LayerTarget
+		public RuleCall getLayertargetLayerTargetParserRuleCall_3_0() { return cLayertargetLayerTargetParserRuleCall_3_0; }
+	}
+	public class RelationTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.RelationType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAllowedToUseKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAllowToUseBelowKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//RelationType:
+		//	'AllowedToUse' | 'AllowToUseBelow';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'AllowedToUse' | 'AllowToUseBelow'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'AllowedToUse'
+		public Keyword getAllowedToUseKeyword_0() { return cAllowedToUseKeyword_0; }
+		
+		//'AllowToUseBelow'
+		public Keyword getAllowToUseBelowKeyword_1() { return cAllowToUseBelowKeyword_1; }
+	}
+	public class LayerSourceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayerSource");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSourceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLayerelationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLayerelationsLayerRelationNameParserRuleCall_1_0 = (RuleCall)cLayerelationsAssignment_1.eContents().get(0);
+		
+		//LayerSource:
+		//	'source' layerelations+=LayerRelationName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'source' layerelations+=LayerRelationName
+		public Group getGroup() { return cGroup; }
+		
+		//'source'
+		public Keyword getSourceKeyword_0() { return cSourceKeyword_0; }
+		
+		//layerelations+=LayerRelationName
+		public Assignment getLayerelationsAssignment_1() { return cLayerelationsAssignment_1; }
+		
+		//LayerRelationName
+		public RuleCall getLayerelationsLayerRelationNameParserRuleCall_1_0() { return cLayerelationsLayerRelationNameParserRuleCall_1_0; }
+	}
+	public class LayerTargetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayerTarget");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTargetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLayerelationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLayerelationsLayerRelationNameParserRuleCall_1_0 = (RuleCall)cLayerelationsAssignment_1.eContents().get(0);
+		
+		//LayerTarget:
+		//	'target' layerelations+=LayerRelationName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'target' layerelations+=LayerRelationName
+		public Group getGroup() { return cGroup; }
+		
+		//'target'
+		public Keyword getTargetKeyword_0() { return cTargetKeyword_0; }
+		
+		//layerelations+=LayerRelationName
+		public Assignment getLayerelationsAssignment_1() { return cLayerelationsAssignment_1; }
+		
+		//LayerRelationName
+		public RuleCall getLayerelationsLayerRelationNameParserRuleCall_1_0() { return cLayerelationsLayerRelationNameParserRuleCall_1_0; }
+	}
+	public class LayerRelationNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayerRelationName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cPresentationLayerKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cBusinessLogicLayerKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cPersistenceDataLayerKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//LayerRelationName:
+		//	'PresentationLayer' | 'BusinessLogicLayer' | 'PersistenceDataLayer';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PresentationLayer' | 'BusinessLogicLayer' | 'PersistenceDataLayer'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'PresentationLayer'
+		public Keyword getPresentationLayerKeyword_0() { return cPresentationLayerKeyword_0; }
+		
+		//'BusinessLogicLayer'
+		public Keyword getBusinessLogicLayerKeyword_1() { return cBusinessLogicLayerKeyword_1; }
+		
+		//'PersistenceDataLayer'
+		public Keyword getPersistenceDataLayerKeyword_2() { return cPersistenceDataLayerKeyword_2; }
+	}
+	public class ArchitectureComponentsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ArchitectureComponents");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSystemComponentsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cArchcomponentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArchcomponentFrontEndParserRuleCall_1_0 = (RuleCall)cArchcomponentAssignment_1.eContents().get(0);
+		private final Assignment cArchcomponentAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cArchcomponentBackEndParserRuleCall_2_0 = (RuleCall)cArchcomponentAssignment_2.eContents().get(0);
+		private final Assignment cArchcomponentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cArchcomponentPersistenceDataComponentParserRuleCall_3_0 = (RuleCall)cArchcomponentAssignment_3.eContents().get(0);
+		
+		//ArchitectureComponents:
+		//	'SystemComponents' archcomponent+=FrontEnd archcomponent+=BackEnd archcomponent+=PersistenceDataComponent;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'SystemComponents' archcomponent+=FrontEnd archcomponent+=BackEnd archcomponent+=PersistenceDataComponent
+		public Group getGroup() { return cGroup; }
+		
+		//'SystemComponents'
+		public Keyword getSystemComponentsKeyword_0() { return cSystemComponentsKeyword_0; }
+		
+		//archcomponent+=FrontEnd
+		public Assignment getArchcomponentAssignment_1() { return cArchcomponentAssignment_1; }
+		
+		//FrontEnd
+		public RuleCall getArchcomponentFrontEndParserRuleCall_1_0() { return cArchcomponentFrontEndParserRuleCall_1_0; }
+		
+		//archcomponent+=BackEnd
+		public Assignment getArchcomponentAssignment_2() { return cArchcomponentAssignment_2; }
+		
+		//BackEnd
+		public RuleCall getArchcomponentBackEndParserRuleCall_2_0() { return cArchcomponentBackEndParserRuleCall_2_0; }
+		
+		//archcomponent+=PersistenceDataComponent
+		public Assignment getArchcomponentAssignment_3() { return cArchcomponentAssignment_3; }
+		
+		//PersistenceDataComponent
+		public RuleCall getArchcomponentPersistenceDataComponentParserRuleCall_3_0() { return cArchcomponentPersistenceDataComponentParserRuleCall_3_0; }
+	}
+	public class FrontEndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.FrontEnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFrontEndComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//FrontEnd:
+		//	'FrontEndComponent' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'FrontEndComponent' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'FrontEndComponent'
+		public Keyword getFrontEndComponentKeyword_0() { return cFrontEndComponentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class BackEndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.BackEnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBackEndComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//BackEnd:
+		//	'BackEndComponent' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'BackEndComponent' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'BackEndComponent'
+		public Keyword getBackEndComponentKeyword_0() { return cBackEndComponentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class PersistenceDataComponentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.PersistenceDataComponent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPersistenceDataComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//PersistenceDataComponent:
+		//	'PersistenceDataComponent' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PersistenceDataComponent' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'PersistenceDataComponent'
+		public Keyword getPersistenceDataComponentKeyword_0() { return cPersistenceDataComponentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class NTiersConnectionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.NTiersConnections");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConnectorsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cNtierconnectionAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cNtierconnectionConnectionTypeParserRuleCall_1_0_0 = (RuleCall)cNtierconnectionAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Assignment cNtieroriginAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cNtieroriginNTierSourceParserRuleCall_1_2_0 = (RuleCall)cNtieroriginAssignment_1_2.eContents().get(0);
+		private final Assignment cNtiertargetAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cNtiertargetNTierTargetParserRuleCall_1_3_0 = (RuleCall)cNtiertargetAssignment_1_3.eContents().get(0);
+		
+		//NTiersConnections:
+		//	'Connectors' (ntierconnection+=ConnectionType name=ID ntierorigin+=NTierSource ntiertarget+=NTierTarget)+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Connectors' (ntierconnection+=ConnectionType name=ID ntierorigin+=NTierSource ntiertarget+=NTierTarget)+
+		public Group getGroup() { return cGroup; }
+		
+		//'Connectors'
+		public Keyword getConnectorsKeyword_0() { return cConnectorsKeyword_0; }
+		
+		//(ntierconnection+=ConnectionType name=ID ntierorigin+=NTierSource ntiertarget+=NTierTarget)+
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//ntierconnection+=ConnectionType
+		public Assignment getNtierconnectionAssignment_1_0() { return cNtierconnectionAssignment_1_0; }
+		
+		//ConnectionType
+		public RuleCall getNtierconnectionConnectionTypeParserRuleCall_1_0_0() { return cNtierconnectionConnectionTypeParserRuleCall_1_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		
+		//ntierorigin+=NTierSource
+		public Assignment getNtieroriginAssignment_1_2() { return cNtieroriginAssignment_1_2; }
+		
+		//NTierSource
+		public RuleCall getNtieroriginNTierSourceParserRuleCall_1_2_0() { return cNtieroriginNTierSourceParserRuleCall_1_2_0; }
+		
+		//ntiertarget+=NTierTarget
+		public Assignment getNtiertargetAssignment_1_3() { return cNtiertargetAssignment_1_3; }
+		
+		//NTierTarget
+		public RuleCall getNtiertargetNTierTargetParserRuleCall_1_3_0() { return cNtiertargetNTierTargetParserRuleCall_1_3_0; }
+	}
+	public class ConnectionTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ConnectionType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cRESTKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cPostgreSQLConnectionKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAmazonS3APIKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//ConnectionType:
+		//	'REST' | 'PostgreSQLConnection' | 'AmazonS3API';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'REST' | 'PostgreSQLConnection' | 'AmazonS3API'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'REST'
+		public Keyword getRESTKeyword_0() { return cRESTKeyword_0; }
+		
+		//'PostgreSQLConnection'
+		public Keyword getPostgreSQLConnectionKeyword_1() { return cPostgreSQLConnectionKeyword_1; }
+		
+		//'AmazonS3API'
+		public Keyword getAmazonS3APIKeyword_2() { return cAmazonS3APIKeyword_2; }
+	}
+	public class NTierSourceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.NTierSource");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSourceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNtierconnectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNtierconnectionNTiersRelationsParserRuleCall_1_0 = (RuleCall)cNtierconnectionAssignment_1.eContents().get(0);
+		
+		//NTierSource:
+		//	'source' ntierconnection+=NTiersRelations;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'source' ntierconnection+=NTiersRelations
+		public Group getGroup() { return cGroup; }
+		
+		//'source'
+		public Keyword getSourceKeyword_0() { return cSourceKeyword_0; }
+		
+		//ntierconnection+=NTiersRelations
+		public Assignment getNtierconnectionAssignment_1() { return cNtierconnectionAssignment_1; }
+		
+		//NTiersRelations
+		public RuleCall getNtierconnectionNTiersRelationsParserRuleCall_1_0() { return cNtierconnectionNTiersRelationsParserRuleCall_1_0; }
+	}
+	public class NTierTargetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.NTierTarget");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTargetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNtierconnectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNtierconnectionNTiersRelationsParserRuleCall_1_0 = (RuleCall)cNtierconnectionAssignment_1.eContents().get(0);
+		
+		//NTierTarget:
+		//	'target' ntierconnection+=NTiersRelations;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'target' ntierconnection+=NTiersRelations
+		public Group getGroup() { return cGroup; }
+		
+		//'target'
+		public Keyword getTargetKeyword_0() { return cTargetKeyword_0; }
+		
+		//ntierconnection+=NTiersRelations
+		public Assignment getNtierconnectionAssignment_1() { return cNtierconnectionAssignment_1; }
+		
+		//NTiersRelations
+		public RuleCall getNtierconnectionNTiersRelationsParserRuleCall_1_0() { return cNtierconnectionNTiersRelationsParserRuleCall_1_0; }
+	}
+	public class NTiersRelationsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.NTiersRelations");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cFrontEndComponentKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cBackEndComponentKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cPersistenceDataComponentKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cAmazonServiceKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		
+		//NTiersRelations:
+		//	'FrontEndComponent' name=ID | 'BackEndComponent' name=ID | 'PersistenceDataComponent' name=ID | 'AmazonService'
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'FrontEndComponent' name=ID | 'BackEndComponent' name=ID | 'PersistenceDataComponent' name=ID | 'AmazonService' name=ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'FrontEndComponent' name=ID
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'FrontEndComponent'
+		public Keyword getFrontEndComponentKeyword_0_0() { return cFrontEndComponentKeyword_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+		
+		//'BackEndComponent' name=ID
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'BackEndComponent'
+		public Keyword getBackEndComponentKeyword_1_0() { return cBackEndComponentKeyword_1_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		
+		//'PersistenceDataComponent' name=ID
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'PersistenceDataComponent'
+		public Keyword getPersistenceDataComponentKeyword_2_0() { return cPersistenceDataComponentKeyword_2_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_1_0() { return cNameIDTerminalRuleCall_2_1_0; }
+		
+		//'AmazonService' name=ID
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'AmazonService'
+		public Keyword getAmazonServiceKeyword_3_0() { return cAmazonServiceKeyword_3_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_0() { return cNameIDTerminalRuleCall_3_1_0; }
 	}
 	public class TechnologyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Technology");
@@ -2380,6 +3360,37 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DomainConnectionElements pDomainConnection;
 	private final DomainRelationsElements pDomainRelations;
 	private final ArchitectureElements pArchitecture;
+	private final NTiersElements pNTiers;
+	private final LayerElements pLayer;
+	private final PresentationLayerElements pPresentationLayer;
+	private final PresentationContentElements pPresentationContent;
+	private final PresentationSegmentsElements pPresentationSegments;
+	private final BusinessLogicLayerElements pBusinessLogicLayer;
+	private final BusinessLogicContentElements pBusinessLogicContent;
+	private final BusinessLogicSegmentsElements pBusinessLogicSegments;
+	private final DataPersistenceLayerElements pDataPersistenceLayer;
+	private final DataPersistenceContentElements pDataPersistenceContent;
+	private final DataPersistenceSegmentsElements pDataPersistenceSegments;
+	private final SegmentStructureElements pSegmentStructure;
+	private final SegmentStructureContentElements pSegmentStructureContent;
+	private final DirectoryContentElements pDirectoryContent;
+	private final DirectoriesElements pDirectories;
+	private final SingleFileElements pSingleFile;
+	private final MultipleFileElements pMultipleFile;
+	private final LayerRelationsElements pLayerRelations;
+	private final RelationTypeElements pRelationType;
+	private final LayerSourceElements pLayerSource;
+	private final LayerTargetElements pLayerTarget;
+	private final LayerRelationNameElements pLayerRelationName;
+	private final ArchitectureComponentsElements pArchitectureComponents;
+	private final FrontEndElements pFrontEnd;
+	private final BackEndElements pBackEnd;
+	private final PersistenceDataComponentElements pPersistenceDataComponent;
+	private final NTiersConnectionsElements pNTiersConnections;
+	private final ConnectionTypeElements pConnectionType;
+	private final NTierSourceElements pNTierSource;
+	private final NTierTargetElements pNTierTarget;
+	private final NTiersRelationsElements pNTiersRelations;
 	private final TechnologyElements pTechnology;
 	private final TechnologiesElements pTechnologies;
 	private final ReactElements pReact;
@@ -2457,6 +3468,37 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDomainConnection = new DomainConnectionElements();
 		this.pDomainRelations = new DomainRelationsElements();
 		this.pArchitecture = new ArchitectureElements();
+		this.pNTiers = new NTiersElements();
+		this.pLayer = new LayerElements();
+		this.pPresentationLayer = new PresentationLayerElements();
+		this.pPresentationContent = new PresentationContentElements();
+		this.pPresentationSegments = new PresentationSegmentsElements();
+		this.pBusinessLogicLayer = new BusinessLogicLayerElements();
+		this.pBusinessLogicContent = new BusinessLogicContentElements();
+		this.pBusinessLogicSegments = new BusinessLogicSegmentsElements();
+		this.pDataPersistenceLayer = new DataPersistenceLayerElements();
+		this.pDataPersistenceContent = new DataPersistenceContentElements();
+		this.pDataPersistenceSegments = new DataPersistenceSegmentsElements();
+		this.pSegmentStructure = new SegmentStructureElements();
+		this.pSegmentStructureContent = new SegmentStructureContentElements();
+		this.pDirectoryContent = new DirectoryContentElements();
+		this.pDirectories = new DirectoriesElements();
+		this.pSingleFile = new SingleFileElements();
+		this.pMultipleFile = new MultipleFileElements();
+		this.pLayerRelations = new LayerRelationsElements();
+		this.pRelationType = new RelationTypeElements();
+		this.pLayerSource = new LayerSourceElements();
+		this.pLayerTarget = new LayerTargetElements();
+		this.pLayerRelationName = new LayerRelationNameElements();
+		this.pArchitectureComponents = new ArchitectureComponentsElements();
+		this.pFrontEnd = new FrontEndElements();
+		this.pBackEnd = new BackEndElements();
+		this.pPersistenceDataComponent = new PersistenceDataComponentElements();
+		this.pNTiersConnections = new NTiersConnectionsElements();
+		this.pConnectionType = new ConnectionTypeElements();
+		this.pNTierSource = new NTierSourceElements();
+		this.pNTierTarget = new NTierTargetElements();
+		this.pNTiersRelations = new NTiersRelationsElements();
 		this.pTechnology = new TechnologyElements();
 		this.pTechnologies = new TechnologiesElements();
 		this.pReact = new ReactElements();
@@ -2755,13 +3797,325 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Architecture
 	//Architecture:
-	//	'Architecture:' '{' name=ID '}';
+	//	'Architecture:' '{' elements+=NTiers+ elements+=NTiersConnections+ '}';
 	public ArchitectureElements getArchitectureAccess() {
 		return pArchitecture;
 	}
 	
 	public ParserRule getArchitectureRule() {
 		return getArchitectureAccess().getRule();
+	}
+	
+	//NTiers:
+	//	'Layers' elements+=Layer+ 'LayersRelations' elements+=LayerRelations+ 'ArchitectureComponents'
+	//	elements+=ArchitectureComponents+;
+	public NTiersElements getNTiersAccess() {
+		return pNTiers;
+	}
+	
+	public ParserRule getNTiersRule() {
+		return getNTiersAccess().getRule();
+	}
+	
+	//Layer:
+	//	elements+=PresentationLayer elements+=BusinessLogicLayer elements+=DataPersistenceLayer;
+	public LayerElements getLayerAccess() {
+		return pLayer;
+	}
+	
+	public ParserRule getLayerRule() {
+		return getLayerAccess().getRule();
+	}
+	
+	//PresentationLayer:
+	//	'PresentationLayer' elements+=PresentationContent elements+=SegmentStructure;
+	public PresentationLayerElements getPresentationLayerAccess() {
+		return pPresentationLayer;
+	}
+	
+	public ParserRule getPresentationLayerRule() {
+		return getPresentationLayerAccess().getRule();
+	}
+	
+	//PresentationContent:
+	//	'PresentationSegments' elements+=PresentationSegments;
+	public PresentationContentElements getPresentationContentAccess() {
+		return pPresentationContent;
+	}
+	
+	public ParserRule getPresentationContentRule() {
+		return getPresentationContentAccess().getRule();
+	}
+	
+	//PresentationSegments:
+	//	'PresentationView' name=ID 'PresentationComponent' name=ID 'PresentationAction' name=ID;
+	public PresentationSegmentsElements getPresentationSegmentsAccess() {
+		return pPresentationSegments;
+	}
+	
+	public ParserRule getPresentationSegmentsRule() {
+		return getPresentationSegmentsAccess().getRule();
+	}
+	
+	//BusinessLogicLayer:
+	//	'BusinessLogicLayer' elements+=BusinessLogicContent elements+=SegmentStructure;
+	public BusinessLogicLayerElements getBusinessLogicLayerAccess() {
+		return pBusinessLogicLayer;
+	}
+	
+	public ParserRule getBusinessLogicLayerRule() {
+		return getBusinessLogicLayerAccess().getRule();
+	}
+	
+	//BusinessLogicContent:
+	//	'BusinessLogicSegments' elements+=BusinessLogicSegments;
+	public BusinessLogicContentElements getBusinessLogicContentAccess() {
+		return pBusinessLogicContent;
+	}
+	
+	public ParserRule getBusinessLogicContentRule() {
+		return getBusinessLogicContentAccess().getRule();
+	}
+	
+	//BusinessLogicSegments:
+	//	'ControllerSegment' name=ID 'ModelSegment' name=ID 'RepositorySegment' name=ID 'SecuritySegment' name=ID;
+	public BusinessLogicSegmentsElements getBusinessLogicSegmentsAccess() {
+		return pBusinessLogicSegments;
+	}
+	
+	public ParserRule getBusinessLogicSegmentsRule() {
+		return getBusinessLogicSegmentsAccess().getRule();
+	}
+	
+	//DataPersistenceLayer:
+	//	'DataPersistenceLayer' elements+=DataPersistenceContent;
+	public DataPersistenceLayerElements getDataPersistenceLayerAccess() {
+		return pDataPersistenceLayer;
+	}
+	
+	public ParserRule getDataPersistenceLayerRule() {
+		return getDataPersistenceLayerAccess().getRule();
+	}
+	
+	//DataPersistenceContent:
+	//	'DataPersistenceSegments' elements+=DataPersistenceSegments;
+	public DataPersistenceContentElements getDataPersistenceContentAccess() {
+		return pDataPersistenceContent;
+	}
+	
+	public ParserRule getDataPersistenceContentRule() {
+		return getDataPersistenceContentAccess().getRule();
+	}
+	
+	//DataPersistenceSegments:
+	//	'PostgreSLQSegment' name=ID 'AmazonS3Storage' name=ID;
+	public DataPersistenceSegmentsElements getDataPersistenceSegmentsAccess() {
+		return pDataPersistenceSegments;
+	}
+	
+	public ParserRule getDataPersistenceSegmentsRule() {
+		return getDataPersistenceSegmentsAccess().getRule();
+	}
+	
+	//SegmentStructure:
+	//	'SegmentStructure' elements+=SegmentStructureContent;
+	public SegmentStructureElements getSegmentStructureAccess() {
+		return pSegmentStructure;
+	}
+	
+	public ParserRule getSegmentStructureRule() {
+		return getSegmentStructureAccess().getRule();
+	}
+	
+	//SegmentStructureContent:
+	//	'Directories' name=ID elements+=DirectoryContent+;
+	public SegmentStructureContentElements getSegmentStructureContentAccess() {
+		return pSegmentStructureContent;
+	}
+	
+	public ParserRule getSegmentStructureContentRule() {
+		return getSegmentStructureContentAccess().getRule();
+	}
+	
+	//DirectoryContent:
+	//	('Directory' name=ID elements+=Directories)+ | elements+=SingleFile+;
+	public DirectoryContentElements getDirectoryContentAccess() {
+		return pDirectoryContent;
+	}
+	
+	public ParserRule getDirectoryContentRule() {
+		return getDirectoryContentAccess().getRule();
+	}
+	
+	//Directories:
+	//	elements+=MultipleFile+;
+	public DirectoriesElements getDirectoriesAccess() {
+		return pDirectories;
+	}
+	
+	public ParserRule getDirectoriesRule() {
+		return getDirectoriesAccess().getRule();
+	}
+	
+	//SingleFile:
+	//	'SingleFile' name=ID;
+	public SingleFileElements getSingleFileAccess() {
+		return pSingleFile;
+	}
+	
+	public ParserRule getSingleFileRule() {
+		return getSingleFileAccess().getRule();
+	}
+	
+	//MultipleFile:
+	//	'CommonFile' name=ID;
+	public MultipleFileElements getMultipleFileAccess() {
+		return pMultipleFile;
+	}
+	
+	public ParserRule getMultipleFileRule() {
+		return getMultipleFileAccess().getRule();
+	}
+	
+	//LayerRelations:
+	//	(layerelations+=RelationType name=ID layerorigin+=LayerSource layertarget+=LayerTarget)+;
+	public LayerRelationsElements getLayerRelationsAccess() {
+		return pLayerRelations;
+	}
+	
+	public ParserRule getLayerRelationsRule() {
+		return getLayerRelationsAccess().getRule();
+	}
+	
+	//RelationType:
+	//	'AllowedToUse' | 'AllowToUseBelow';
+	public RelationTypeElements getRelationTypeAccess() {
+		return pRelationType;
+	}
+	
+	public ParserRule getRelationTypeRule() {
+		return getRelationTypeAccess().getRule();
+	}
+	
+	//LayerSource:
+	//	'source' layerelations+=LayerRelationName;
+	public LayerSourceElements getLayerSourceAccess() {
+		return pLayerSource;
+	}
+	
+	public ParserRule getLayerSourceRule() {
+		return getLayerSourceAccess().getRule();
+	}
+	
+	//LayerTarget:
+	//	'target' layerelations+=LayerRelationName;
+	public LayerTargetElements getLayerTargetAccess() {
+		return pLayerTarget;
+	}
+	
+	public ParserRule getLayerTargetRule() {
+		return getLayerTargetAccess().getRule();
+	}
+	
+	//LayerRelationName:
+	//	'PresentationLayer' | 'BusinessLogicLayer' | 'PersistenceDataLayer';
+	public LayerRelationNameElements getLayerRelationNameAccess() {
+		return pLayerRelationName;
+	}
+	
+	public ParserRule getLayerRelationNameRule() {
+		return getLayerRelationNameAccess().getRule();
+	}
+	
+	//ArchitectureComponents:
+	//	'SystemComponents' archcomponent+=FrontEnd archcomponent+=BackEnd archcomponent+=PersistenceDataComponent;
+	public ArchitectureComponentsElements getArchitectureComponentsAccess() {
+		return pArchitectureComponents;
+	}
+	
+	public ParserRule getArchitectureComponentsRule() {
+		return getArchitectureComponentsAccess().getRule();
+	}
+	
+	//FrontEnd:
+	//	'FrontEndComponent' name=ID;
+	public FrontEndElements getFrontEndAccess() {
+		return pFrontEnd;
+	}
+	
+	public ParserRule getFrontEndRule() {
+		return getFrontEndAccess().getRule();
+	}
+	
+	//BackEnd:
+	//	'BackEndComponent' name=ID;
+	public BackEndElements getBackEndAccess() {
+		return pBackEnd;
+	}
+	
+	public ParserRule getBackEndRule() {
+		return getBackEndAccess().getRule();
+	}
+	
+	//PersistenceDataComponent:
+	//	'PersistenceDataComponent' name=ID;
+	public PersistenceDataComponentElements getPersistenceDataComponentAccess() {
+		return pPersistenceDataComponent;
+	}
+	
+	public ParserRule getPersistenceDataComponentRule() {
+		return getPersistenceDataComponentAccess().getRule();
+	}
+	
+	//NTiersConnections:
+	//	'Connectors' (ntierconnection+=ConnectionType name=ID ntierorigin+=NTierSource ntiertarget+=NTierTarget)+;
+	public NTiersConnectionsElements getNTiersConnectionsAccess() {
+		return pNTiersConnections;
+	}
+	
+	public ParserRule getNTiersConnectionsRule() {
+		return getNTiersConnectionsAccess().getRule();
+	}
+	
+	//ConnectionType:
+	//	'REST' | 'PostgreSQLConnection' | 'AmazonS3API';
+	public ConnectionTypeElements getConnectionTypeAccess() {
+		return pConnectionType;
+	}
+	
+	public ParserRule getConnectionTypeRule() {
+		return getConnectionTypeAccess().getRule();
+	}
+	
+	//NTierSource:
+	//	'source' ntierconnection+=NTiersRelations;
+	public NTierSourceElements getNTierSourceAccess() {
+		return pNTierSource;
+	}
+	
+	public ParserRule getNTierSourceRule() {
+		return getNTierSourceAccess().getRule();
+	}
+	
+	//NTierTarget:
+	//	'target' ntierconnection+=NTiersRelations;
+	public NTierTargetElements getNTierTargetAccess() {
+		return pNTierTarget;
+	}
+	
+	public ParserRule getNTierTargetRule() {
+		return getNTierTargetAccess().getRule();
+	}
+	
+	//NTiersRelations:
+	//	'FrontEndComponent' name=ID | 'BackEndComponent' name=ID | 'PersistenceDataComponent' name=ID | 'AmazonService'
+	//	name=ID;
+	public NTiersRelationsElements getNTiersRelationsAccess() {
+		return pNTiersRelations;
+	}
+	
+	public ParserRule getNTiersRelationsRule() {
+		return getNTiersRelationsAccess().getRule();
 	}
 	
 	////Technology

@@ -21,30 +21,55 @@ import org.xtext.example.mydsl.myDsl.AmazonWebServices;
 import org.xtext.example.mydsl.myDsl.AppAccess;
 import org.xtext.example.mydsl.myDsl.AppAccessFunctions;
 import org.xtext.example.mydsl.myDsl.Architecture;
+import org.xtext.example.mydsl.myDsl.ArchitectureComponents;
+import org.xtext.example.mydsl.myDsl.BackEnd;
+import org.xtext.example.mydsl.myDsl.BusinessLogicContent;
+import org.xtext.example.mydsl.myDsl.BusinessLogicLayer;
+import org.xtext.example.mydsl.myDsl.BusinessLogicSegments;
 import org.xtext.example.mydsl.myDsl.ComponentClass;
 import org.xtext.example.mydsl.myDsl.ComponentsLogic;
 import org.xtext.example.mydsl.myDsl.ComponentsUI;
 import org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration;
 import org.xtext.example.mydsl.myDsl.DOMConfigurations;
+import org.xtext.example.mydsl.myDsl.DataPersistenceContent;
+import org.xtext.example.mydsl.myDsl.DataPersistenceLayer;
+import org.xtext.example.mydsl.myDsl.DataPersistenceSegments;
+import org.xtext.example.mydsl.myDsl.Directories;
+import org.xtext.example.mydsl.myDsl.DirectoryContent;
 import org.xtext.example.mydsl.myDsl.Domain;
 import org.xtext.example.mydsl.myDsl.DomainConnection;
 import org.xtext.example.mydsl.myDsl.DomainRelations;
 import org.xtext.example.mydsl.myDsl.Entities;
 import org.xtext.example.mydsl.myDsl.Entity;
+import org.xtext.example.mydsl.myDsl.FrontEnd;
 import org.xtext.example.mydsl.myDsl.Functionalities;
 import org.xtext.example.mydsl.myDsl.Functionality;
 import org.xtext.example.mydsl.myDsl.LandingActions;
 import org.xtext.example.mydsl.myDsl.LandingFunctions;
+import org.xtext.example.mydsl.myDsl.Layer;
+import org.xtext.example.mydsl.myDsl.LayerRelations;
+import org.xtext.example.mydsl.myDsl.LayerSource;
+import org.xtext.example.mydsl.myDsl.LayerTarget;
 import org.xtext.example.mydsl.myDsl.LogicContent;
 import org.xtext.example.mydsl.myDsl.LogicStructure;
 import org.xtext.example.mydsl.myDsl.Model;
+import org.xtext.example.mydsl.myDsl.MultipleFile;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.NTierSource;
+import org.xtext.example.mydsl.myDsl.NTierTarget;
+import org.xtext.example.mydsl.myDsl.NTiers;
+import org.xtext.example.mydsl.myDsl.NTiersConnections;
+import org.xtext.example.mydsl.myDsl.NTiersRelations;
 import org.xtext.example.mydsl.myDsl.PackageName;
 import org.xtext.example.mydsl.myDsl.PackageVersion;
+import org.xtext.example.mydsl.myDsl.PersistenceDataComponent;
 import org.xtext.example.mydsl.myDsl.Photo;
 import org.xtext.example.mydsl.myDsl.PhotoActions;
 import org.xtext.example.mydsl.myDsl.PhotoActionsFunctions;
 import org.xtext.example.mydsl.myDsl.PostgreSQL;
+import org.xtext.example.mydsl.myDsl.PresentationContent;
+import org.xtext.example.mydsl.myDsl.PresentationLayer;
+import org.xtext.example.mydsl.myDsl.PresentationSegments;
 import org.xtext.example.mydsl.myDsl.ProfileManagement;
 import org.xtext.example.mydsl.myDsl.ProfileManagementFunctions;
 import org.xtext.example.mydsl.myDsl.Props;
@@ -68,7 +93,10 @@ import org.xtext.example.mydsl.myDsl.ReactModules;
 import org.xtext.example.mydsl.myDsl.ReactServicesRelation;
 import org.xtext.example.mydsl.myDsl.ReactServicesType;
 import org.xtext.example.mydsl.myDsl.ReactSubModules;
+import org.xtext.example.mydsl.myDsl.SegmentStructure;
+import org.xtext.example.mydsl.myDsl.SegmentStructureContent;
 import org.xtext.example.mydsl.myDsl.SingleDependencies;
+import org.xtext.example.mydsl.myDsl.SingleFile;
 import org.xtext.example.mydsl.myDsl.Spring;
 import org.xtext.example.mydsl.myDsl.State;
 import org.xtext.example.mydsl.myDsl.Technologies;
@@ -112,6 +140,21 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.ARCHITECTURE:
 				sequence_Architecture(context, (Architecture) semanticObject); 
 				return; 
+			case MyDslPackage.ARCHITECTURE_COMPONENTS:
+				sequence_ArchitectureComponents(context, (ArchitectureComponents) semanticObject); 
+				return; 
+			case MyDslPackage.BACK_END:
+				sequence_BackEnd(context, (BackEnd) semanticObject); 
+				return; 
+			case MyDslPackage.BUSINESS_LOGIC_CONTENT:
+				sequence_BusinessLogicContent(context, (BusinessLogicContent) semanticObject); 
+				return; 
+			case MyDslPackage.BUSINESS_LOGIC_LAYER:
+				sequence_BusinessLogicLayer(context, (BusinessLogicLayer) semanticObject); 
+				return; 
+			case MyDslPackage.BUSINESS_LOGIC_SEGMENTS:
+				sequence_BusinessLogicSegments(context, (BusinessLogicSegments) semanticObject); 
+				return; 
 			case MyDslPackage.COMPONENT_CLASS:
 				sequence_ComponentClass(context, (ComponentClass) semanticObject); 
 				return; 
@@ -126,6 +169,21 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.DOM_CONFIGURATIONS:
 				sequence_DOMConfigurations(context, (DOMConfigurations) semanticObject); 
+				return; 
+			case MyDslPackage.DATA_PERSISTENCE_CONTENT:
+				sequence_DataPersistenceContent(context, (DataPersistenceContent) semanticObject); 
+				return; 
+			case MyDslPackage.DATA_PERSISTENCE_LAYER:
+				sequence_DataPersistenceLayer(context, (DataPersistenceLayer) semanticObject); 
+				return; 
+			case MyDslPackage.DATA_PERSISTENCE_SEGMENTS:
+				sequence_DataPersistenceSegments(context, (DataPersistenceSegments) semanticObject); 
+				return; 
+			case MyDslPackage.DIRECTORIES:
+				sequence_Directories(context, (Directories) semanticObject); 
+				return; 
+			case MyDslPackage.DIRECTORY_CONTENT:
+				sequence_DirectoryContent(context, (DirectoryContent) semanticObject); 
 				return; 
 			case MyDslPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
@@ -142,6 +200,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
 				return; 
+			case MyDslPackage.FRONT_END:
+				sequence_FrontEnd(context, (FrontEnd) semanticObject); 
+				return; 
 			case MyDslPackage.FUNCTIONALITIES:
 				sequence_Functionalities(context, (Functionalities) semanticObject); 
 				return; 
@@ -154,6 +215,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.LANDING_FUNCTIONS:
 				sequence_LandingFunctions(context, (LandingFunctions) semanticObject); 
 				return; 
+			case MyDslPackage.LAYER:
+				sequence_Layer(context, (Layer) semanticObject); 
+				return; 
+			case MyDslPackage.LAYER_RELATIONS:
+				sequence_LayerRelations(context, (LayerRelations) semanticObject); 
+				return; 
+			case MyDslPackage.LAYER_SOURCE:
+				sequence_LayerSource(context, (LayerSource) semanticObject); 
+				return; 
+			case MyDslPackage.LAYER_TARGET:
+				sequence_LayerTarget(context, (LayerTarget) semanticObject); 
+				return; 
 			case MyDslPackage.LOGIC_CONTENT:
 				sequence_LogicContent(context, (LogicContent) semanticObject); 
 				return; 
@@ -163,11 +236,32 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case MyDslPackage.MULTIPLE_FILE:
+				sequence_MultipleFile(context, (MultipleFile) semanticObject); 
+				return; 
+			case MyDslPackage.NTIER_SOURCE:
+				sequence_NTierSource(context, (NTierSource) semanticObject); 
+				return; 
+			case MyDslPackage.NTIER_TARGET:
+				sequence_NTierTarget(context, (NTierTarget) semanticObject); 
+				return; 
+			case MyDslPackage.NTIERS:
+				sequence_NTiers(context, (NTiers) semanticObject); 
+				return; 
+			case MyDslPackage.NTIERS_CONNECTIONS:
+				sequence_NTiersConnections(context, (NTiersConnections) semanticObject); 
+				return; 
+			case MyDslPackage.NTIERS_RELATIONS:
+				sequence_NTiersRelations(context, (NTiersRelations) semanticObject); 
+				return; 
 			case MyDslPackage.PACKAGE_NAME:
 				sequence_PackageName(context, (PackageName) semanticObject); 
 				return; 
 			case MyDslPackage.PACKAGE_VERSION:
 				sequence_PackageVersion(context, (PackageVersion) semanticObject); 
+				return; 
+			case MyDslPackage.PERSISTENCE_DATA_COMPONENT:
+				sequence_PersistenceDataComponent(context, (PersistenceDataComponent) semanticObject); 
 				return; 
 			case MyDslPackage.PHOTO:
 				sequence_Photo(context, (Photo) semanticObject); 
@@ -180,6 +274,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.POSTGRE_SQL:
 				sequence_PostgreSQL(context, (PostgreSQL) semanticObject); 
+				return; 
+			case MyDslPackage.PRESENTATION_CONTENT:
+				sequence_PresentationContent(context, (PresentationContent) semanticObject); 
+				return; 
+			case MyDslPackage.PRESENTATION_LAYER:
+				sequence_PresentationLayer(context, (PresentationLayer) semanticObject); 
+				return; 
+			case MyDslPackage.PRESENTATION_SEGMENTS:
+				sequence_PresentationSegments(context, (PresentationSegments) semanticObject); 
 				return; 
 			case MyDslPackage.PROFILE_MANAGEMENT:
 				sequence_ProfileManagement(context, (ProfileManagement) semanticObject); 
@@ -250,8 +353,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.REACT_SUB_MODULES:
 				sequence_ReactSubModules(context, (ReactSubModules) semanticObject); 
 				return; 
+			case MyDslPackage.SEGMENT_STRUCTURE:
+				sequence_SegmentStructure(context, (SegmentStructure) semanticObject); 
+				return; 
+			case MyDslPackage.SEGMENT_STRUCTURE_CONTENT:
+				sequence_SegmentStructureContent(context, (SegmentStructureContent) semanticObject); 
+				return; 
 			case MyDslPackage.SINGLE_DEPENDENCIES:
 				sequence_SingleDependencies(context, (SingleDependencies) semanticObject); 
+				return; 
+			case MyDslPackage.SINGLE_FILE:
+				sequence_SingleFile(context, (SingleFile) semanticObject); 
 				return; 
 			case MyDslPackage.SPRING:
 				sequence_Spring(context, (Spring) semanticObject); 
@@ -362,19 +474,79 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ArchitectureComponents returns ArchitectureComponents
+	 *
+	 * Constraint:
+	 *     (archcomponent+=FrontEnd archcomponent+=BackEnd archcomponent+=PersistenceDataComponent)
+	 */
+	protected void sequence_ArchitectureComponents(ISerializationContext context, ArchitectureComponents semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Architecture returns Architecture
+	 *
+	 * Constraint:
+	 *     (elements+=NTiers+ elements+=NTiersConnections+)
+	 */
+	protected void sequence_Architecture(ISerializationContext context, Architecture semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BackEnd returns BackEnd
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_Architecture(ISerializationContext context, Architecture semanticObject) {
+	protected void sequence_BackEnd(ISerializationContext context, BackEnd semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ARCHITECTURE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ARCHITECTURE__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.BACK_END__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.BACK_END__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getArchitectureAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBackEndAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BusinessLogicContent returns BusinessLogicContent
+	 *
+	 * Constraint:
+	 *     elements+=BusinessLogicSegments
+	 */
+	protected void sequence_BusinessLogicContent(ISerializationContext context, BusinessLogicContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BusinessLogicLayer returns BusinessLogicLayer
+	 *
+	 * Constraint:
+	 *     (elements+=BusinessLogicContent elements+=SegmentStructure)
+	 */
+	protected void sequence_BusinessLogicLayer(ISerializationContext context, BusinessLogicLayer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BusinessLogicSegments returns BusinessLogicSegments
+	 *
+	 * Constraint:
+	 *     (name=ID name=ID name=ID name=ID)
+	 */
+	protected void sequence_BusinessLogicSegments(ISerializationContext context, BusinessLogicSegments semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -440,6 +612,66 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (elements+=DOMTypeConf name=ID)
 	 */
 	protected void sequence_DOMConfigurations(ISerializationContext context, DOMConfigurations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DataPersistenceContent returns DataPersistenceContent
+	 *
+	 * Constraint:
+	 *     elements+=DataPersistenceSegments
+	 */
+	protected void sequence_DataPersistenceContent(ISerializationContext context, DataPersistenceContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DataPersistenceLayer returns DataPersistenceLayer
+	 *
+	 * Constraint:
+	 *     elements+=DataPersistenceContent
+	 */
+	protected void sequence_DataPersistenceLayer(ISerializationContext context, DataPersistenceLayer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DataPersistenceSegments returns DataPersistenceSegments
+	 *
+	 * Constraint:
+	 *     (name=ID name=ID)
+	 */
+	protected void sequence_DataPersistenceSegments(ISerializationContext context, DataPersistenceSegments semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Directories returns Directories
+	 *
+	 * Constraint:
+	 *     elements+=MultipleFile+
+	 */
+	protected void sequence_Directories(ISerializationContext context, Directories semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DirectoryContent returns DirectoryContent
+	 *
+	 * Constraint:
+	 *     ((name=ID elements+=Directories)+ | elements+=SingleFile+)
+	 */
+	protected void sequence_DirectoryContent(ISerializationContext context, DirectoryContent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -519,6 +751,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     FrontEnd returns FrontEnd
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_FrontEnd(ISerializationContext context, FrontEnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FRONT_END__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FRONT_END__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFrontEndAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Functionalities returns Functionalities
 	 *
 	 * Constraint:
@@ -567,6 +817,54 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     LayerRelations returns LayerRelations
+	 *
+	 * Constraint:
+	 *     (layerelations+=RelationType name=ID layerorigin+=LayerSource layertarget+=LayerTarget)+
+	 */
+	protected void sequence_LayerRelations(ISerializationContext context, LayerRelations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LayerSource returns LayerSource
+	 *
+	 * Constraint:
+	 *     layerelations+=LayerRelationName
+	 */
+	protected void sequence_LayerSource(ISerializationContext context, LayerSource semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LayerTarget returns LayerTarget
+	 *
+	 * Constraint:
+	 *     layerelations+=LayerRelationName
+	 */
+	protected void sequence_LayerTarget(ISerializationContext context, LayerTarget semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Layer returns Layer
+	 *
+	 * Constraint:
+	 *     (elements+=PresentationLayer elements+=BusinessLogicLayer elements+=DataPersistenceLayer)
+	 */
+	protected void sequence_Layer(ISerializationContext context, Layer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     LogicContent returns LogicContent
 	 *
 	 * Constraint:
@@ -603,6 +901,84 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     MultipleFile returns MultipleFile
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_MultipleFile(ISerializationContext context, MultipleFile semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.MULTIPLE_FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.MULTIPLE_FILE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultipleFileAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NTierSource returns NTierSource
+	 *
+	 * Constraint:
+	 *     ntierconnection+=NTiersRelations
+	 */
+	protected void sequence_NTierSource(ISerializationContext context, NTierSource semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NTierTarget returns NTierTarget
+	 *
+	 * Constraint:
+	 *     ntierconnection+=NTiersRelations
+	 */
+	protected void sequence_NTierTarget(ISerializationContext context, NTierTarget semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NTiersConnections returns NTiersConnections
+	 *
+	 * Constraint:
+	 *     (ntierconnection+=ConnectionType name=ID ntierorigin+=NTierSource ntiertarget+=NTierTarget)+
+	 */
+	protected void sequence_NTiersConnections(ISerializationContext context, NTiersConnections semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NTiersRelations returns NTiersRelations
+	 *
+	 * Constraint:
+	 *     (name=ID | name=ID | name=ID | name=ID)
+	 */
+	protected void sequence_NTiersRelations(ISerializationContext context, NTiersRelations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NTiers returns NTiers
+	 *
+	 * Constraint:
+	 *     (elements+=Layer+ elements+=LayerRelations+ elements+=ArchitectureComponents+)
+	 */
+	protected void sequence_NTiers(ISerializationContext context, NTiers semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     PackageName returns PackageName
 	 *
 	 * Constraint:
@@ -633,6 +1009,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPackageVersionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PersistenceDataComponent returns PersistenceDataComponent
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_PersistenceDataComponent(ISerializationContext context, PersistenceDataComponent semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.PERSISTENCE_DATA_COMPONENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.PERSISTENCE_DATA_COMPONENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPersistenceDataComponentAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -694,6 +1088,42 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPostgreSQLAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PresentationContent returns PresentationContent
+	 *
+	 * Constraint:
+	 *     elements+=PresentationSegments
+	 */
+	protected void sequence_PresentationContent(ISerializationContext context, PresentationContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PresentationLayer returns PresentationLayer
+	 *
+	 * Constraint:
+	 *     (elements+=PresentationContent elements+=SegmentStructure)
+	 */
+	protected void sequence_PresentationLayer(ISerializationContext context, PresentationLayer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PresentationSegments returns PresentationSegments
+	 *
+	 * Constraint:
+	 *     (name=ID name=ID name=ID)
+	 */
+	protected void sequence_PresentationSegments(ISerializationContext context, PresentationSegments semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -999,6 +1429,30 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     SegmentStructureContent returns SegmentStructureContent
+	 *
+	 * Constraint:
+	 *     (name=ID elements+=DirectoryContent+)
+	 */
+	protected void sequence_SegmentStructureContent(ISerializationContext context, SegmentStructureContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SegmentStructure returns SegmentStructure
+	 *
+	 * Constraint:
+	 *     elements+=SegmentStructureContent
+	 */
+	protected void sequence_SegmentStructure(ISerializationContext context, SegmentStructure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SingleDependencies returns SingleDependencies
 	 *
 	 * Constraint:
@@ -1006,6 +1460,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_SingleDependencies(ISerializationContext context, SingleDependencies semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SingleFile returns SingleFile
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_SingleFile(ISerializationContext context, SingleFile semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.SINGLE_FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.SINGLE_FILE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSingleFileAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

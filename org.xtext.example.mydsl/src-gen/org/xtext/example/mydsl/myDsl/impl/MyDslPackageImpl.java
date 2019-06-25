@@ -17,31 +17,56 @@ import org.xtext.example.mydsl.myDsl.AmazonWebServices;
 import org.xtext.example.mydsl.myDsl.AppAccess;
 import org.xtext.example.mydsl.myDsl.AppAccessFunctions;
 import org.xtext.example.mydsl.myDsl.Architecture;
+import org.xtext.example.mydsl.myDsl.ArchitectureComponents;
+import org.xtext.example.mydsl.myDsl.BackEnd;
+import org.xtext.example.mydsl.myDsl.BusinessLogicContent;
+import org.xtext.example.mydsl.myDsl.BusinessLogicLayer;
+import org.xtext.example.mydsl.myDsl.BusinessLogicSegments;
 import org.xtext.example.mydsl.myDsl.ComponentClass;
 import org.xtext.example.mydsl.myDsl.ComponentsLogic;
 import org.xtext.example.mydsl.myDsl.ComponentsUI;
 import org.xtext.example.mydsl.myDsl.CoreFunctionsDeclaration;
 import org.xtext.example.mydsl.myDsl.DOMConfigurations;
+import org.xtext.example.mydsl.myDsl.DataPersistenceContent;
+import org.xtext.example.mydsl.myDsl.DataPersistenceLayer;
+import org.xtext.example.mydsl.myDsl.DataPersistenceSegments;
+import org.xtext.example.mydsl.myDsl.Directories;
+import org.xtext.example.mydsl.myDsl.DirectoryContent;
 import org.xtext.example.mydsl.myDsl.Domain;
 import org.xtext.example.mydsl.myDsl.DomainConnection;
 import org.xtext.example.mydsl.myDsl.DomainRelations;
 import org.xtext.example.mydsl.myDsl.Entities;
 import org.xtext.example.mydsl.myDsl.Entity;
+import org.xtext.example.mydsl.myDsl.FrontEnd;
 import org.xtext.example.mydsl.myDsl.Functionalities;
 import org.xtext.example.mydsl.myDsl.Functionality;
 import org.xtext.example.mydsl.myDsl.LandingActions;
 import org.xtext.example.mydsl.myDsl.LandingFunctions;
+import org.xtext.example.mydsl.myDsl.Layer;
+import org.xtext.example.mydsl.myDsl.LayerRelations;
+import org.xtext.example.mydsl.myDsl.LayerSource;
+import org.xtext.example.mydsl.myDsl.LayerTarget;
 import org.xtext.example.mydsl.myDsl.LogicContent;
 import org.xtext.example.mydsl.myDsl.LogicStructure;
 import org.xtext.example.mydsl.myDsl.Model;
+import org.xtext.example.mydsl.myDsl.MultipleFile;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.NTierSource;
+import org.xtext.example.mydsl.myDsl.NTierTarget;
+import org.xtext.example.mydsl.myDsl.NTiers;
+import org.xtext.example.mydsl.myDsl.NTiersConnections;
+import org.xtext.example.mydsl.myDsl.NTiersRelations;
 import org.xtext.example.mydsl.myDsl.PackageName;
 import org.xtext.example.mydsl.myDsl.PackageVersion;
+import org.xtext.example.mydsl.myDsl.PersistenceDataComponent;
 import org.xtext.example.mydsl.myDsl.Photo;
 import org.xtext.example.mydsl.myDsl.PhotoActions;
 import org.xtext.example.mydsl.myDsl.PhotoActionsFunctions;
 import org.xtext.example.mydsl.myDsl.PostgreSQL;
+import org.xtext.example.mydsl.myDsl.PresentationContent;
+import org.xtext.example.mydsl.myDsl.PresentationLayer;
+import org.xtext.example.mydsl.myDsl.PresentationSegments;
 import org.xtext.example.mydsl.myDsl.ProfileManagement;
 import org.xtext.example.mydsl.myDsl.ProfileManagementFunctions;
 import org.xtext.example.mydsl.myDsl.Props;
@@ -65,7 +90,10 @@ import org.xtext.example.mydsl.myDsl.ReactModules;
 import org.xtext.example.mydsl.myDsl.ReactServicesRelation;
 import org.xtext.example.mydsl.myDsl.ReactServicesType;
 import org.xtext.example.mydsl.myDsl.ReactSubModules;
+import org.xtext.example.mydsl.myDsl.SegmentStructure;
+import org.xtext.example.mydsl.myDsl.SegmentStructureContent;
 import org.xtext.example.mydsl.myDsl.SingleDependencies;
+import org.xtext.example.mydsl.myDsl.SingleFile;
 import org.xtext.example.mydsl.myDsl.Spring;
 import org.xtext.example.mydsl.myDsl.State;
 import org.xtext.example.mydsl.myDsl.Technologies;
@@ -234,6 +262,202 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass architectureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nTiersEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass presentationLayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass presentationContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass presentationSegmentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass businessLogicLayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass businessLogicContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass businessLogicSegmentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataPersistenceLayerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataPersistenceContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataPersistenceSegmentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass segmentStructureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass segmentStructureContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directoryContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directoriesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass singleFileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multipleFileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layerRelationsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layerSourceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layerTargetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass architectureComponentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass frontEndEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass backEndEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass persistenceDataComponentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nTiersConnectionsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nTierSourceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nTierTargetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nTiersRelationsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1109,9 +1333,713 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getArchitecture_Name()
+  public EReference getArchitecture_Elements()
   {
-    return (EAttribute)architectureEClass.getEStructuralFeatures().get(0);
+    return (EReference)architectureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNTiers()
+  {
+    return nTiersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNTiers_Elements()
+  {
+    return (EReference)nTiersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayer()
+  {
+    return layerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayer_Elements()
+  {
+    return (EReference)layerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPresentationLayer()
+  {
+    return presentationLayerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPresentationLayer_Elements()
+  {
+    return (EReference)presentationLayerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPresentationContent()
+  {
+    return presentationContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPresentationContent_Elements()
+  {
+    return (EReference)presentationContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPresentationSegments()
+  {
+    return presentationSegmentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPresentationSegments_Name()
+  {
+    return (EAttribute)presentationSegmentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBusinessLogicLayer()
+  {
+    return businessLogicLayerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBusinessLogicLayer_Elements()
+  {
+    return (EReference)businessLogicLayerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBusinessLogicContent()
+  {
+    return businessLogicContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBusinessLogicContent_Elements()
+  {
+    return (EReference)businessLogicContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBusinessLogicSegments()
+  {
+    return businessLogicSegmentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBusinessLogicSegments_Name()
+  {
+    return (EAttribute)businessLogicSegmentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDataPersistenceLayer()
+  {
+    return dataPersistenceLayerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDataPersistenceLayer_Elements()
+  {
+    return (EReference)dataPersistenceLayerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDataPersistenceContent()
+  {
+    return dataPersistenceContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDataPersistenceContent_Elements()
+  {
+    return (EReference)dataPersistenceContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDataPersistenceSegments()
+  {
+    return dataPersistenceSegmentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDataPersistenceSegments_Name()
+  {
+    return (EAttribute)dataPersistenceSegmentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSegmentStructure()
+  {
+    return segmentStructureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSegmentStructure_Elements()
+  {
+    return (EReference)segmentStructureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSegmentStructureContent()
+  {
+    return segmentStructureContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSegmentStructureContent_Name()
+  {
+    return (EAttribute)segmentStructureContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSegmentStructureContent_Elements()
+  {
+    return (EReference)segmentStructureContentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDirectoryContent()
+  {
+    return directoryContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDirectoryContent_Name()
+  {
+    return (EAttribute)directoryContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDirectoryContent_Elements()
+  {
+    return (EReference)directoryContentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDirectories()
+  {
+    return directoriesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDirectories_Elements()
+  {
+    return (EReference)directoriesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSingleFile()
+  {
+    return singleFileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleFile_Name()
+  {
+    return (EAttribute)singleFileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMultipleFile()
+  {
+    return multipleFileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMultipleFile_Name()
+  {
+    return (EAttribute)multipleFileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayerRelations()
+  {
+    return layerRelationsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLayerRelations_Layerelations()
+  {
+    return (EAttribute)layerRelationsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLayerRelations_Name()
+  {
+    return (EAttribute)layerRelationsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayerRelations_Layerorigin()
+  {
+    return (EReference)layerRelationsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayerRelations_Layertarget()
+  {
+    return (EReference)layerRelationsEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayerSource()
+  {
+    return layerSourceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLayerSource_Layerelations()
+  {
+    return (EAttribute)layerSourceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayerTarget()
+  {
+    return layerTargetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLayerTarget_Layerelations()
+  {
+    return (EAttribute)layerTargetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArchitectureComponents()
+  {
+    return architectureComponentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArchitectureComponents_Archcomponent()
+  {
+    return (EReference)architectureComponentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFrontEnd()
+  {
+    return frontEndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFrontEnd_Name()
+  {
+    return (EAttribute)frontEndEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBackEnd()
+  {
+    return backEndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBackEnd_Name()
+  {
+    return (EAttribute)backEndEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPersistenceDataComponent()
+  {
+    return persistenceDataComponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPersistenceDataComponent_Name()
+  {
+    return (EAttribute)persistenceDataComponentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNTiersConnections()
+  {
+    return nTiersConnectionsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNTiersConnections_Ntierconnection()
+  {
+    return (EAttribute)nTiersConnectionsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNTiersConnections_Name()
+  {
+    return (EAttribute)nTiersConnectionsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNTiersConnections_Ntierorigin()
+  {
+    return (EReference)nTiersConnectionsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNTiersConnections_Ntiertarget()
+  {
+    return (EReference)nTiersConnectionsEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNTierSource()
+  {
+    return nTierSourceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNTierSource_Ntierconnection()
+  {
+    return (EReference)nTierSourceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNTierTarget()
+  {
+    return nTierTargetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNTierTarget_Ntierconnection()
+  {
+    return (EReference)nTierTargetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNTiersRelations()
+  {
+    return nTiersRelationsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNTiersRelations_Name()
+  {
+    return (EAttribute)nTiersRelationsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2238,7 +3166,99 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(domainRelationsEClass, DOMAIN_RELATIONS__NAME);
 
     architectureEClass = createEClass(ARCHITECTURE);
-    createEAttribute(architectureEClass, ARCHITECTURE__NAME);
+    createEReference(architectureEClass, ARCHITECTURE__ELEMENTS);
+
+    nTiersEClass = createEClass(NTIERS);
+    createEReference(nTiersEClass, NTIERS__ELEMENTS);
+
+    layerEClass = createEClass(LAYER);
+    createEReference(layerEClass, LAYER__ELEMENTS);
+
+    presentationLayerEClass = createEClass(PRESENTATION_LAYER);
+    createEReference(presentationLayerEClass, PRESENTATION_LAYER__ELEMENTS);
+
+    presentationContentEClass = createEClass(PRESENTATION_CONTENT);
+    createEReference(presentationContentEClass, PRESENTATION_CONTENT__ELEMENTS);
+
+    presentationSegmentsEClass = createEClass(PRESENTATION_SEGMENTS);
+    createEAttribute(presentationSegmentsEClass, PRESENTATION_SEGMENTS__NAME);
+
+    businessLogicLayerEClass = createEClass(BUSINESS_LOGIC_LAYER);
+    createEReference(businessLogicLayerEClass, BUSINESS_LOGIC_LAYER__ELEMENTS);
+
+    businessLogicContentEClass = createEClass(BUSINESS_LOGIC_CONTENT);
+    createEReference(businessLogicContentEClass, BUSINESS_LOGIC_CONTENT__ELEMENTS);
+
+    businessLogicSegmentsEClass = createEClass(BUSINESS_LOGIC_SEGMENTS);
+    createEAttribute(businessLogicSegmentsEClass, BUSINESS_LOGIC_SEGMENTS__NAME);
+
+    dataPersistenceLayerEClass = createEClass(DATA_PERSISTENCE_LAYER);
+    createEReference(dataPersistenceLayerEClass, DATA_PERSISTENCE_LAYER__ELEMENTS);
+
+    dataPersistenceContentEClass = createEClass(DATA_PERSISTENCE_CONTENT);
+    createEReference(dataPersistenceContentEClass, DATA_PERSISTENCE_CONTENT__ELEMENTS);
+
+    dataPersistenceSegmentsEClass = createEClass(DATA_PERSISTENCE_SEGMENTS);
+    createEAttribute(dataPersistenceSegmentsEClass, DATA_PERSISTENCE_SEGMENTS__NAME);
+
+    segmentStructureEClass = createEClass(SEGMENT_STRUCTURE);
+    createEReference(segmentStructureEClass, SEGMENT_STRUCTURE__ELEMENTS);
+
+    segmentStructureContentEClass = createEClass(SEGMENT_STRUCTURE_CONTENT);
+    createEAttribute(segmentStructureContentEClass, SEGMENT_STRUCTURE_CONTENT__NAME);
+    createEReference(segmentStructureContentEClass, SEGMENT_STRUCTURE_CONTENT__ELEMENTS);
+
+    directoryContentEClass = createEClass(DIRECTORY_CONTENT);
+    createEAttribute(directoryContentEClass, DIRECTORY_CONTENT__NAME);
+    createEReference(directoryContentEClass, DIRECTORY_CONTENT__ELEMENTS);
+
+    directoriesEClass = createEClass(DIRECTORIES);
+    createEReference(directoriesEClass, DIRECTORIES__ELEMENTS);
+
+    singleFileEClass = createEClass(SINGLE_FILE);
+    createEAttribute(singleFileEClass, SINGLE_FILE__NAME);
+
+    multipleFileEClass = createEClass(MULTIPLE_FILE);
+    createEAttribute(multipleFileEClass, MULTIPLE_FILE__NAME);
+
+    layerRelationsEClass = createEClass(LAYER_RELATIONS);
+    createEAttribute(layerRelationsEClass, LAYER_RELATIONS__LAYERELATIONS);
+    createEAttribute(layerRelationsEClass, LAYER_RELATIONS__NAME);
+    createEReference(layerRelationsEClass, LAYER_RELATIONS__LAYERORIGIN);
+    createEReference(layerRelationsEClass, LAYER_RELATIONS__LAYERTARGET);
+
+    layerSourceEClass = createEClass(LAYER_SOURCE);
+    createEAttribute(layerSourceEClass, LAYER_SOURCE__LAYERELATIONS);
+
+    layerTargetEClass = createEClass(LAYER_TARGET);
+    createEAttribute(layerTargetEClass, LAYER_TARGET__LAYERELATIONS);
+
+    architectureComponentsEClass = createEClass(ARCHITECTURE_COMPONENTS);
+    createEReference(architectureComponentsEClass, ARCHITECTURE_COMPONENTS__ARCHCOMPONENT);
+
+    frontEndEClass = createEClass(FRONT_END);
+    createEAttribute(frontEndEClass, FRONT_END__NAME);
+
+    backEndEClass = createEClass(BACK_END);
+    createEAttribute(backEndEClass, BACK_END__NAME);
+
+    persistenceDataComponentEClass = createEClass(PERSISTENCE_DATA_COMPONENT);
+    createEAttribute(persistenceDataComponentEClass, PERSISTENCE_DATA_COMPONENT__NAME);
+
+    nTiersConnectionsEClass = createEClass(NTIERS_CONNECTIONS);
+    createEAttribute(nTiersConnectionsEClass, NTIERS_CONNECTIONS__NTIERCONNECTION);
+    createEAttribute(nTiersConnectionsEClass, NTIERS_CONNECTIONS__NAME);
+    createEReference(nTiersConnectionsEClass, NTIERS_CONNECTIONS__NTIERORIGIN);
+    createEReference(nTiersConnectionsEClass, NTIERS_CONNECTIONS__NTIERTARGET);
+
+    nTierSourceEClass = createEClass(NTIER_SOURCE);
+    createEReference(nTierSourceEClass, NTIER_SOURCE__NTIERCONNECTION);
+
+    nTierTargetEClass = createEClass(NTIER_TARGET);
+    createEReference(nTierTargetEClass, NTIER_TARGET__NTIERCONNECTION);
+
+    nTiersRelationsEClass = createEClass(NTIERS_RELATIONS);
+    createEAttribute(nTiersRelationsEClass, NTIERS_RELATIONS__NAME);
 
     technologyEClass = createEClass(TECHNOLOGY);
     createEAttribute(technologyEClass, TECHNOLOGY__NAME);
@@ -2473,7 +3493,99 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getDomainRelations_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainRelations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(architectureEClass, Architecture.class, "Architecture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getArchitecture_Name(), ecorePackage.getEString(), "name", null, 0, 1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArchitecture_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nTiersEClass, NTiers.class, "NTiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNTiers_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, NTiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayer_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(presentationLayerEClass, PresentationLayer.class, "PresentationLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPresentationLayer_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, PresentationLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(presentationContentEClass, PresentationContent.class, "PresentationContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPresentationContent_Elements(), this.getPresentationSegments(), null, "elements", null, 0, -1, PresentationContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(presentationSegmentsEClass, PresentationSegments.class, "PresentationSegments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPresentationSegments_Name(), ecorePackage.getEString(), "name", null, 0, 1, PresentationSegments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(businessLogicLayerEClass, BusinessLogicLayer.class, "BusinessLogicLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBusinessLogicLayer_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, BusinessLogicLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(businessLogicContentEClass, BusinessLogicContent.class, "BusinessLogicContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBusinessLogicContent_Elements(), this.getBusinessLogicSegments(), null, "elements", null, 0, -1, BusinessLogicContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(businessLogicSegmentsEClass, BusinessLogicSegments.class, "BusinessLogicSegments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBusinessLogicSegments_Name(), ecorePackage.getEString(), "name", null, 0, 1, BusinessLogicSegments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataPersistenceLayerEClass, DataPersistenceLayer.class, "DataPersistenceLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDataPersistenceLayer_Elements(), this.getDataPersistenceContent(), null, "elements", null, 0, -1, DataPersistenceLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataPersistenceContentEClass, DataPersistenceContent.class, "DataPersistenceContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDataPersistenceContent_Elements(), this.getDataPersistenceSegments(), null, "elements", null, 0, -1, DataPersistenceContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataPersistenceSegmentsEClass, DataPersistenceSegments.class, "DataPersistenceSegments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataPersistenceSegments_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataPersistenceSegments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(segmentStructureEClass, SegmentStructure.class, "SegmentStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSegmentStructure_Elements(), this.getSegmentStructureContent(), null, "elements", null, 0, -1, SegmentStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(segmentStructureContentEClass, SegmentStructureContent.class, "SegmentStructureContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSegmentStructureContent_Name(), ecorePackage.getEString(), "name", null, 0, 1, SegmentStructureContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSegmentStructureContent_Elements(), this.getDirectoryContent(), null, "elements", null, 0, -1, SegmentStructureContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directoryContentEClass, DirectoryContent.class, "DirectoryContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDirectoryContent_Name(), ecorePackage.getEString(), "name", null, 0, 1, DirectoryContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectoryContent_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, DirectoryContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directoriesEClass, Directories.class, "Directories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDirectories_Elements(), this.getMultipleFile(), null, "elements", null, 0, -1, Directories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(singleFileEClass, SingleFile.class, "SingleFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSingleFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, SingleFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multipleFileEClass, MultipleFile.class, "MultipleFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMultipleFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, MultipleFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layerRelationsEClass, LayerRelations.class, "LayerRelations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLayerRelations_Layerelations(), ecorePackage.getEString(), "layerelations", null, 0, -1, LayerRelations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLayerRelations_Name(), ecorePackage.getEString(), "name", null, 0, 1, LayerRelations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLayerRelations_Layerorigin(), this.getLayerSource(), null, "layerorigin", null, 0, -1, LayerRelations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLayerRelations_Layertarget(), this.getLayerTarget(), null, "layertarget", null, 0, -1, LayerRelations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layerSourceEClass, LayerSource.class, "LayerSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLayerSource_Layerelations(), ecorePackage.getEString(), "layerelations", null, 0, -1, LayerSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layerTargetEClass, LayerTarget.class, "LayerTarget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLayerTarget_Layerelations(), ecorePackage.getEString(), "layerelations", null, 0, -1, LayerTarget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(architectureComponentsEClass, ArchitectureComponents.class, "ArchitectureComponents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArchitectureComponents_Archcomponent(), ecorePackage.getEObject(), null, "archcomponent", null, 0, -1, ArchitectureComponents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(frontEndEClass, FrontEnd.class, "FrontEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFrontEnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, FrontEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(backEndEClass, BackEnd.class, "BackEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBackEnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, BackEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(persistenceDataComponentEClass, PersistenceDataComponent.class, "PersistenceDataComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersistenceDataComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, PersistenceDataComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nTiersConnectionsEClass, NTiersConnections.class, "NTiersConnections", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNTiersConnections_Ntierconnection(), ecorePackage.getEString(), "ntierconnection", null, 0, -1, NTiersConnections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNTiersConnections_Name(), ecorePackage.getEString(), "name", null, 0, 1, NTiersConnections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNTiersConnections_Ntierorigin(), this.getNTierSource(), null, "ntierorigin", null, 0, -1, NTiersConnections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNTiersConnections_Ntiertarget(), this.getNTierTarget(), null, "ntiertarget", null, 0, -1, NTiersConnections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nTierSourceEClass, NTierSource.class, "NTierSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNTierSource_Ntierconnection(), this.getNTiersRelations(), null, "ntierconnection", null, 0, -1, NTierSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nTierTargetEClass, NTierTarget.class, "NTierTarget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNTierTarget_Ntierconnection(), this.getNTiersRelations(), null, "ntierconnection", null, 0, -1, NTierTarget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nTiersRelationsEClass, NTiersRelations.class, "NTiersRelations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNTiersRelations_Name(), ecorePackage.getEString(), "name", null, 0, 1, NTiersRelations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTechnology_Name(), ecorePackage.getEString(), "name", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

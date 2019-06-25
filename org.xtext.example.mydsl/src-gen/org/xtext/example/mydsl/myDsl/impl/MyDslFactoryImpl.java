@@ -87,6 +87,34 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.DOMAIN_CONNECTION: return createDomainConnection();
       case MyDslPackage.DOMAIN_RELATIONS: return createDomainRelations();
       case MyDslPackage.ARCHITECTURE: return createArchitecture();
+      case MyDslPackage.NTIERS: return createNTiers();
+      case MyDslPackage.LAYER: return createLayer();
+      case MyDslPackage.PRESENTATION_LAYER: return createPresentationLayer();
+      case MyDslPackage.PRESENTATION_CONTENT: return createPresentationContent();
+      case MyDslPackage.PRESENTATION_SEGMENTS: return createPresentationSegments();
+      case MyDslPackage.BUSINESS_LOGIC_LAYER: return createBusinessLogicLayer();
+      case MyDslPackage.BUSINESS_LOGIC_CONTENT: return createBusinessLogicContent();
+      case MyDslPackage.BUSINESS_LOGIC_SEGMENTS: return createBusinessLogicSegments();
+      case MyDslPackage.DATA_PERSISTENCE_LAYER: return createDataPersistenceLayer();
+      case MyDslPackage.DATA_PERSISTENCE_CONTENT: return createDataPersistenceContent();
+      case MyDslPackage.DATA_PERSISTENCE_SEGMENTS: return createDataPersistenceSegments();
+      case MyDslPackage.SEGMENT_STRUCTURE: return createSegmentStructure();
+      case MyDslPackage.SEGMENT_STRUCTURE_CONTENT: return createSegmentStructureContent();
+      case MyDslPackage.DIRECTORY_CONTENT: return createDirectoryContent();
+      case MyDslPackage.DIRECTORIES: return createDirectories();
+      case MyDslPackage.SINGLE_FILE: return createSingleFile();
+      case MyDslPackage.MULTIPLE_FILE: return createMultipleFile();
+      case MyDslPackage.LAYER_RELATIONS: return createLayerRelations();
+      case MyDslPackage.LAYER_SOURCE: return createLayerSource();
+      case MyDslPackage.LAYER_TARGET: return createLayerTarget();
+      case MyDslPackage.ARCHITECTURE_COMPONENTS: return createArchitectureComponents();
+      case MyDslPackage.FRONT_END: return createFrontEnd();
+      case MyDslPackage.BACK_END: return createBackEnd();
+      case MyDslPackage.PERSISTENCE_DATA_COMPONENT: return createPersistenceDataComponent();
+      case MyDslPackage.NTIERS_CONNECTIONS: return createNTiersConnections();
+      case MyDslPackage.NTIER_SOURCE: return createNTierSource();
+      case MyDslPackage.NTIER_TARGET: return createNTierTarget();
+      case MyDslPackage.NTIERS_RELATIONS: return createNTiersRelations();
       case MyDslPackage.TECHNOLOGY: return createTechnology();
       case MyDslPackage.TECHNOLOGIES: return createTechnologies();
       case MyDslPackage.REACT: return createReact();
@@ -392,6 +420,342 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ArchitectureImpl architecture = new ArchitectureImpl();
     return architecture;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NTiers createNTiers()
+  {
+    NTiersImpl nTiers = new NTiersImpl();
+    return nTiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Layer createLayer()
+  {
+    LayerImpl layer = new LayerImpl();
+    return layer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PresentationLayer createPresentationLayer()
+  {
+    PresentationLayerImpl presentationLayer = new PresentationLayerImpl();
+    return presentationLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PresentationContent createPresentationContent()
+  {
+    PresentationContentImpl presentationContent = new PresentationContentImpl();
+    return presentationContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PresentationSegments createPresentationSegments()
+  {
+    PresentationSegmentsImpl presentationSegments = new PresentationSegmentsImpl();
+    return presentationSegments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BusinessLogicLayer createBusinessLogicLayer()
+  {
+    BusinessLogicLayerImpl businessLogicLayer = new BusinessLogicLayerImpl();
+    return businessLogicLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BusinessLogicContent createBusinessLogicContent()
+  {
+    BusinessLogicContentImpl businessLogicContent = new BusinessLogicContentImpl();
+    return businessLogicContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BusinessLogicSegments createBusinessLogicSegments()
+  {
+    BusinessLogicSegmentsImpl businessLogicSegments = new BusinessLogicSegmentsImpl();
+    return businessLogicSegments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DataPersistenceLayer createDataPersistenceLayer()
+  {
+    DataPersistenceLayerImpl dataPersistenceLayer = new DataPersistenceLayerImpl();
+    return dataPersistenceLayer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DataPersistenceContent createDataPersistenceContent()
+  {
+    DataPersistenceContentImpl dataPersistenceContent = new DataPersistenceContentImpl();
+    return dataPersistenceContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DataPersistenceSegments createDataPersistenceSegments()
+  {
+    DataPersistenceSegmentsImpl dataPersistenceSegments = new DataPersistenceSegmentsImpl();
+    return dataPersistenceSegments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SegmentStructure createSegmentStructure()
+  {
+    SegmentStructureImpl segmentStructure = new SegmentStructureImpl();
+    return segmentStructure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SegmentStructureContent createSegmentStructureContent()
+  {
+    SegmentStructureContentImpl segmentStructureContent = new SegmentStructureContentImpl();
+    return segmentStructureContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DirectoryContent createDirectoryContent()
+  {
+    DirectoryContentImpl directoryContent = new DirectoryContentImpl();
+    return directoryContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Directories createDirectories()
+  {
+    DirectoriesImpl directories = new DirectoriesImpl();
+    return directories;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SingleFile createSingleFile()
+  {
+    SingleFileImpl singleFile = new SingleFileImpl();
+    return singleFile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MultipleFile createMultipleFile()
+  {
+    MultipleFileImpl multipleFile = new MultipleFileImpl();
+    return multipleFile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayerRelations createLayerRelations()
+  {
+    LayerRelationsImpl layerRelations = new LayerRelationsImpl();
+    return layerRelations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayerSource createLayerSource()
+  {
+    LayerSourceImpl layerSource = new LayerSourceImpl();
+    return layerSource;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayerTarget createLayerTarget()
+  {
+    LayerTargetImpl layerTarget = new LayerTargetImpl();
+    return layerTarget;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArchitectureComponents createArchitectureComponents()
+  {
+    ArchitectureComponentsImpl architectureComponents = new ArchitectureComponentsImpl();
+    return architectureComponents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FrontEnd createFrontEnd()
+  {
+    FrontEndImpl frontEnd = new FrontEndImpl();
+    return frontEnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BackEnd createBackEnd()
+  {
+    BackEndImpl backEnd = new BackEndImpl();
+    return backEnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PersistenceDataComponent createPersistenceDataComponent()
+  {
+    PersistenceDataComponentImpl persistenceDataComponent = new PersistenceDataComponentImpl();
+    return persistenceDataComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NTiersConnections createNTiersConnections()
+  {
+    NTiersConnectionsImpl nTiersConnections = new NTiersConnectionsImpl();
+    return nTiersConnections;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NTierSource createNTierSource()
+  {
+    NTierSourceImpl nTierSource = new NTierSourceImpl();
+    return nTierSource;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NTierTarget createNTierTarget()
+  {
+    NTierTargetImpl nTierTarget = new NTierTargetImpl();
+    return nTierTarget;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NTiersRelations createNTiersRelations()
+  {
+    NTiersRelationsImpl nTiersRelations = new NTiersRelationsImpl();
+    return nTiersRelations;
   }
 
   /**

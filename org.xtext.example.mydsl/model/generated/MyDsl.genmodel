@@ -76,7 +76,99 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DomainRelations/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Architecture">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Architecture/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Architecture/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NTiers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NTiers/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Layer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Layer/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PresentationLayer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PresentationLayer/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PresentationContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PresentationContent/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PresentationSegments">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//PresentationSegments/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BusinessLogicLayer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BusinessLogicLayer/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BusinessLogicContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BusinessLogicContent/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BusinessLogicSegments">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BusinessLogicSegments/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DataPersistenceLayer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DataPersistenceLayer/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DataPersistenceContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DataPersistenceContent/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DataPersistenceSegments">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DataPersistenceSegments/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SegmentStructure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SegmentStructure/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SegmentStructureContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SegmentStructureContent/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SegmentStructureContent/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DirectoryContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DirectoryContent/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DirectoryContent/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Directories">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Directories/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SingleFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SingleFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//MultipleFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MultipleFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LayerRelations">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LayerRelations/layerelations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LayerRelations/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayerRelations/layerorigin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayerRelations/layertarget"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LayerSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LayerSource/layerelations"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LayerTarget">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LayerTarget/layerelations"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ArchitectureComponents">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ArchitectureComponents/archcomponent"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//FrontEnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//FrontEnd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BackEnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BackEnd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PersistenceDataComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//PersistenceDataComponent/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NTiersConnections">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//NTiersConnections/ntierconnection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//NTiersConnections/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NTiersConnections/ntierorigin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NTiersConnections/ntiertarget"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NTierSource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NTierSource/ntierconnection"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NTierTarget">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NTierTarget/ntierconnection"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NTiersRelations">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//NTiersRelations/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Technology">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Technology/name"/>
