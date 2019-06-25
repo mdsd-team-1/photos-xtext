@@ -145,12 +145,15 @@ System: {
 					Autowired
 						AutowiredType PhotoRepository
 					RequestMapping
-						RequestMappingType
-							GetMapping MappingGet
+						RequestMappingType getAlbum
+							GetMapping
 					RequestMapping
-						RequestMappingType
-							PostMapping MappingPost
-					ExceptionHandler
+						RequestMappingType getPhotosFromAlbum
+							GetMapping
+					RequestMapping
+						RequestMappingType createAlbum
+							PostMapping 
+					ExceptionHandler ExeptionHandlerAlbum
 						ExceptionProcess AlbumNotFoundException
 						ExceptionProcess PhotosFromAlbumNotFoundException
 						ExceptionProcess AlbumHasNoPhotosException
@@ -166,16 +169,19 @@ System: {
 						AutowiredType AmazonClient
 					RequestMapping
 						RequestPart file
-						RequestMappingType
-							PostMapping MappingPost
+						RequestMappingType uploadPhoto
+							PostMapping 
 					RequestMapping
 						RequestPart url
-						RequestMappingType
-							DeleteMapping MappingDelete
+						RequestMappingType deleteFile
+							DeleteMapping 
 					RequestMapping
-						RequestMappingType
-							GetMapping MappingGet
-					ExceptionHandler
+						RequestMappingType getPhoto
+							GetMapping 
+					RequestMapping
+						RequestMappingType findAll
+							GetMapping 
+					ExceptionHandler ExeptionHandlerPhoto
 						ExceptionProcess PhotoNotFoundException
 						ExceptionProcess PhotoUploadErrorException
 						ExceptionProcess PhotoNotCreatedException
@@ -192,15 +198,21 @@ System: {
 					Autowired
 						AutowiredType PhotoRepository
 					RequestMapping
-						RequestMappingType
-							GetMapping MappingGet
+						RequestMappingType getUserbyId
+							GetMapping 
 					RequestMapping
-						RequestMappingType
-							PostMapping MappingPost
+						RequestMappingType getPhotoFromUser
+							GetMapping 
 					RequestMapping
-						RequestMappingType
-							PutMapping MappingPut
-					ExceptionHandler
+						RequestMappingType loginUser
+							PostMapping 
+					RequestMapping
+						RequestMappingType createUser
+							PostMapping
+					RequestMapping
+						RequestMappingType editUser
+							PostMapping
+					ExceptionHandler ExeptionHandlerUser
 						ExceptionProcess UserNotFoundException
 						ExceptionProcess AlbumsFromUserNotFoundException
 						ExceptionProcess UserHasNoAlbumsException
@@ -454,9 +466,9 @@ System: {
 					Privilege admin
 				}
 		}
-		AmazonWebServices AmazonExample : {
+		AmazonWebServices ExampleAmazon: {
 			AmazonSimpleStorageService : {
-				Bucket co.edu.unal.photosappback.photos-storage
+				Bucket photosStorage
 					BucketAccess
 						PublicAccess PublicAccessPhotosBucket
 					AmazonFile

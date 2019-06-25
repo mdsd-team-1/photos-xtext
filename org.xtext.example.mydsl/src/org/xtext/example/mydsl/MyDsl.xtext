@@ -187,7 +187,7 @@ Spring:
 'Spring' name=ID ':' '{' elements+=SpringBootApplication '}';
 
 SpringBootApplication:
-'SpringBootApplication'  elements+=Configuration (elements+=SpringComponent) (elements+=SpringRepository)  (elements+=RestController) (elements+=SpringEntity)  ;
+'SpringBootApplication'  elements+=Configuration (elements+=SpringComponent)+ (elements+=SpringRepository)+  (elements+=RestController)+ (elements+=SpringEntity)+  ;
 
 Configuration:
 'Configuration' ':' '{' elements+=EnableGlobalMethodSecurity  elements+=EnableAuthorizationServer   elements+=EnableResourceServer  elements+=EnableWebSecurity '}';
@@ -211,16 +211,16 @@ OrderSpring:
 'OrderSpring' name=ID;
 
 SpringRepository:
-'SpringRepositories' ':' '{' (elements+=SpringRepositories) '}';
+'SpringRepositories' ':' '{' (elements+=SpringRepositories)+ '}';
 
 SpringRepositories:
 'SpringRepository' name=ID;
 
 RestController:
-'RestController' name=ID ':' '{' elements+=Specification  (elements+=Autowired)  (elements+=RequestMapping) elements+=ExceptionHandler '}';
+'RestController' name=ID ':' '{' elements+=Specification  (elements+=Autowired)+  (elements+=RequestMapping)+ elements+=ExceptionHandler '}';
 
 Specification:
-'Specification' (elements+=Predicate) elements+=SearchCriteria;
+'Specification' (elements+=Predicate)+ elements+=SearchCriteria;
 
 Predicate:
 'Predicate' name=ID;
@@ -241,31 +241,22 @@ RequestPart:
 'RequestPart' name=ID;
 
 RequestMappingType:
-'RequestMappingType' (elements+=PostMapping) | (elements+=GetMapping) | (elements+=PutMapping) | (elements+=DeleteMapping);
+'RequestMappingType' name=ID RequestMappingTypeConf;
 
-PostMapping:
-'PostMapping' name=ID;
-
-GetMapping:
-'GetMapping' name=ID;
-
-PutMapping:
-'PutMapping' name=ID;
-
-DeleteMapping:
-'DeleteMapping' name=ID;
+RequestMappingTypeConf:
+'PostMapping' | 'GetMapping' | 'PutMapping' | 'DeleteMapping';
 
 ExceptionHandler:
-'ExceptionHandler' name=ID (elements+=ExceptionProcess);
+'ExceptionHandler' name=ID (elements+=ExceptionProcess)+;
 
 ExceptionProcess:
 'ExceptionProcess' name=ID;
 
 SpringEntity:
-'SpringEntity' name=ID ':' '{' (elements+=SpringTable) (elements+=NameNativeQuery)* '}';
+'SpringEntity' name=ID ':' '{' (elements+=SpringTable)+ (elements+=NameNativeQuery)* '}';
 
 SpringTable:
-'SpringTable' name=ID elements+=SpringTableId (elements+=Columns);
+'SpringTable' name=ID elements+=SpringTableId (elements+=Columns)+;
 
 SpringTableId:
 'SpringTableId' (elements+=GeneratedValue)*;
@@ -415,13 +406,13 @@ PostgreSQL:
 'PostgreSQL' name=ID ':' '{' elements+=Cluster '}';
 
 Cluster:
-'Database' elements+=Database (elements+=PostgresUser);
+'Database' elements+=Database (elements+=PostgresUser)+;
 
 Database:
 'Schema' name=ID elements+=Schema;
 
 Schema: 
-	(elements+=Index_p)* (elements+=ViewSchema)* (elements+=Table_p) (elements+=Trigger)* elements+=Function;
+	(elements+=Index_p)* (elements+=ViewSchema)* (elements+=Table_p)+ (elements+=Trigger)* elements+=Function;
 	
 Index_p:
 	'Index_p' name=ID;
@@ -430,7 +421,7 @@ ViewSchema:
 	'ViewSchema' name=ID;
 	
 Table_p:
-	'Table_p' name=ID ':' '{' (elements+=ForeignKey) (elements+=Column) (elements+=Row) '}';
+	'Table_p' name=ID ':' '{' (elements+=ForeignKey)+ (elements+=Column)+ (elements+=Row)+ '}';
 		
 ForeignKey: 
 	'ForeignKey' elements+=ForeignKey_n elements+=ForeignKeyRef;
@@ -482,7 +473,7 @@ Clause:
 
 
 AmazonWebServices: 
-'AmazonWebServices'	':' '{' elements+=AmazonSimpleStorageService elements+=AmazonElasticComputeCloud '}';
+'AmazonWebServices'	name=ID ':' '{' elements+=AmazonSimpleStorageService elements+=AmazonElasticComputeCloud '}';
 	
 AmazonSimpleStorageService:
 'AmazonSimpleStorageService' ':' '{' (elements+=BatchOperation)* elements+=Bucket '}';
@@ -491,7 +482,7 @@ BatchOperation:
 	'BatchOperation' name=ID;
 	
 Bucket:
-	'Bucket' name=ID elements+=BucketAccess  (elements+=AmazonFolder)*  (elements+=AmazonFile);
+	'Bucket' name=ID elements+=BucketAccess  (elements+=AmazonFolder)*  (elements+=AmazonFile)+;
 
 BucketAccess:
 	'BucketAccess'	elements+=PublicAccess | elements+=ObjectsPublic | elements+=BucketObjectsNotPublic | elements+=OnlyAuthorized;
@@ -512,7 +503,7 @@ AmazonFolder:
 	'AmazonFolder' name=ID;
 	
 AmazonFile:
- 'AmazonFile' elements+=Metadata;
+ 'AmazonFile' (elements+=Metadata)+;
 	
 Metadata:
 	'Metadata' name=ID;
