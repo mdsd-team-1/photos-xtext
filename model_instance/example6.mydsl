@@ -450,7 +450,9 @@ System: {
 						Row Pedro
 					}
 					Function nextval
-				PostgresUser
+				PostgresUser postgres : {
+					Privilege admin
+				}
 		}
 		AmazonWebServices AmazonExample : {
 			AmazonSimpleStorageService : {

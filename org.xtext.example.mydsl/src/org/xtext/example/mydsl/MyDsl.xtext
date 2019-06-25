@@ -467,7 +467,7 @@ Function:
 	
 
 PostgresUser:
-	'PostgresUser' name=ID ':' '{' elements+=Privilege elements+=Query '}';
+	'PostgresUser' name=ID ':' '{' elements+=Privilege (elements+=Query)* '}';
 	
 Privilege:
 	'Privilege' name=ID;
